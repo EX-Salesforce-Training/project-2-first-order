@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Rental_Period__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please Select the length of the rental period</inlineHelpText>
+    <label>Rental Period</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>24 Hour</fullName>
+                <default>true</default>
+                <label>24 Hour</label>
+            </value>
+            <value>
+                <fullName>48 Hour</fullName>
+                <default>false</default>
+                <label>48 Hour</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

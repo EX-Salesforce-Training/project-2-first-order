@@ -1,0 +1,86 @@
+<apex:page controller="StoreProductsController" sidebar="false" docType="html-5.0" showHeader="false" standardStylesheets="false" id="productView" >
+    <apex:stylesheet value="{!$Resource.ProductPageCSS}"/>
+	<apex:slds >
+        <apex:form style="margin-left:20px;" id="container">       
+           
+            <apex:pageBlock id="pageContainer">
+                
+                <apex:pageBlockButtons style="text-align:center;" id="buttonsContainer">
+                    <apex:commandButton id="prevBtn" value="Previous" action="{!prev}" disabled="{!disablePrev}" styleClass="slds-button slds-button_brand" style="width:100px; border:none; background:#F4C558; color:#7C5B3E; margin-top: 20px;">
+                        <apex:actionSupport event="onclick" reRender="table"/>
+                    </apex:commandButton>
+                    <apex:commandButton id="nextBtn" value="Next" action="{!next}" disabled="{!disableNext}" styleClass="slds-button slds-button_brand" style="width:100px; border:none; background:#F4C558; color:#7C5B3E; margin-top: 20px;">
+                        <apex:actionSupport event="onclick" reRender="table"/>
+                    </apex:commandButton>
+                </apex:pageBlockButtons>
+                
+                
+                <apex:dataTable id="table" rows="5" value="{!productWrapper}" var="product" styleClass="slds-grid slds-wrap slds-gutters">
+                    
+                    <apex:column >
+                        <br/>
+                        <div class="product" style="display:{!IF(product.name1 != null, 'block','none')}">
+                            <apex:image styleClass="img" value="https://i.gyazo.com/0d1ff9dc4efb373df35dbc09dfacb259.png"></apex:image>
+                            <br/>
+                            <apex:outputLabel styleClass="productLabel" value="{!product.name1}"/>
+                            <br/>
+                            <apex:outputLabel styleClass="description" value="{!product.desc1}"></apex:outputLabel>
+                            <br/>
+                            <div></div>
+                            <br/>
+                            <apex:outputLabel styleClass="price" value="${!product.price1}"></apex:outputLabel>
+                            <br/>
+                            <apex:commandLink value="Add to Cart" action="{!AddToCart}" styleClass="slds-button slds-button_brand" style="background:white; border:none;color: #D17C4E;">
+                                <apex:param name="clickedItem" assignTo="{!clickedItem}" value="{!product.name1}"/>
+                            </apex:commandLink>
+                        </div>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <br/>
+                        <div class="product" style="display:{!IF(product.name2 != null, 'block','none')}">
+                            <apex:image styleClass="img" value="https://i.gyazo.com/0d1ff9dc4efb373df35dbc09dfacb259.png"></apex:image>
+                            <br/>
+                            <apex:outputLabel styleClass="productLabel" value="{!product.name2}"/>
+                            <br/>
+                            <apex:outputLabel styleClass="description" value="{!product.desc2}" style=""></apex:outputLabel>
+                            <br/>
+                            <div></div>
+                            <br/>
+                            <apex:outputLabel styleClass="price" value="${!product.price2}" style=""></apex:outputLabel>
+                            <br/>
+                            <apex:commandLink value="Add to Cart" action="{!AddToCart}" styleClass="slds-button slds-button_brand" style="background:white; border:none;color: #D17C4E;">
+                                <apex:param name="clickedItem" assignTo="{!clickedItem}" value="{!product.name2}"/>
+                            </apex:commandLink>
+                        </div>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <br/>
+                        <div class="product" style="display:{!IF(product.name3 != null, 'block','none')}">
+                            <apex:image styleClass="img" value="https://i.gyazo.com/0d1ff9dc4efb373df35dbc09dfacb259.png"></apex:image>
+                            <br/>
+                            <apex:outputLabel id="productLabel" styleClass="productLabel" value="{!product.name3}" />
+                            <br/>
+                            <apex:outputLabel styleClass="description" value="{!product.desc3}"></apex:outputLabel>
+                            <br/>  
+                            <div></div>
+                            <br/>
+                            <apex:outputLabel styleClass="price" value="${!product.price3}"></apex:outputLabel>
+                            <br/>
+                            <apex:commandLink value="Add to Cart" action="{!AddToCart}" styleClass="slds-button slds-button_brand" style="background:white; border:none;color: #D17C4E;">
+                                     <apex:param name="clickedItem" assignTo="{!clickedItem}" value="{!product.name3}"/>
+                            </apex:commandLink>
+                        </div>
+                    </apex:column>
+                    
+                    
+                </apex:dataTable>
+                
+                
+            </apex:pageBlock>
+        </apex:form>
+	</apex:slds>
+
+</apex:page>

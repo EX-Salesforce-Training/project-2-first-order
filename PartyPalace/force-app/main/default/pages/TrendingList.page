@@ -1,0 +1,109 @@
+<!-- Name: TrendingList Page
+     Author: Andreology
+     Created: 04/30/2021
+     Updated: 05/02/2021
+     Description: This page will be a form to receive user input and create web to lead generation
+-->
+<apex:page controller="TrendingListController" sidebar="false" docType="html-5.0" showHeader="false" standardStylesheets="false" >
+    
+    <apex:stylesheet value="{!$Resource.TrendingPageCSS}"/>
+    <apex:slds >
+        <apex:form style="margin-left:20px;">  
+            <apex:pageBlock > <!-- Setting up buttons for grid slider view aka gallery-->
+                <apex:pageBlockButtons style="text-align:center;">
+                    <apex:commandButton id="back_button" value="Previous" action="{!ShowPreviousProducts}" 
+                                        styleClass="slds-button slds-button_brand" 
+                                        style="margin-top: 20px; width:150px; border:none; color:#7C5B3E; background:#F4C558;">
+                    <apex:actionSupport event="onclick" reRender="data_table"/>
+                    </apex:commandButton>
+                    <!-- Setting next button to view next page of items-->
+                    <apex:commandButton id="next_button" value="Next" action="{!ShowNextProducts}" 
+                                        disabled="" styleClass="slds-button slds-button_brand" 
+<<<<<<< HEAD
+                                        style="margin-top: 20px; border:none; background:#F4C558; width:150px; color:#7C5B3E;">
+                        
+                    <apex:actionSupport event="onclick" reRender="data_table"/>
+                    </apex:commandButton>
+                </apex:pageBlockButtons>
+                <!--
+                <apex:pageBlockSection >
+              
+                    <apex:selectList value="{!currCat}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!CategoryOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange"  action="{!CheckSelected}"/>
+			
+                </apex:selectList>
+		
+            	</apex:pageBlockSection>
+      			-->
+                <apex:pageBlockSection >
+               
+               
+=======
+                                        style="margin-top: 20px; border:solid; background:#F4C558; width:150px; color:#7C5B3E;">
+                    <!-- Using onclick ajax to clall even -->
+                    <apex:actionSupport event="onclick" reRender="data_table"/>
+                    </apex:commandButton>
+                </apex:pageBlockButtons>
+                <!-- **************************FOR FUTUER DEV; pick trends by category **************************************************
+                <apex:pageBlockSection>
+                    <apex:selectList  value="{!currCat}" multiselect="false" size="1">
+                    <apex:selectOptions value="{!CategoryOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange"  action="{!CheckSelected}"/>
+                </apex:selectList></apex:pageBlockSection>
+            -->
+                <apex:pageBlockSection>
+                    <!-- creating table view to use to hoold items. THis represents a gallery for items --> 
+>>>>>>> de833dd85e9c694048bcbb9db387c6eca08f5dfd
+                    <apex:dataTable id="data_table"  rows="5" value="{!productItemHelper}" var="product" 
+                                                     styleClass="slds-grid slds-wrap slds-gutters">
+                        <apex:column >
+                            <br/>
+                            <div class="product" >
+                                <apex:image styleClass="img"
+                                            value="{!$Resource.product}"></apex:image>
+                                <br/>
+                                <apex:outputLabel styleClass="productLabel" 
+                                                  value="{!product.row0Column0}"/>
+                                <br/>
+                                <apex:outputLabel styleClass="description"  
+                                                  value="Rating: {!product.row0Column0Rating}"></apex:outputLabel>
+                                <br/>
+                                <apex:outputLabel styleClass="price" value="${!product.row0Column0Price}"></apex:outputLabel>
+                                <br/>
+                            </div>
+                        </apex:column>
+                        <!-- Creating row 0 colum 1 items --> 
+                        <apex:column >
+                            <br/>
+                            <div class="product" >
+                                <apex:image styleClass="img" value="{!$Resource.product0}"></apex:image>
+                                <br/>
+                                <apex:outputLabel styleClass="productLabel" value="{!product.row0Column1}"/>
+                                <br/>
+                                <apex:outputLabel styleClass="description" value="Rating: {!product.row0Column1Rating}"></apex:outputLabel>
+                                <br/>
+                                <apex:outputLabel styleClass="price" value="${!product.row0Column1Price}"></apex:outputLabel>
+                                <br/>
+                            </div>
+                        </apex:column>
+                         <!-- Creating row 0 colum 2 items --> 
+                        <apex:column >
+                            <br/>
+                            <div class="product">
+                                <apex:image styleClass="img" value="{!$Resource.product1}"></apex:image>
+                                <br/>
+                                <apex:outputLabel styleClass="productLabel" value="{!product.row0Column2}"/>
+                                <br/>
+                                <apex:outputLabel styleClass="description" value="Rating: {!product.row0Column2Rating}"></apex:outputLabel>
+                                <br/>
+                                <apex:outputLabel styleClass="price" value="${!product.row0Column2Price}"></apex:outputLabel>
+                                <br/>
+                            </div>
+                        </apex:column>
+                    </apex:dataTable>
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+    </apex:slds>    
+</apex:page>

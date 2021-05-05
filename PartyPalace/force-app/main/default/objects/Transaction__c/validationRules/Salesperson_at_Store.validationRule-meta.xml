@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Salesperson_at_Store</fullName>
+    <active>true</active>
+    <description>This is to validate that the salesperson associated with this transaction is also associated at the store location which the transaction happens</description>
+    <errorConditionFormula>Salesperson__r.Store_Location__c !=  Store_Location__c</errorConditionFormula>
+    <errorDisplayField>Salesperson__c</errorDisplayField>
+    <errorMessage>This Salesperson does not work at this store.</errorMessage>
+</ValidationRule>

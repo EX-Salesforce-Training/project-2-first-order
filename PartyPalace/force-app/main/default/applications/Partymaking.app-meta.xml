@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>For keeping track and creating all aspects of Party Palace</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Partymaking</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>Rental__c</tabs>
+    <tabs>Store_Product__c</tabs>
+    <tabs>Salesperson__c</tabs>
+    <tabs>Installer__c</tabs>
+    <tabs>Store_Location__c</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>Rental_Period__c</tabs>
+    <tabs>Delivery__c</tabs>
+    <tabs>Product_Line__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

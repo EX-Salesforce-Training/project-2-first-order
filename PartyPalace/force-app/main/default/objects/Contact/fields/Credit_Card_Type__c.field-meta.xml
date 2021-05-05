@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Card_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Credit Card Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Mastercard</fullName>
+                <default>false</default>
+                <label>Mastercard</label>
+            </value>
+            <value>
+                <fullName>Visa</fullName>
+                <default>false</default>
+                <label>Visa</label>
+            </value>
+            <value>
+                <fullName>Discover</fullName>
+                <default>false</default>
+                <label>Discover</label>
+            </value>
+            <value>
+                <fullName>American Express</fullName>
+                <default>false</default>
+                <label>American Express</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Delivered__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checks to see if it has been delivered</description>
+    <externalId>false</externalId>
+    <label>Delivered</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

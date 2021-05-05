@@ -1,0 +1,55 @@
+<!-- Name: NewLead Page
+     Author: Andreology
+     Created: 04/30/2021
+     Updated: 05/02/2021
+     Description: This page will be a form to receive user input and create web to lead generation
+-->
+<apex:page controller="TrendingListController">
+  <apex:sectionHeader title="Subscribe Today" subtitle="Get More Info By Signing Up"/>
+  <!--
+  <apex:form >
+      <apex:pageBlock title="Lead" mode="edit">
+          <apex:pageblockButtons >
+              <apex:commandButton value="Save" action="{!Save}"/>
+              <apex:commandButton value="Cancel" action="{!Cancel}"/>
+          </apex:pageblockButtons>
+          <apex:pageBlockSection title="Lead Info" columns="2">
+              
+              <apex:inputField value="{!Lead.Company}"/>
+              <apex:inputField value="{!Lead.LastName}"/>
+              <apex:inputField value="{!lead.Status}"/>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+-->
+
+<apex:pageBlock title="Join Today">
+
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    
+        <input type="hidden" name="oid" value="00D5e0000011cMD"/>
+        <input type="hidden" name="retURL" value="http://google.com"/>
+        
+        <!--  ----------------------------------------------------------------------  -->
+        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+        <!--  these lines if you wish to test in debug mode.                          -->
+        <!--  <input type="hidden" name="debug" value=1>                              -->
+        <!--  <input type="hidden" name="debugEmail"                                  -->
+        <!--  value="barajas.andre@gmail.com">                                        -->
+        <!--  ----------------------------------------------------------------------  -->
+        
+        <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br/>
+        
+        <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br/>
+        
+        <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br/>
+        
+        <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br/>
+        
+        <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br/>
+        
+        <input type="submit" name="submit"/>
+        
+    </form>
+</apex:pageBlock>
+</apex:page>
