@@ -1,0 +1,226 @@
+{
+  "appPageId" : "6385d525-d821-4176-a294-a1c4415801d2",
+  "componentName" : "siteforce:sldsTwoCol84SidebarFeaturedLayout",
+  "id" : "91320e8a-a308-4e49-a461-c51de2ed71f2",
+  "label" : "Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerText" : "Party planning at its finest!",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : false,
+        "title" : "Party Palace",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "240618cf-562e-49b4-bb49-eaf8b1b0e6c1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "96f53f1d-578b-4984-a07b-71f05cce0874",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "buttonAlignment" : "center",
+        "buttonBgColor" : "rgb(254, 196, 59)",
+        "buttonBgHoverColor" : "rgb(225, 118, 67)",
+        "buttonBorderColor" : "rgba(225, 118, 67, 0)",
+        "buttonMaxWidth" : 100,
+        "buttonRadius" : 5,
+        "buttonTextColor" : "",
+        "buttonTextHoverColor" : "",
+        "confirmationMessage" : "Got it!",
+        "followUpPromptLabel" : "Can we close your question?",
+        "isAskFollowPromptEnabled" : true,
+        "isIncludeArticlesEnabled" : false,
+        "isIncludeDiscussionsEnabled" : true,
+        "isInitialSatisfactionPromptEnabled" : true,
+        "isPublisherDeflectionEnabled" : true,
+        "label" : "Ask a Question",
+        "maxSuggestions" : 5,
+        "satisfactionPromptLabel" : "Did we help to answer your question?",
+        "showDetails" : false,
+        "showTopics" : true,
+        "uneditableTopics" : false
+      },
+      "componentName" : "forceCommunity:askCommunity",
+      "id" : "7a33589f-bb13-4c23-aac0-b8e5ecde133e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "78ac5c1e-3aff-4c3f-ba50-2b93838665f8",
+    "regionName" : "featured",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "eac95fb3-d3af-4110-bd5e-0ec7ad2849d4",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "d4a9e3de-6b72-4b7b-8186-44013af6ffd8",
+            "allowGuestUser" : true,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Trending"
+          }, {
+            "UUID" : "66809c89-be77-4b60-bad4-0ec65945e50d",
+            "allowGuestUser" : true,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "136e2",
+            "tabName" : "Recommendations"
+          }, {
+            "UUID" : "3a7fa87f-9f87-4c1c-a5f3-7073dd0317e2",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Products"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "eac95fb3-d3af-4110-bd5e-0ec7ad2849d4",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "height" : "600",
+            "pageName" : "TrendingList",
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:visualforcePage",
+          "id" : "c3c86c65-e9ec-4740-bb27-92750fe6dac2",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "d4a9e3de-6b72-4b7b-8186-44013af6ffd8",
+        "regionLabel" : "Trending",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "height" : "1100",
+            "pageName" : "RecommendationsView",
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:visualforcePage",
+          "id" : "c2c5b28b-89e8-4ce1-abc2-3848486b99c8",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "66809c89-be77-4b60-bad4-0ec65945e50d",
+        "regionLabel" : "Recommendations",
+        "regionName" : "136e2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "height" : "1650",
+            "pageName" : "StoreProductsView",
+            "recordId" : "{!recordId}"
+          },
+          "componentName" : "forceCommunity:visualforcePage",
+          "id" : "832f1bd5-b103-410b-b176-8ed5ee5f5cc8",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3a7fa87f-9f87-4c1c-a5f3-7073dd0317e2",
+        "regionLabel" : "Products",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "65bb0e79-618e-44f7-8be7-db586ca42d99",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "height" : "400",
+        "pageName" : "TransactionPage",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:visualforcePage",
+      "id" : "f0c94290-77e0-4fb8-8f78-eb6ea41f7d54",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d91228a9-8104-413f-861d-872dd8bc9078",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "askCommunityLabel" : "Ask a Question",
+        "buttonBgColor" : "rgb(254, 196, 59)",
+        "buttonBgHoverColor" : "",
+        "buttonBorderColor" : "rgba(64, 64, 65, 0)",
+        "buttonRadius" : 5,
+        "buttonTextColor" : "",
+        "buttonTextHoverColor" : "",
+        "buttonTwoBgColor" : "rgb(254, 196, 59)",
+        "buttonTwoBgHoverColor" : "",
+        "buttonTwoBorderColor" : "rgba(64, 64, 65, 0)",
+        "buttonTwoRadius" : 5,
+        "buttonTwoTextColor" : "",
+        "buttonTwoTextHoverColor" : "",
+        "confirmationMessage" : "Got it!",
+        "contactSupportLabel" : "Contact Support",
+        "followUpPromptLabel" : "Can we close your question?",
+        "headerLabel" : "Don't see what you're looking for?",
+        "isAskFollowPromptEnabled" : true,
+        "isIncludeArticlesEnabled" : false,
+        "isIncludeDiscussionsEnabled" : true,
+        "isInitialSatisfactionPromptEnabled" : true,
+        "isPublisherDeflectionEnabled" : true,
+        "maxSuggestions" : 5,
+        "satisfactionPromptLabel" : "Did we help to answer your question?",
+        "showDetails" : false,
+        "showTopics" : true
+      },
+      "componentName" : "siteforce:napiliFooter",
+      "id" : "25d619a4-82c4-41c2-b023-6253581cdb81",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "285661b2-7573-4be4-a472-92b307150a52",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "description" : "",
+        "metaTags" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a6515325-ef9a-4651-aa8c-e0ce464f6458",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4e1c63ee-49af-4fef-a920-c91c195524a1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

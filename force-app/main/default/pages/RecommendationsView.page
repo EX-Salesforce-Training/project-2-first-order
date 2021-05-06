@@ -1,0 +1,37 @@
+<apex:page controller="RecommendationsController" sidebar="false" docType="html-5.0" showHeader="false" standardStylesheets="false">
+    <apex:stylesheet value="{!$Resource.RecommendationsCSS}"/>
+    <apex:slds >
+    <apex:pageBlock >
+        <apex:form >
+            <h1>What type of party are you planning?</h1>
+            <apex:actionRegion >
+                <apex:selectList value="{!category}" multiselect="false">
+                    <apex:selectOption itemValue="Birthday" itemLabel="Birthday"/>
+                    <apex:selectOption itemValue="Wedding" itemLabel="Wedding"/>
+                    <apex:selectOption itemValue="Graduation" itemLabel="Graduation"/>
+                    <apex:selectOption itemValue="Halloween" itemLabel="Halloween"/>
+                    <apex:selectOption itemValue="Christmas" itemLabel="Christmas"/>
+                </apex:selectList>
+                <div><apex:commandButton action="{!getRecommendations}" value="Filter" styleClass="slds-button slds-button_brand" style="width:100px; border:none; background:#F4C558; color:#7C5B3E; margin-top: 20px;"/></div>
+            </apex:actionRegion>
+            
+          
+         
+            <apex:pageBlockSection title="Products available">
+                <apex:pageBlockTable value="{!productsToRecommend}" var="sp" style="background:#F4C558">
+                
+                    <apex:column headervalue="Product Name" style="background:#FFFFFF">
+                        <apex:outputField value="{!sp.Name}" />
+                    </apex:column>
+                
+                    <apex:column headervalue="Buy" style="background:#FFFFFF">
+                        <apex:commandButton value="Add to Cart" styleClass="slds-button slds-button_brand" style="width:100px; border:none; background:#F4C558; color:#7C5B3E; margin-top: 20px;"/>
+                        <apex:param name="clickedItem" assignTo="{!clickedItem}" value="{!sp.Name}"/>
+                    </apex:column>
+                
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+            </apex:form> 
+        </apex:pageBlock>     
+    </apex:slds>
+</apex:page>
