@@ -1,0 +1,86 @@
+<aura:component controller="ProductListController" implements="flexipage:availableForAllPageTypes">
+    
+    <aura:attribute name="searchKeyword" type="String" />
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <!--Pagination-->
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+    
+    <!--CheckBox-->
+    <aura:attribute name="cbValue" type="List"/>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Confetti', 'value': 'Confetti'},
+                                                        {'label': 'Birthday', 'value': 'Birthday'},
+                                                        {'label': 'Christmas', 'value': 'Christmas'},
+                                                        {'label': 'Halloween', 'value': 'Halloween'},
+                                                        {'label': 'Graduation', 'value': 'Graduation'}
+                                                        ]"/>
+    
+    <!--Slider-->
+    <aura:attribute name="price" type="Integer" default="100"/>
+    <!--Rating-->
+    <aura:registerEvent name="ratingChange" type="c:RatingChangeEvent"/>
+    
+    
+    <lightning:card iconName="standard:product" title="Store Product List">
+        
+        <!-- Search box -->
+        <lightning:layout>  
+            <lightning:layoutItem size="3" padding="around-small">         
+                <lightning:input aura:id="searchField"        
+                                 label="Opportunity Name"        
+                                 value="{!v.searchKeyword}"          
+                                 placeholder="Search Opportunities"            
+                                 onchange="{!c.searchOpp}" />   
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <!--Rating Change-->
+        <div style="width:350px;">
+            <c:Rating change="{!c.ratingChange}"/>
+        </div>
+        
+        
+        
+        <!--Check Box filter-->
+        <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
+        <div class="slds-box slds-theme_default"> 
+            <lightning:checkboxGroup class="slds-checkbox_button my-cb" style='padding-bottom: 50px;' name="CheckboxGroup"
+                                     aura:id="checkField" 
+                                     label="Checkbox Group"
+                                     value="{! v.cbValue}"
+                                     options="{! v.options }"
+                                     onchange="{! c.boxFilter }"/>
+        </div>
+        
+        <!--Slider-->
+        <lightning:slider label="Price" step="5" size="small" value="{!v.price}" onchange="{!c.priceChange}"/>
+        
+        
+        <!---Button section-->
+        <div class="slds-clearfix">
+            <div class="slds-page-header" role="banner">
+                <div class="slds-float_none" style='padding-bottom: 10px;'>            
+                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                      onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                      disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+                </div>
+                <p class="slds-page-header__title">Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</p>
+            </div>
+        </div>
+        
+        <lightning:datatable data="{!v.mydata}"
+                             columns="{!v.mycolumns}"
+                             keyField="Id"
+                             hideCheckboxColumn="false"/>
+        
+        
+        
+    </lightning:card>
+</aura:component>
