@@ -3,7 +3,7 @@
 <!-- Phong Nguyen-->
 <!-- The main goal of this components and controllers are to send request to server side 
      base on search and filter criteria makes by client side, send the records back to the client
-  store product Object is the request target -->
+	 store product Object is the request target -->
 
 <aura:component controller="ProductListController" implements="flexipage:availableForAllPageTypes">
     
@@ -86,8 +86,8 @@
             </div>
         </div>
         
-        <!--- Get the records and show it in the mycolumns components. This needs to be altered to perform
-     Add to cart, and View the specific product ie. Product Page--> 
+        <!--- Get the records and show them in the mycolumns components. This needs to be altered to perform
+		Add to cart, and View the specific product ie. Product Page--> 
         <lightning:datatable data="{!v.mydata}"
                              columns="{!v.mycolumns}"
                              keyField="Id"
