@@ -1,0 +1,17 @@
+.THIS#product-holder {
+    display: inline-block;
+    text-align: center;
+    background: #F4C558;
+    padding: 1em 2em;
+    border-radius: 5px;
+}
+
+.THIS #product-name {
+    color: white;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.THIS .details {
+    margin: .5em;
+}
