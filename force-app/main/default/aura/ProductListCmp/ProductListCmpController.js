@@ -1,7 +1,22 @@
 ({
     init: function (cmp, event, helper) {
         
-        helper.getData(null,null,null,cmp);
+       
+        
+        cmp.set('v.mapMarkers', [
+            {
+                location: {
+                    Street: '11730 Plaza America Dr',
+                    City: 'Reston',
+                    State: 'VA'
+                },
+
+                title: 'The White House',
+                description: 'Landmark, historic home & office of the United States president, with tours for visitors.'
+            }
+        ]);
+        cmp.set('v.zoomLevel', 16);
+     helper.getData(null,null,null,cmp);
     },
     
     searchOpp: function (cmp,event,helper){

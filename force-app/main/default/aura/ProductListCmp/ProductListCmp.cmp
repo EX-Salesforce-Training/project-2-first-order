@@ -1,3 +1,10 @@
+<!-- Product List Component -->
+<!-- 5/9/2021 -->
+<!-- Phong Nguyen-->
+<!-- The main goal of this components and controllers are to send request to server side 
+     base on search and filter criteria makes by client side, send the records back to the client
+  store product Object is the request target -->
+
 <aura:component controller="ProductListController" implements="flexipage:availableForAllPageTypes">
     
     <aura:attribute name="searchKeyword" type="String" />
@@ -25,6 +32,10 @@
     <aura:attribute name="price" type="Integer" default="100"/>
     <!--Rating-->
     <aura:registerEvent name="ratingChange" type="c:RatingChangeEvent"/>
+    
+    <!-- Map -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="zoomLevel" type="Integer" />
     
     
     <lightning:card iconName="standard:product" title="Store Product List">
@@ -75,12 +86,20 @@
             </div>
         </div>
         
+        <!--- Get the records and show it in the mycolumns components. This needs to be altered to perform
+     Add to cart, and View the specific product ie. Product Page--> 
         <lightning:datatable data="{!v.mydata}"
                              columns="{!v.mycolumns}"
                              keyField="Id"
                              hideCheckboxColumn="false"/>
         
         
+        <!-- the map component -->
+        <div style="width:1000px;margin-top:100px">
+            <lightning:map 
+                           mapMarkers="{! v.mapMarkers }" 
+                           zoomLevel="{!v.zoomLevel}" />
+        </div>
         
     </lightning:card>
 </aura:component>
