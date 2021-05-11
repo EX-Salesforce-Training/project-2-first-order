@@ -1,0 +1,68 @@
+<aura:component controller="ApexController">
+    <aura:attribute name="theItem" type="Store_Product__c"/>
+    <aura:attribute name="toRender" type="Boolean" default="false"/>
+    
+    <aura:attribute name="reviewList" type="Review__c[]"/>
+    
+    <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
+    
+    <aura:registerEvent name="buyProduct" type ="c:ProductSelected"/>
+    
+    <aura:if isTrue="{! v.toRender}">
+        
+        <div class="slds-box">
+            
+            
+            <!-- Kill switch -->
+            <lightning:button variant="destructive" label="X" title="Destructive action" onclick="{! c.hideDetail }"/>
+            <!-- /Kill switch -->
+            
+            
+            <!-- Item details -->
+            <div class="slds-box">
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-3">
+                        <div class="slds-box slds-align_absolute-center">
+                        	<lightning:icon iconName="action:share_thanks" alternativeText="User" title="user" />
+                        </div>
+                    </div>
+                    <div class="slds-col slds-size_2-of-3">
+                        <div class="slds-box">
+                            <lightning:recordViewForm recordId="{! v.theItem.Id}" objectApiName="Store_Product__c">
+                                
+                                <lightning:outputField fieldName="Name" />
+                                <lightning:outputField fieldName="Star_Rating__c" />
+                                <lightning:outputField fieldName="Price_Per_Unit__c"/>
+                                <lightning:outputField fieldName="Product_Description__c"/>
+                                
+                            </lightning:recordViewForm>
+                            <div style="float:right;">
+                                <lightning:button label="Add to Cart" title="buy the item" onclick="{! c.buyItem}" class="slds-m-left_x-small" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <!-- /Item details -->
+            
+            
+            <!-- Reviews -->
+            <div class="slds-box slds-has-flexi-truncate slds-scrollable">
+                <aura:iteration items="{! v.reviewList}" var="review">
+                    <br/>
+                    <h1>
+                        <lightning:icon iconName="action:user" alternativeText="User" title="user" />
+                        <lightning:outputField fieldName="Auto_Number__c" />
+                        {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
+                    </h1>
+                    <p> {!review.Comment__c} </p>
+                    <br/>
+                </aura:iteration>
+            </div>
+            <!-- /Reviews -->
+            
+            
+        </div>   
+    </aura:if>
+    
+</aura:component>
