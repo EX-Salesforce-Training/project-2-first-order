@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Product selected" >
+    <aura:attribute name = "StringSoql" type = "String" />
+</aura:event>
