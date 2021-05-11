@@ -1,0 +1,26 @@
+<aura:component>
+    //define the attributes we'll use
+    <aura:attribute name ="productAdded" type="Store_Product__c"/>
+    <aura:attribute name="productName" type="String" default="item"/>
+    <aura:attribute name="productCost" type="Decimal" default="0.00"/>
+    <aura:attribute name="totalCost" type="Decimal" defaul ="0.00"/>
+   
+   //we will need a collection of storeproduct objs we apply to aura:iteration
+   // but for now let's do one
+   // <aura:attribute name="cartList" type="Store_Product__c[]"/>
+
+
+   //register the component to handle the event
+   <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
+
+   
+
+   <div>
+   <h1>Shopping Cart</h1>
+   <p>{!v.productName}{!v.productCost}\n
+   </p>
+   <hr>
+ // <p><em>"Total: " + !v.totalCost}</em></p>
+</div>
+
+</aura:component>	
