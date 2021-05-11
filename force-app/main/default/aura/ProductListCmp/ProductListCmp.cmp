@@ -3,7 +3,7 @@
 <!-- Phong Nguyen-->
 <!-- The main goal of this components and controllers are to send request to server side 
      base on search and filter criteria makes by client side, send the records back to the client
-	 store product Object is the request target -->
+  store product Object is the request target -->
 
 <aura:component controller="ProductListController" implements="flexipage:availableForAllPageTypes">
     
@@ -42,66 +42,74 @@
     
     
     <lightning:card iconName="standard:product" title="Store Product List">
-        
-        <!-- Search box -->
-        <lightning:layout>  
-            <lightning:layoutItem size="3" padding="around-small">         
-                <lightning:input aura:id="searchField"        
-                                 label="Opportunity Name"        
-                                 value="{!v.searchKeyword}"          
-                                 placeholder="Search Opportunities"            
-                                 onchange="{!c.searchOpp}" />   
-            </lightning:layoutItem>
-        </lightning:layout>
-        
-        <!--Rating Change-->
-        <div style="width:350px;">
-            <c:Rating change="{!c.ratingChange}"/>
-        </div>
-        
-        
-        
-        <!--Check Box filter-->
-        <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
-        <div class="slds-box slds-theme_default"> 
-            <lightning:checkboxGroup class="slds-checkbox_button my-cb" style='padding-bottom: 50px;' name="CheckboxGroup"
-                                     aura:id="checkField" 
-                                     label="Checkbox Group"
-                                     value="{! v.cbValue}"
-                                     options="{! v.options }"
-                                     onchange="{! c.boxFilter }"/>
-        </div>
-        
-        <!--Slider-->
-        <lightning:slider label="Price" step="5" size="small" value="{!v.price}" onchange="{!c.priceChange}"/>
-        
-        
-        <!---Button section-->
-        <div class="slds-clearfix">
-            <div class="slds-page-header" role="banner">
-                <div class="slds-float_none" style='padding-bottom: 10px;'>            
-                    <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
-                                      onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
-                    <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
-                                      disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
-                </div>
-                <p class="slds-page-header__title">Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</p>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-4">
+                <span>
+                    <!-- Search box -->
+                    <lightning:layout>  
+                        <lightning:layoutItem size="3" padding="around-small">         
+                            <lightning:input aura:id="searchField"        
+                                             label="Opportunity Name"        
+                                             value="{!v.searchKeyword}"          
+                                             placeholder="Search Opportunities"            
+                                             onchange="{!c.searchOpp}" />   
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    
+                    <!--Rating Change-->
+                    <div style="width:350px;">
+                        <c:Rating change="{!c.ratingChange}"/>
+                    </div>
+                    
+                    
+                    
+                    <!--Check Box filter-->
+                    <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
+                    <div class="slds-box slds-theme_default"> 
+                        <lightning:checkboxGroup tabindex= "" class="slds-checkbox_button my-cb" style='padding-bottom: 50px;' name="CheckboxGroup"
+                                                 aura:id="checkField" 
+                                                 label="Checkbox Group"
+                                                 value="{! v.cbValue}"
+                                                 options="{! v.options }"
+                                                 onchange="{! c.boxFilter }"/>
+                    </div>
+                    
+                    <!--Slider-->
+                    <lightning:slider label="Price" step="5" size="small" value="{!v.price}" onchange="{!c.priceChange}"/>
+                    
+                    
+                    <!---Button section-->
+                    <div class="slds-clearfix">
+                        <div class="slds-page-header" role="banner">
+                            <div class="slds-float_none" style='padding-bottom: 10px;'>            
+                                <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                  onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+                                <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                  disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+                            </div>
+                            <p class="slds-page-header__title">Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="slds-col slds-size_3-of-4">
+                <span>
+                    <!--- Get the records and show them in the mycolumns components. This needs to be altered to perform
+  Add to cart, and View the specific product ie. Product Page--> 
+                    <div class="slds-grid">
+                        <aura:iteration items="{!v.mydata}" var="item">
+                            <div>
+                                <c:Product productName="{!item.Name}" productPrice ="{!item.Price_Per_Unit__c}"/>
+                            </div>
+                        </aura:iteration>
+                    </div>
+                </span>
             </div>
         </div>
         
-        <!--- Get the records and show them in the mycolumns components. This needs to be altered to perform
-		Add to cart, and View the specific product ie. Product Page--> 
-        <lightning:datatable data="{!v.mydata}"
-                             columns="{!v.mycolumns}"
-                             keyField="Id"
-                             hideCheckboxColumn="false"/>
-        <div class="slds-grid">
-        <aura:iteration items="{!v.mydata}" var="item">
-        	<div>
-                <c:Product productName="{!item.Name}" productPrice ="{!item.Price_Per_Unit__c}"/>
-            </div>
-        </aura:iteration>
-        </div>
+        
+        
+        
         <!-- the map component -->
         <div style="width:1000px;margin-top:100px">
             <lightning:map 
