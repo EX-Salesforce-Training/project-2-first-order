@@ -1,7 +1,7 @@
 <aura:component>
-    
+    //define a collection attribute named cartList to hold items we got from add to cart event
    <aura:attribute name="cartList" type="Store_Product__c[]"/>
-   
+   //set event handler for add to cart event, event defined in danny's productDetail.cmp
    <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
 
    <div id = "shoppingCartBox">
@@ -9,10 +9,8 @@
       <hr/>
       <div id="productsInCart">
         <aura:iteration productsInCart = "{!v.cartList}" var="product">
-        
-
-        </aura:iteration>
-
+              <p>"{!v.product.Name}" + "{!v.product.Price_Per_Unit}</p>
+          </aura:iteration>
       </div>
 
 
