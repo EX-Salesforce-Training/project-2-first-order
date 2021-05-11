@@ -1,3 +1,3 @@
-<aura:application >
-	<c:Product></c:Product>
+<aura:application extends="force:slds">
+    <c:TrendingItems />
 </aura:application>
