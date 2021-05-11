@@ -58,10 +58,10 @@
                                     <br/>
                                     <lightning:outputField fieldName="Price_Per_Unit__c"/>
                                     <br/>
-                                    <br/>
                                     <lightning:outputField fieldName="Product_Description__c"/>
-                                    
+                                    <br/>
                                 </lightning:recordViewForm>
+                                
                                 <div class="slds-box"> 
                                     <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/>
                                     

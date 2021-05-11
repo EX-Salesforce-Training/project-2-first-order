@@ -9,12 +9,13 @@
     
     <!-- Review Submission -->
     <div class="slds-box slds-scrollable">
-        {! v.newReview.Contact__c}
         <div class="row">
             <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
             <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
         </div>
-        <lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+        <div style="float:right;">
+        	<lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+        </div>
     </div>
     <!-- /Review Submission -->
     
