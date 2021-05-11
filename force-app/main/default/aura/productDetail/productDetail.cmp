@@ -3,10 +3,11 @@
     <aura:attribute name="toRender" type="Boolean" default="false"/>
     
     <aura:attribute name="reviewList" type="Review__c[]"/>
+    <aura:attribute name="newReview" type="Review__c"/>
     
     <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
-    
-    <aura:registerEvent name="buyProduct" type ="c:ProductSelected"/>
+    <aura:registerEvent name="buyProduct" type ="c:addToCart"/>
+   
     
     <aura:if isTrue="{! v.toRender}">
         
@@ -47,6 +48,14 @@
             
             
             <!-- Reviews -->
+            <div class="slds-box">
+                {! v.newReview.Contact__c}
+                        <div class="row">
+                        <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
+                        <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
+                    </div>
+                <lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+            </div>
             <div class="slds-box slds-has-flexi-truncate slds-scrollable">
                 <aura:iteration items="{! v.reviewList}" var="review">
                     <br/>
