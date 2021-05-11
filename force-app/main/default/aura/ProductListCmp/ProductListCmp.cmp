@@ -12,6 +12,9 @@
     <aura:attribute name="mycolumns" type="List"/>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     
+    <!--Register Event for firing-->
+    <aura:registerEvent name = "SearchEvent" type = "c:SearchEvent" />
+    
     <!--Pagination-->
     <aura:attribute name="pageNumber" type="Integer" default="1"/>
     <aura:attribute name="pageSize" type="Integer" default="10"/>
@@ -92,8 +95,13 @@
                              columns="{!v.mycolumns}"
                              keyField="Id"
                              hideCheckboxColumn="false"/>
-        
-        
+        <div class="slds-grid">
+        <aura:iteration items="{!v.mydata}" var="item">
+        	<div>
+                <c:Product productName="{!item.Name}" productPrice ="{!item.Price_Per_Unit__c}"/>
+            </div>
+        </aura:iteration>
+        </div>
         <!-- the map component -->
         <div style="width:1000px;margin-top:100px">
             <lightning:map 
