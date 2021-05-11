@@ -1,24 +1,27 @@
 <aura:component>
-    //add
-  //  <aura:attribute name="cartList" type="Store_Product__c[]"/>
-   
-   
-   
     
-
-
-   //register the component to handle the event
-    //need to reference the evt file that danny has written to be able to register the component
+   <aura:attribute name="cartList" type="Store_Product__c[]"/>
+   
    <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
 
-   
+   <div id = "shoppingCartBox">
+      <h1>Shopping Cart</h1>
+      <hr/>
+      <div id="productsInCart">
+        <aura:iteration productsInCart = "{!v.cartList}" var="product">
+        
 
-   <div>
-   <h1>Shopping Cart</h1>
-   <p>{!v.productName}{!v.productCost}\n
-   </p>
-   <hr/>
+        </aura:iteration>
+
+      </div>
+
+
+
+      
+   </div>
+
+   
  
-</div>
+
 
 </aura:component>	
