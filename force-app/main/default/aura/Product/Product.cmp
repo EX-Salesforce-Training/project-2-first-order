@@ -1,4 +1,4 @@
-<aura:component access = "global">
+<aura:component access = "global"  implements="flexipage:availableForAllPageTypes"  >
     <aura:attribute name = "product" type = "Store_Product__c" 
                     default ="{'Id':'a0C5e000000U8m4EAC',
                               'Name':'New stuff', 'Price_Per_Unit__c':20, 'Rating__c':'3.4'}"/>

@@ -1,4 +1,5 @@
 ({
+    // get the reviews, this is call when the event are handled
     getReviews : function(component, theProduct) {
         let action = component.get("c.getReviewList");
         action.setParams({"sp" : theProduct});
@@ -15,20 +16,8 @@
         });
         $A.enqueueAction(action);
     },
-    submitTheReview : function(component, newReview){
-        let action = component.get("c.submitOrUpdateReview")  
-        action.setParams({"re": newReview});
-        action.setCallback(this, function(response){
-            let state = response.getState();
-            if(state === "SUCCESS"){
-                console.log("Success");
-            }else{
-                console.log("Failure");
-            }
-        });
-        $A.enqueueAction(action);
-    },
-    buyTheItem : function(component, theProduct){
+    // send the item to cart, 
+    addItemToCart : function(component, theProduct, quantity){
         let buyEvent = $A.get("e.c:addToCart");
         buyEvent.setParams({"product": theProduct});
         buyEvent.fire();

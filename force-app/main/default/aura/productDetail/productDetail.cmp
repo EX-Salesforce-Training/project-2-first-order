@@ -1,77 +1,92 @@
-<aura:component controller="ApexController">
-    <aura:attribute name="theItem" type="Store_Product__c"/>
-    <aura:attribute name="toRender" type="Boolean" default="false"/>
+<!-- display the detail of the product -->
+<!-- product update by the event -->
+<aura:component controller="ApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
+    <!-- handle the event when a user click on a product in either the trending or list component -->
+    <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
+    
+    <!-- fire event when user decide to buy the product -->
+    <aura:registerEvent name="buyProduct" type ="c:addToCart"/>
+    
+    <!-- comes with the event attribute -->
+    <aura:attribute name="theItem" type="Store_Product__c"/>
+    
+    <!-- obtain from apex controller when handling event -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
     <aura:attribute name="newReview" type="Review__c"/>
     
-    <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
-    <aura:registerEvent name="buyProduct" type ="c:addToCart"/>
-   
+    <!-- update when event shows up to render the component, when the event received -->
+    <aura:attribute name="toRender" type="Boolean" default="false"/>
     
-    <aura:if isTrue="{! v.toRender}">
+    <!-- number for quanity -->
+    <aura:attribute name="quantity" type="Integer" default="1"/>
         
-        <div class="slds-box">
-            
-            
-            <!-- Kill switch -->
-            <lightning:button variant="destructive" label="X" title="Destructive action" onclick="{! c.hideDetail }"/>
-            <!-- /Kill switch -->
-            
-            
-            <!-- Item details -->
-            <div class="slds-box">
-                <div class="slds-grid">
-                    <div class="slds-col slds-size_1-of-3">
-                        <div class="slds-box slds-align_absolute-center">
-                        	<lightning:icon iconName="action:share_thanks" alternativeText="User" title="user" />
-                        </div>
-                    </div>
-                    <div class="slds-col slds-size_2-of-3">
-                        <div class="slds-box">
-                            <lightning:recordViewForm recordId="{! v.theItem.Id}" objectApiName="Store_Product__c">
-                                
-                                <lightning:outputField fieldName="Name" />
-                                <lightning:outputField fieldName="Star_Rating__c" />
-                                <lightning:outputField fieldName="Price_Per_Unit__c"/>
-                                <lightning:outputField fieldName="Product_Description__c"/>
-                                
-                            </lightning:recordViewForm>
-                            <div style="float:right;">
-                                <lightning:button label="Add to Cart" title="buy the item" onclick="{! c.buyItem}" class="slds-m-left_x-small" />
-                            </div>
-                        </div>
-                    </div>
+    <!-- use to render or unrender event -->
+    <aura:if isTrue="{! v.toRender}">
+        <div class="slds-utility-bar slds-align_absolute-center "  > 
+                    <!-- Kill switch -->
+                    <lightning:button class="killSwitch" variant="destructive" title="Destructive action" 
+                                      iconName="utility:chevronup" onclick="{! c.hideDetail }"/>
+                    <!-- /Kill switch -->
                 </div>
+        <div class="slds-grid slds-grid_vertical-stretch">
+            <div class="slds-col slds-size_3-of-12"></div>
+            <div class="slds-col slds-size_6-of-12"> 
+                <div class="slds-box">
+                    
+                    <!-- Item details -->
+                    <lightning:layout verticalAlign="stretch">
+                        <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
+                            <div class="slds-box">
+                                <lightning:carousel disableAutoScroll="true" >
+                                    <lightning:carouselImage src="{!$Resource.product}" class="carouselImg">
+                                    </lightning:carouselImage>
+                                    <lightning:carouselImage src="{!$Resource.product0}" class="carouselImg">
+                                    </lightning:carouselImage>
+                                    <lightning:carouselImage src="{!$Resource.product1}" class="carouselImg">
+                                    </lightning:carouselImage>
+                                </lightning:carousel>
+                            </div>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem  flexibility="auto" padding="around-small">
+                            <div class="slds-box" style="height: 425px;">
+                                <lightning:recordViewForm recordId="{! v.theItem.Id}" objectApiName="Store_Product__c">
+                                    
+                                    <lightning:outputField fieldName="Name" />
+                                    <br/>
+                                    <lightning:outputField fieldName="Star_Rating__c" />
+                                    <br/>
+                                    <lightning:outputField fieldName="Price_Per_Unit__c"/>
+                                    <br/>
+                                    <br/>
+                                    <lightning:outputField fieldName="Product_Description__c"/>
+                                    
+                                </lightning:recordViewForm>
+                                <div class="slds-box"> 
+                                    <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/>
+                                    
+                                    
+                                    <div style="float:right;">
+                                    <lightning:button label="Add to Cart" title="buy the item" onclick="{! c.addItem}" class="slds-m-left_x-small" />
+                                </div>
+                                </div>
+                                
+                            </div>
+                        </lightning:layoutItem>
+                    </lightning:layout> 
+                    <!-- /Item details -->
+                    
+                    <br/>
+                    <br/>
+                    <!-- Reviews -->
+                    <c:productReview reviewList="{!v.reviewList}" newReview="{!v.newReview}"/>
+                    <!-- /Reviews -->
+                    <br/>
+                    <br/>
+                </div>     
             </div> 
-            <!-- /Item details -->
-            
-            
-            <!-- Reviews -->
-            <div class="slds-box">
-                {! v.newReview.Contact__c}
-                        <div class="row">
-                        <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
-                        <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
-                    </div>
-                <lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
-            </div>
-            <div class="slds-box slds-has-flexi-truncate slds-scrollable">
-                <aura:iteration items="{! v.reviewList}" var="review">
-                    <br/>
-                    <h1>
-                        <lightning:icon iconName="action:user" alternativeText="User" title="user" />
-                        <lightning:outputField fieldName="Auto_Number__c" />
-                        {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
-                    </h1>
-                    <p> {!review.Comment__c} </p>
-                    <br/>
-                </aura:iteration>
-            </div>
-            <!-- /Reviews -->
-            
-            
-        </div>   
+            <div class="slds-col slds-size_3-of-12"></div>
+        </div>  
     </aura:if>
     
 </aura:component>
