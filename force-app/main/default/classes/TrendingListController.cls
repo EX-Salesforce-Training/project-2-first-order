@@ -10,9 +10,14 @@ public class TrendingListController extends ItemUiHelper {
     public static SelectOption selectedOption {get; set;}
     public String currCat {get; set;}
     Set<SelectOption> categoryOptions = new Set<SelectOption>();
-   
+    
     public String GetRow0Col0() {
         return totalProducts[currItem + 1].Product_Description__c;
+    }
+    
+    @AuraEnabled
+    public static List<Store_Product__c> GetProducts() {
+        return [SELECT Id, Name, Price_Per_Unit__c, Rating__c FROM Store_Product__c LIMIT 10];
     }
 
     public PageReference CheckSelected(){

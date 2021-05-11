@@ -1,8 +1,11 @@
 ({
+    
     handleAddToCart : function(component, event, helper) {
-        //figure what param we need, should be the object we're adding to our attribute list
-        let addToCart=event.getParam("Store_Product__c")
-        component.set("product")
+      
+        let itemToAdd=event.getParam("Store_Product__c")
+        let itemName = itemToAdd.Name
+        let itemCost = itemToAdd.
+
 
     }
 })

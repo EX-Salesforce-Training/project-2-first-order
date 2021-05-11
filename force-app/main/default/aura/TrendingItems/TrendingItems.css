@@ -1,0 +1,132 @@
+@keyframes buttonNext1 {
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyFrames buttonNext2 {
+    0% {
+        -webkit-transform: translateX(-100%);
+    }
+    100% {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+@keyFrames buttonNext3 {
+    0% {
+        -webkit-transform: translateX(-200%);
+    }
+    100% {
+        -webkit-transform: translateX(-300%);
+    }
+}
+
+@keyFrames buttonPrev1 {
+    from {
+        -webkit-transform: translateX(-100%);
+    }
+    to {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+@keyFrames buttonPrev2 {
+    0% {
+        -webkit-transform: translateX(-200%);
+    }
+    100% {
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@keyFrames buttonPrev3 {
+    0% {
+        -webkit-transform: translateX(-300%);
+    }
+    100% {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+@keyFrames toLast {
+    100% {
+        -webkit-transform: translateX(-300%);
+    }
+}
+
+@keyFrames toFirst {
+    0% {
+        -webkit-transform: translateX(-300%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+.THIS#holder{
+    text-align:center;
+    padding: 1em;
+}
+
+.THIS .productCard {
+    margin: 1em;
+    display: inline;
+}
+
+.THIS .productCarousel {
+    overflow: hidden;
+    margin: 1em 3em;
+}
+
+.THIS .carouselItems {
+    position: relative;
+}
+
+.THIS .scrollLeft1 {
+    animation-name: buttonNext1;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .scrollLeft2 {
+    animation-name: buttonNext2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .scrollLeft3 {
+    animation-name: buttonNext3;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .scrollRight1 {
+    animation-name: buttonPrev1;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .scrollRight2 {
+    animation-name: buttonPrev2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .scrollRight3 {
+    animation-name: buttonPrev3;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .first {
+    animation-name: toFirst;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.THIS .last {
+    animation-name: toLast;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
