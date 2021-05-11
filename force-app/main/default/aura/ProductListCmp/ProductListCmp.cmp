@@ -47,7 +47,7 @@
                 <span>
                     <!-- Search box -->
                     <lightning:layout>  
-                        <lightning:layoutItem size="3" padding="around-small">         
+                        <lightning:layoutItem  class= "slds-p-around_large slds-size_12-of-12">         
                             <lightning:input aura:id="searchField"        
                                              label="Opportunity Name"        
                                              value="{!v.searchKeyword}"          

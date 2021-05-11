@@ -7,7 +7,6 @@
             { label: 'Rating', fieldName: 'Rating__c', type: 'number'}
             
         ]);
-        debugger;
         // Getting Values from the client to send to server
         var pageSize = cmp.get("v.pageSize").toString();
         var pageNumber = cmp.get("v.pageNumber").toString();
