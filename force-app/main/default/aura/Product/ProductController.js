@@ -1,8 +1,6 @@
 ({
-	productSelected : function(component, event, helper) {
-        component.set("v.productName", "Clicked!");
-        
-        let selectedEvent = $A.get("e.c:ProductSelected");
+	productSelected : function(component, event, helper) {        
+        let selectedEvent = component.getEvent("productSelected");
         selectedEvent.setParam({"Product" : component.get("v.product")});
         selectedEvent.fire();
 	}

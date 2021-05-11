@@ -1,0 +1,33 @@
+<aura:component >
+    <aura:attribute name="hoverColor" type = "String" default = "white" />
+    <aura:attribute name="hoverTextColor" type = "String" default = "#F4C558" />
+    <aura:attribute name="textColor" type = "String" default = "white" />
+    <aura:attribute name="color" type = "String" default = "#F4C558" />
+    <aura:attribute name="width" type = "String" default = "8em" />
+    
+    <aura:attribute name="iconName" type = "String" />
+    <aura:attribute name="iconPosition" type = "String" default = "left" />
+    <aura:attribute name="class" type = "String" />
+    <aura:attribute name="disabled" type = "boolean" default = "false" />
+    <aura:attribute name="label" type = "String" />
+    <aura:attribute name="name" type = "String" />
+    <aura:attribute name="onblur" type = "String" />
+    <aura:attribute name="onclick" type = "String" />
+    <aura:attribute name="onfocus" type = "String" />
+    <aura:attribute name="title" type = "String" />
+    
+    <aura:html tag="style">
+        :root {
+        --hoverText: {!v.hoverTextColor};
+        --hoverColor: {!v.hoverColor};
+        --textColor: {!v.textColor};
+        --color: {!v.color};
+        --width: {!v.width};
+        }
+    </aura:html>
+    
+    <lightning:button iconName = "{!v.iconName}" iconPosition = "{!v.iconPosition}" 
+                      class = "{!'button' + v.class}" disabled = "{!v.disabled}"
+                      label = "{!v.label}" name = "{!v.name}" onblur = "{!v.onblur}"
+                      onclick = "{!v.onclick}" onfocus = "{!v.onfocus}" title = "{!v.title}"/>
+</aura:component>

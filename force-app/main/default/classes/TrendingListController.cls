@@ -17,7 +17,7 @@ public class TrendingListController extends ItemUiHelper {
     
     @AuraEnabled
     public static List<Store_Product__c> GetProducts() {
-        return [SELECT Id, Name, Price_Per_Unit__c, Rating__c FROM Store_Product__c LIMIT 10];
+        return [SELECT Id, Name, Price_Per_Unit__c, Rating__c FROM Store_Product__c ORDER BY Rating__c DESC LIMIT 10];
     }
 
     public PageReference CheckSelected(){
@@ -40,6 +40,7 @@ public class TrendingListController extends ItemUiHelper {
         
         return categoryOptions;
     }
+    
     public List<ItemUiHelper> GetProductItemHelper(){
         
         productItemHelper = new List<ItemUiHelper>();
@@ -57,6 +58,7 @@ public class TrendingListController extends ItemUiHelper {
 
         return productItemHelper;
     }
+    
     public void SetItemsInGallery() {
         boolean column2Flag = true;
         boolean column3Flag = true;
@@ -92,6 +94,5 @@ public class TrendingListController extends ItemUiHelper {
                            row0Column2, row0Column2Price, row0Column2Rating);
          productItemHelper.add(uiHelper);
     }
-    
     
 }

@@ -3,16 +3,39 @@
     text-align: center;
     background: #F4C558;
     padding: 1em 2em;
+    border: 1px solid #F4C558;
     border-radius: 5px;
-    max-height: var(--maxHeight);
+    color: white;
+}
+
+.THIS#product-holder:hover {
+    background: white;
+    cursor: pointer;
+    color: #F4C558;
+    transition: .25s;
 }
 
 .THIS #product-name {
-    color: white;
     font-weight: bold;
     font-size: 1.4em;
 }
 
 .THIS .details {
     margin: .5em;
+    color: black;
+}
+            
+.THIS #product-image {
+    display: block;
+    margin: auto;
+    width: var(--imgSize);
+    height: auto;
+    box-shadow: 5px 5px #F4C558;
+    border-radius: 5px;
+    transition: 0.25s;
+}
+            
+.THIS#product-holder:hover #product-image {
+    width: calc(var(--imgSize) + 5%);
+    transition: 0.25s;
 }
