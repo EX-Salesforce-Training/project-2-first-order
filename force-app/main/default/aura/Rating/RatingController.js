@@ -16,8 +16,9 @@
         }
         component.set("v.rating", rating);
         var myEvent = component.getEvent("change");
+        debugger;
         myEvent.setParams({"rating": rating});
         myEvent.fire();
 
-	}
+    }
 })
