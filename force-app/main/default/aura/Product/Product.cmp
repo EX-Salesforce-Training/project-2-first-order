@@ -1,16 +1,19 @@
-
+  
+<aura:component access = "global">
+    <aura:attribute name = "product" type = "Store_Product__c" />
+    <aura:attribute name = "productImage" type = "String" default = "{!$Resource.product}" />
     <aura:attribute name = "productName" type = "String" default = "Lorem Ipsum" />
     <aura:attribute name = "productRating" type = "Integer" default = "5" />
     <aura:attribute name = "productPrice" type = "Decimal" default = "0.00" />
-    <aura:attribute name = "maxHeight" type = "String" />
+    <aura:attribute name = "imgSize" type = "String" />
     
     <aura:registerEvent name = "productSelected" type = "c:ProductSelected" />
     
     <aura:html tag="style">
-       :root {
-           --maxHeight: {!v.maxHeight};
-       }
-   </aura:html>
+        :root {
+        --imgSize: {!v.imgSize};
+        }
+    </aura:html>
     
     <div id = "product-holder" onclick="{!c.productSelected}">
         <img id = "product-image" src = "{!v.productImage}" />
