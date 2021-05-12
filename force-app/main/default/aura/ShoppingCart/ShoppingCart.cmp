@@ -14,14 +14,5 @@
               <p>"{!v.product.Name}" + "{!v.product.Price_Per_Unit}</p>
           </aura:iteration>
       </div>
-
-
-
-      
    </div>
-
-   
- 
-
-
 </aura:component>	

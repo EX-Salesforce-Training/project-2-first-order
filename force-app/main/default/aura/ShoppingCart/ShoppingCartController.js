@@ -3,7 +3,8 @@
     //the attribute cartList without overwriting existing items
     handleAddToCart : function(component, event, helper) {
         let cartList = component.get("v.cartList");
-      let itemAddedToCart = event.getParam("Store_Product__c");
+      let itemAddedToCart = event.getParam("product");
+      
       cartList.push(itemAddedToCart);
       component.set("v.cartList", cartList);
       
