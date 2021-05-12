@@ -1,8 +1,8 @@
 <aura:component >
     <aura:attribute name="hoverColor" type = "String" default = "white" />
-    <aura:attribute name="hoverTextColor" type = "String" default = "#F4C558" />
+    <aura:attribute name="hoverTextColor" type = "String" default = "#FBC740" />
     <aura:attribute name="textColor" type = "String" default = "white" />
-    <aura:attribute name="color" type = "String" default = "#F4C558" />
+    <aura:attribute name="color" type = "String" default = "#FBC740" />
     <aura:attribute name="width" type = "String" default = "8em" />
     
     <aura:attribute name="iconName" type = "String" />

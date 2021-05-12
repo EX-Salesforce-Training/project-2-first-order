@@ -1,0 +1,38 @@
+@keyframes rollup {
+    100% {
+        -webkit-transform: translateY(-100%);
+    }
+}
+
+@keyframes rolldown {
+    0% {
+        -webkit-transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: tranlateY(0%);
+    }
+}
+
+.THIS#component-body {
+    padding: 1em;
+}
+
+.THIS #list-holder {
+    overflow: hidden;
+}
+
+.THIS .custom-gutters {
+    padding: 1em;
+}
+
+.THIS #products {
+    position: relative;
+}
+
+.THIS .rollup {
+    animation: rollup .5s forwards;
+}
+
+.THIS .rolldown {
+    animation: rolldown .5s forwards;
+}

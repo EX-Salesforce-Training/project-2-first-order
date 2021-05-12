@@ -1,17 +1,19 @@
 .THIS#product-holder {
-    display: block;
+    display: inline-block;
     text-align: center;
-    background: #F4C558;
+    background: #FBC740;
     padding: 1em 2em;
-    border: 1px solid #F4C558;
+    border: 1px solid #FBC740;
     border-radius: 5px;
     color: white;
+    max-width: var(--maxWidth);
+    height: 100%;
 }
 
 .THIS#product-holder:hover {
     background: white;
     cursor: pointer;
-    color: #F4C558;
+    color: #FBC740;
     transition: .25s;
 }
 
@@ -26,11 +28,10 @@
 }
             
 .THIS #product-image {
-    display: block;
     margin: auto;
     width: var(--imgSize);
     height: auto;
-    box-shadow: 5px 5px #F4C558;
+    box-shadow: 5px 5px #FBC740;
     border-radius: 5px;
     transition: 0.25s;
 }

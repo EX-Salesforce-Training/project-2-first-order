@@ -5,12 +5,14 @@
     <aura:attribute name = "productRating" type = "Integer" default = "5" />
     <aura:attribute name = "productPrice" type = "Decimal" default = "0.00" />
     <aura:attribute name = "imgSize" type = "String" />
+    <aura:attribute name = "maxWidth" type = "String" default = "33%" />
     
     <aura:registerEvent name = "productSelected" type = "c:ProductSelected" />
     
     <aura:html tag="style">
         :root {
-        --imgSize: {!v.imgSize};
+        	--imgSize: {!v.imgSize};
+        	--maxWidth: {!v.maxWidth};
         }
     </aura:html>
     
@@ -18,6 +20,8 @@
         <img id = "product-image" src = "{!v.productImage}" />
         <p id = "product-name">{!v.productName}</p>
         <p class = "details">{!v.productRating}</p>
-        <p class = "details">${!v.productPrice}</p>
+        <p class = "details">
+            $<lightning:formattedNumber value="{!v.productPrice}" style="decimal" minimumFractionDigits="2"/>
+        </p>
     </div>
 </aura:component>
