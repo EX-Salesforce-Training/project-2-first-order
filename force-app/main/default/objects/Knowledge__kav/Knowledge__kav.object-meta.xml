@@ -18,11 +18,9 @@
             <template>Toc</template>
         </articleTypeTemplates>
     </articleTypeChannelDisplay>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <label>Knowledge</label>
     <pluralLabel>Knowledge</pluralLabel>
-    <searchLayouts></searchLayouts>
 </CustomObject>
