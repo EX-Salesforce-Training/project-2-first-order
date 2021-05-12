@@ -1,9 +1,9 @@
 <aura:component access = "global">
-    <aura:attribute name = "product" type = "Store_Product__c" />
+    <aura:attribute name = "product" type = "Store_Product__c" default="{'Id':'a0C5e000000HhnJEAS'}"/>
     <aura:attribute name = "productImage" type = "String" default = "{!$Resource.product}" />
     <aura:attribute name = "productName" type = "String" default = "Lorem Ipsum" />
     <aura:attribute name = "productRating" type = "Integer" default = "5" />
-    <aura:attribute name = "productPrice" type = "Decimal" default = "0.00" />
+    <aura:attribute name = "productPrice" type = "Decimal" default = "10.00" />
     <aura:attribute name = "imgSize" type = "String" />
     
     <aura:registerEvent name = "productSelected" type = "c:ProductSelected" />

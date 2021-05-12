@@ -1,3 +1,5 @@
 <aura:application >
-    <c:ShoppingCart/>
+    <c:Product/>
+    <c:productDetail/>
+ 	<c:ShoppingCart/> 
 </aura:application>
