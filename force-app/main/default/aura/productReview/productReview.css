@@ -1,0 +1,5 @@
+.THIS.ReadSection {
+    max-height:40rem; 
+    overflow: scroll; 
+    overflow-x: hidden;
+}

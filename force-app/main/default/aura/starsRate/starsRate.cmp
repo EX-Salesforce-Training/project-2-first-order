@@ -1,4 +1,5 @@
 <aura:component >
+    <aura:attribute name="product" type="Store_Product__c" />
     <aura:attribute name="number" type="Integer" default="5"/>
     <aura:attribute name="starColor1" type="String" default="Inverse"/>
     <aura:attribute name="starColor2" type="String" default="Inverse"/>

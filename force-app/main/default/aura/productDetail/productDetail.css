@@ -5,3 +5,19 @@
 .THIS .carouselStyle{
     height: 50px;
 }
+
+.THIS.DetailPane .DetailTop .DescriptionProtion{
+    position: relative;
+    padding:20px;
+    height: 425px;
+}
+.THIS.DetailPane .DetailTop .DescriptionProtion #OutBuying{
+    position: absolute;
+    bottom: 2px;
+    width: 550px;
+    padding:10px;
+}
+
+.THIS.DetailPane .DetailTop .DescriptionProtion #OutBuying .slds-box #AddToCartButton{
+    float:right;
+}

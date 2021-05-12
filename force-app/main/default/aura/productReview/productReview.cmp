@@ -4,36 +4,39 @@
     <!-- the outer component should pass in the list of reviews and the current user review -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
     <aura:attribute name="newReview" type="Review__c"/>
+    <aura:attribute name="theItem" type="Store_Product__c"/>
+    
+    <aura:attribute name="renderer" type="Boolean" default="true"/>
     
     <!-- Main Content -->
-    
-    <!-- Review Submission -->
-    <div class="slds-box slds-scrollable">
-        <div class="row">
-            <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
-            <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
+    <aura:if isTrue="{!v.renderer}">
+        <!-- Review Submission -->
+        <div class="slds-box slds-scrollable">
+            <div class="row">
+                <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
+                <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
+            </div>
+            <div style="float:right;">
+                <lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+            </div>
         </div>
-        <div style="float:right;">
-        	<lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+        <!-- /Review Submission -->
+        
+        <!-- Review View -->
+        <div class="ReadSection slds-box">
+            <aura:iteration items="{! v.reviewList}" var="review">
+                <br/>
+                <h1>
+                    <lightning:icon iconName="action:user" alternativeText="User" title="user" />
+                    <lightning:outputField fieldName="Auto_Number__c" />
+                    {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
+                </h1>
+                <p> {!review.Comment__c} </p>
+                <br/>
+            </aura:iteration>
         </div>
-    </div>
-    <!-- /Review Submission -->
-    
-    <!-- Review View -->
-    <div class="slds-box" style="max-height:40rem;">
-        <aura:iteration items="{! v.reviewList}" var="review">
-            <br/>
-            <h1>
-                <lightning:icon iconName="action:user" alternativeText="User" title="user" />
-                <lightning:outputField fieldName="Auto_Number__c" />
-                {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
-            </h1>
-            <p> {!review.Comment__c} </p>
-            <br/>
-        </aura:iteration>
-    </div>
-    <!-- /Review View -->
-    
+        <!-- /Review View -->
+    </aura:if>
     <!-- /Main Content -->
     
 </aura:component>

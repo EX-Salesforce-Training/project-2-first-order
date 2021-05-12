@@ -20,24 +20,29 @@
     
     <!-- number for quanity -->
     <aura:attribute name="quantity" type="Integer" default="1"/>
-        
-    <!-- use to render or unrender event -->
+    
+    <!-- use to update the starsRate component -->
+    <aura:attribute name="ratingStar" type="Integer"/>
+    
+    
+    <!-- use to render or unrender detail page -->
     <aura:if isTrue="{! v.toRender}">
+        
         <div class="slds-utility-bar slds-align_absolute-center "  > 
                     <!-- Kill switch -->
                     <lightning:button class="killSwitch" variant="destructive" title="Destructive action" 
                                       iconName="utility:chevronup" onclick="{! c.hideDetail }"/>
                     <!-- /Kill switch -->
                 </div>
-        <div class="slds-grid slds-grid_vertical-stretch">
+        <div class="DetailPane slds-grid slds-grid_vertical-stretch">
             <div class="slds-col slds-size_3-of-12"></div>
             <div class="slds-col slds-size_6-of-12"> 
-                <div class="slds-box">
+                <div class="DetailTop slds-box">
                     
                     <!-- Item details -->
                     <lightning:layout verticalAlign="stretch">
                         <lightning:layoutItem size="4" flexibility="auto" padding="around-small">
-                            <div class="slds-box">
+                            <div class="Carousel slds-box">
                                 <lightning:carousel disableAutoScroll="true" >
                                     <lightning:carouselImage src="{!$Resource.product}" class="carouselImg">
                                     </lightning:carouselImage>
@@ -49,28 +54,23 @@
                             </div>
                         </lightning:layoutItem>
                         <lightning:layoutItem  flexibility="auto" padding="around-small">
-                            <div class="slds-box" style="height: 425px;">
-                                <lightning:recordViewForm recordId="{! v.theItem.Id}" objectApiName="Store_Product__c">
-                                    
-                                    <lightning:outputField fieldName="Name" />
-                                    <br/>
-                                    <lightning:outputField fieldName="Star_Rating__c" />
-                                    <br/>
-                                    <lightning:outputField fieldName="Price_Per_Unit__c"/>
-                                    <br/>
-                                    <lightning:outputField fieldName="Product_Description__c"/>
-                                    <br/>
-                                </lightning:recordViewForm>
-                                
-                                <div class="slds-box"> 
-                                    <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/>
-                                    
-                                    
-                                    <div style="float:right;">
-                                    <lightning:button label="Add to Cart" title="buy the item" onclick="{! c.addItem}" class="slds-m-left_x-small" />
+                            <div class="DescriptionProtion slds-box">
+                                <h1> {!v.theItem.Name} </h1>
+                                <br/>
+                                <c:starsRate number="{!v.ratingStar}"/>
+                                <br/>
+                                <h3><lightning:formattedNumber value="{!v.theItem.Price_Per_Unit__c}" style="currency"/></h3>
+                                <br/>
+                                <h2><lightning:formattedText value="{!'Description: ' + v.theItem.Product_Description__c}"/></h2>
+                                <br/>
+                                <div id="OutBuying">
+                                    <div class="slds-box"> 
+                                        <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/> 
+                                        <div id="AddToCartButton">
+                                            <lightning:button label="Add to Cart" title="buy the item" onclick="{! c.addItem}" class="slds-m-left_x-small" />
+                                        </div>
+                                    </div>
                                 </div>
-                                </div>
-                                
                             </div>
                         </lightning:layoutItem>
                     </lightning:layout> 
@@ -79,7 +79,7 @@
                     <br/>
                     <br/>
                     <!-- Reviews -->
-                    <c:productReview reviewList="{!v.reviewList}" newReview="{!v.newReview}"/>
+                    <c:productReview reviewList="{!v.reviewList}" newReview="{!v.newReview}" theItem="{!v.theItem}"/>
                     <!-- /Reviews -->
                     <br/>
                     <br/>

@@ -37,8 +37,9 @@ public class ApexController {
         return reviewList;
     }
     @AuraEnabled
-    public static void submitOrUpdateReview(Review__c re){
+    public static List<Review__c> submitOrUpdateReview(Review__c re, ID sp){
         
         upsert re;
+        return [SELECT ID, Name, Comment__c, Rating__c, Contact__r.Name, Store_Product__c FROM Review__c WHERE Store_Product__c=:sp];
     }
 }
