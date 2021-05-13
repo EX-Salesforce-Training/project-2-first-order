@@ -1,0 +1,17 @@
+<aura:component >
+    <aura:attribute name="searchKeyword" type="String" />
+    
+    <!---Register Event-->
+    <aura:registerEvent name="SearchBarEvent" type="c:SearchBarEvent"/>
+    
+    <!-- Search box -->
+    <lightning:layout>  
+        <lightning:layoutItem  class= "slds-p-around_large slds-size_12-of-12">         
+            <lightning:input aura:id="searchField"        
+                             label="Search for Name"        
+                             value="{!v.searchKeyword}"          
+                             placeholder="Search Opportunities"
+                             onchange = "{!c.myAction}"/>   
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

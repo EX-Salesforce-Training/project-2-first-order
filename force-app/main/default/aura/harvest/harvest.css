@@ -1,0 +1,21 @@
+.THIS#page-container {
+    background: #66d2d6;
+}
+
+.THIS #page-header {
+    background: #fbc740;
+    padding: 10%;
+}
+
+.THIS .side-bar{
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    padding: 1em;
+}
+
+.THIS #product-view {
+    display: inline-block;
+    width: 60%;
+    background: white;
+}

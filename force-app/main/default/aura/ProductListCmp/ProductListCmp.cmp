@@ -1,0 +1,118 @@
+<!-- Product List Component -->
+<!-- 5/9/2021 -->
+<!-- Phong Nguyen-->
+<!-- The main goal of this components and controllers are to send request to server side 
+     base on search and filter criteria makes by client side, send the records back to the client
+  store product Object is the request target -->
+
+<aura:component controller="ProductListController" implements="flexipage:availableForAllPageTypes">
+    
+    <aura:attribute name="searchKeyword" type="String" />
+    <aura:attribute name="mydata" type="Store_Product__c[]"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
+    <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
+    
+    <!--Pagination-->
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10000"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+    
+    
+    <!--CheckBox-->
+    <aura:attribute name="cbValue" type="List"/>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Confetti', 'value': 'Confetti'},
+                                                        {'label': 'Birthday', 'value': 'Birthday'},
+                                                        {'label': 'Christmas', 'value': 'Christmas'},
+                                                        {'label': 'Halloween', 'value': 'Halloween'},
+                                                        {'label': 'Graduation', 'value': 'Graduation'}
+                                                        ]"/>
+    
+    <!--Slider-->
+    <aura:attribute name="price" type="Integer" default="100"/>
+    <!--Rating-->
+    <aura:attribute name="newRating" type="String"/> 
+    
+    <!-- Map -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="zoomLevel" type="Integer" />
+    
+    
+    <lightning:card iconName="standard:product" title="Store Product List">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-4">
+                <span>
+                    
+                    
+                    <!--Rating Change-->
+                    <div style="width:350px;">
+                        <c:Rating change="{!c.ratingChange}"/>
+                    </div>
+                    
+                    <!--Check Box filter-->
+                    <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
+                    <div class="slds-box slds-theme_default"> 
+                        <lightning:checkboxGroup tabindex= "" class="slds-checkbox_button my-cb" style='padding-bottom: 50px;' name="CheckboxGroup"
+                                                 aura:id="checkField" 
+                                                 label="Checkbox Group"
+                                                 value="{! v.cbValue}"
+                                                 options="{! v.options }"/>
+                    </div>
+                    
+                    <!--Slider-->
+                    <lightning:slider label="Price" step="5" size="small" value="{!v.price}"/>
+                    
+                    <lightning:button variant="brand" label="Search" title="Primary action" class="slds-m-left_x-small" onclick="{!c.searchOpp}"/>
+                    
+                    
+                    <!---Button section-->
+                    <div class="slds-clearfix">
+                        <div class="slds-page-header" role="banner">
+                            <div class="slds-float_none" style='padding-bottom: 10px;'>            
+                                <lightning:button label="Prev" iconName="utility:chevronleft" iconPosition="left"
+                                                  onclick="{!c.handlePrev}" disabled="{! v.pageNumber == 1}"/>
+                                <lightning:button label="Next" iconName="utility:chevronright" iconPosition="right"
+                                                  disabled="{! v.isLastPage}" onclick="{!c.handleNext}"/>
+                            </div>
+                            <p class="slds-page-header__title">Page {!v.pageNumber} | Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</p>
+                        </div>
+                    </div>
+                </span>
+            </div>
+            <div class="slds-col slds-size_3-of-4">
+                <span>
+                    
+                    
+                    <div id = "holder">
+                        <h1 class = "slds-text-heading_large">Showing records from {! ((v.pageNumber-1)*v.pageSize)+' to '+((v.pageNumber-1)*v.pageSize+v.dataSize)}</h1>
+                        <br />
+                        <div class = "productCarousel">
+                            <div id = "trendingCarousel" class = "carouselItems slds-grid slds-gutters_x-small">
+                                <aura:iteration items = "{!v.mydata}" var = "item" start = "0" end = "10">
+                                    <div class = "slds-col slds-size_1-of-3">
+                                        <c:Product product = "{!item}" productName = "{!item.Name}" 
+                                                   productRating = "{!item.Rating__c}" productPrice = "{!item.Price_Per_Unit__c}"
+                                                   maxHeight = "100%" />
+                                    </div>
+                                </aura:iteration>
+                            </div>
+                        </div>
+                        <lightning:button iconName = "utility:chevronleft" title="Previous" onclick="{!c.prevSlide}" />
+                        <lightning:button iconName = "utility:chevronright" iconPosition = "right" title="Next" onclick="{!c.nextSlide}" />
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+        <lightning:datatable data="{!v.mydata}"
+                             columns="{!v.mycolumns}"
+                             keyField="Id"
+                             hideCheckboxColumn="false"/>
+        
+        
+    </lightning:card>
+</aura:component>
