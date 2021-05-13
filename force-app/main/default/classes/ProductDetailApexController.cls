@@ -34,7 +34,6 @@ public class ProductDetailApexController {
             system.debug(e);
         }finally{
             reviewList.add(currentUserReview);
-            system.debug(reviewList.size());
         }
         return reviewList;
     }

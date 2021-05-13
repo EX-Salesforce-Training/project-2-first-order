@@ -11,11 +11,11 @@
     
     <div class="starBackground">
     <h1 class="starh1">
-        <lightning:button aura:id="star1" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor1}"/>
-        <lightning:button aura:id="star2" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor2}"/>
-        <lightning:button aura:id="star3" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor3}"/>
-        <lightning:button aura:id="star4" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor4}"/>
-        <lightning:button aura:id="star5" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor5}"/>
+        <lightning:button aura:id="star1" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor1}" onclick="{!onclick1}"/>
+        <lightning:button aura:id="star2" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor2}" onclick="{!onclick2}"/>
+        <lightning:button aura:id="star3" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor3}" onclick="{!onclick3}"/>
+        <lightning:button aura:id="star4" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor4}" onclick="{!onclick4}"/>
+        <lightning:button aura:id="star5" class="starDim" iconName="utility:favorite" title="star" variant="{!v.starColor5}" onclick="{!onclick5}"/>
     </h1>
     </div>
 </aura:component>

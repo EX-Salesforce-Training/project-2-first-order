@@ -1,7 +1,7 @@
 <!-- component allow for viewing current product reviews and leaving a review on the current product. -->
 <aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
-    <!-- the outer component should pass in the list of reviews and the current user review -->
+    <!-- the outer component should pass in the current item, list of reviews, and the current user review -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
     <aura:attribute name="newReview" type="Review__c"/>
     <aura:attribute name="theItem" type="Store_Product__c"/>
@@ -13,8 +13,14 @@
         <!-- Review Submission -->
         <div class="WriteSection slds-box slds-scrollable">
             <div class="row">
-                <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
-                <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
+                <lightning:select name="select1" label="On a 5 rating scale, how awesome are we?" required="true" value="{!v.newReview.Rating__c}">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </lightning:select>
+                <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..."/>
             </div>
             <div style="float:right;">
                 <c:PalaceButton label="Submit" onclick="{!c.submitReview}"/>

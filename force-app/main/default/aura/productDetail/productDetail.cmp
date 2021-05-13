@@ -49,6 +49,8 @@
                 <lightning:layout horizontalAlign="spread" multipleRows="true">
                     <lightning:layoutItem size="5" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="5">
                         <div class="Carousel slds-box">
+                            <!-- current iteration of carousel only display static image -->
+                            <!-- will need to be update with aura:iteration and to it an attribute that holds image or images-->
                             <lightning:carousel disableAutoScroll="true" >
                                 <lightning:carouselImage src="{!$Resource.product}" class="carouselImg">
                                 </lightning:carouselImage>
