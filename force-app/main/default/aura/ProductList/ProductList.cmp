@@ -2,52 +2,34 @@
     <aura:attribute name = "allProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "pageProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "subdivisionList" type = "Integer[]" />
-    <aura:attribute name = "numCols" type = "Integer" default = "3" />
+    <aura:attribute name = "numCols" type = "Integer" default = "4" />
     <aura:attribute name = "currPage" type = "Integer" default = "0" />
     <aura:attribute name = "displayText" type = "String" />
     <aura:attribute name = "pageSize" type = "Integer" default = "10" />
-    <aura:handler event="c:SearchEvent" action="{!c.repopulate}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
     
     <div id = "component-body">
-        <div class = "header-holder">
-            <h1 class = "slds-text-heading_large">Products</h1>
-        	<h2>{!v.displayText}</h2>
-        </div>
-        
-        <div class = "button-holder">
-            <div class = "button-left">
-                <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
-            </div>
-            <div class = "button-right">
-                <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
-            </div>
-        </div>
+        <h1 class = "slds-text-heading_large">Products</h1>
+        <h2>{!v.displayText}</h2>
+        <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
+        <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
         <br />
         
         <div id = "list-holder">
             <div id = "products">
-                <aura:iteration items = "{!v.subdivisionList}" var = "end">
-                    <div class = "slds-grid slds-grid_align-center">
-                        <aura:iteration items = "{!v.pageProducts}" var = "item" start = "{!_index * v.numCols}" end = "{!end}">
+                <aura:iteration items = "{!v.subdivisionList}" var = "start">
+                    <div class = "slds-grid">
+                        <aura:iteration items = "{!v.pageProducts}" var = "item" start = "{!start}" end = "{!start + v.numCols}">
                             <div class = "slds-col custom-gutters">
-                                <c:Product product = "{!item}" />
+                                <c:Product product = "{!item}" productName = "{!item.Name}" 
+                                   productRating = "{!item.Rating__c}" productPrice = "{!item.Price_Per_Unit__c}" />
                             </div>
                         </aura:iteration>
                     </div>
                 </aura:iteration>
             </div>
-            <div class = "button-holder">
-                <div class = "button-left">
-                    <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
-                </div>
-                <div class = "button-right">
-                    <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
-                </div>
-            </div>
-        </div>
-        <div class = "divider-holder">
-            <hr class = "divider-shadow" />
-            <hr class = "list-divider" />
+            <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
+            <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
         </div>
     </div>
 </aura:component>

@@ -1,24 +1,23 @@
 <aura:component access = "global" implements="flexipage:availableForAllPageTypes">
     <aura:attribute name = "product" type = "Store_Product__c" />
     <aura:attribute name = "productImage" type = "String" default = "{!$Resource.product}" />
-    <aura:attribute name = "imgSize" type = "String" />
-    <aura:attribute name = "maxWidth" type = "String" default = "33%" />
+    <aura:attribute name = "productName" type = "String" default = "Lorem Ipsum" />
+    <aura:attribute name = "productRating" type = "Integer" default = "5" />
+    <aura:attribute name = "productPrice" type = "Decimal" default = "0.00" />
+    <aura:attribute name = "maxHeight" type = "String" />
     
     <aura:registerEvent name = "productSelected" type = "c:ProductSelected" />
     
     <aura:html tag="style">
-        :root {
-        	--imgSize: {!v.imgSize};
-        	--maxWidth: {!v.maxWidth};
-        }
-    </aura:html>
+       :root {
+           --maxHeight: {!v.maxHeight};
+       }
+   </aura:html>
     
     <div id = "product-holder" onclick="{!c.productSelected}">
         <img id = "product-image" src = "{!v.productImage}" />
-        <p id = "product-name">{!v.product.Name}</p>
-        <p class = "details">{!v.product.Start_Rating__c}</p>
-        <p class = "details">
-            $<lightning:formattedNumber value="{!v.product.Price_Per_Unit__c}" style="decimal" minimumFractionDigits="2"/>
-        </p>
+        <p id = "product-name">{!v.productName}</p>
+        <p class = "details">{!v.productRating}</p>
+        <p class = "details">${!v.productPrice}</p>
     </div>
 </aura:component>

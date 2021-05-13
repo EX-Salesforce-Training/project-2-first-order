@@ -1,6 +1,6 @@
 ({
     init: function (cmp, event, helper) {
-        
+        helper.getData(null,null,null,cmp);
     },
     searchOpp: function (cmp,event,helper){
         let searchVal = cmp.get("v.searchKeyword"); 
