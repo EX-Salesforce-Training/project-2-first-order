@@ -40,6 +40,7 @@ virtual public class ItemUiHelper{
         currItem = currItem  + 3;
         return Page.TrendingList;
     }
+    
     public PageReference ShowPreviousProducts(){
         
         if((currentPage-1) >= 0){
@@ -49,6 +50,7 @@ virtual public class ItemUiHelper{
     
         return Page.TrendingList;
     }
+    
     public void SaveItemData(String row0Column0, Decimal row0Column0Price, Decimal  row0Column0Rating,
                                String row0Column1, Decimal row0Column1Price, Decimal row0Column1Rating,
                                String row0Column2, Decimal row0Column2Price, Decimal row0Column2Rating){
