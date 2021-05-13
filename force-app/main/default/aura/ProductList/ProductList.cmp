@@ -2,15 +2,18 @@
     <aura:attribute name = "allProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "pageProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "subdivisionList" type = "Integer[]" />
-    <aura:attribute name = "numCols" type = "Integer" default = "4" />
+    <aura:attribute name = "numCols" type = "Integer" default = "3" />
     <aura:attribute name = "currPage" type = "Integer" default = "0" />
     <aura:attribute name = "displayText" type = "String" />
     <aura:attribute name = "pageSize" type = "Integer" default = "10" />
-    <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
+    <aura:handler event="c:SearchEvent" action="{!c.repopulate}" />
     
     <div id = "component-body">
-        <h1 class = "slds-text-heading_large">Products</h1>
-        <h2>{!v.displayText}</h2>
+        <div class = "header-holder">
+            <h1 class = "slds-text-heading_large">Products</h1>
+        	<h2>{!v.displayText}</h2>
+        </div>
+        
         <div class = "button-holder">
             <div class = "button-left">
                 <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
