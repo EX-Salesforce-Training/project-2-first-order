@@ -17,6 +17,10 @@
     padding: 1em;
 }
 
+.THIS .header-holder {
+    padding-left: 1em;
+}
+
 .THIS #list-holder {
     overflow: hidden;
 }

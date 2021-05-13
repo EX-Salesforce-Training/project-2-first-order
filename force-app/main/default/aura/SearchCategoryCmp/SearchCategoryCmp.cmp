@@ -1,0 +1,73 @@
+<!-- SearchCategoryCMP -->
+<!-- 5/9/2021 -->
+<!-- Phong Nguyen-->
+<!-- The main goal of this components and controllers are to send request to server side 
+     base on search and filter criteria makes by client side, send the records back to the client
+  store product Object is the request target -->
+
+<aura:component controller="SearchCategoryController" implements="flexipage:availableForAllPageTypes">
+    <!--Declaring values-->
+    <aura:attribute name="searchKeyword" type="String" />
+    <aura:attribute name="mydata" type="Store_Product__c[]"/>
+    <aura:attribute name="mycolumns" type="List"/>
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <!--Handler for search event-->
+    <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
+    
+    
+    <!--Register for fire seachcategory event-->
+    <aura:registerEvent name="mySearch" type="c:SearchEvent"/>
+    
+    <!--Pagination-->
+    <aura:attribute name="pageNumber" type="Integer" default="1"/>
+    <aura:attribute name="pageSize" type="Integer" default="10000"/>
+    <aura:attribute name="isLastPage" type="Boolean" default="false"/>
+    <aura:attribute name="dataSize" type="Integer" default="0"/> 
+    
+    
+    <!--CheckBox-->
+    <aura:attribute name="cbValue" type="List"/>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Confetti', 'value': 'Confetti'},
+                                                        {'label': 'Birthday', 'value': 'Birthday'},
+                                                        {'label': 'Christmas', 'value': 'Christmas'},
+                                                        {'label': 'Halloween', 'value': 'Halloween'},
+                                                        {'label': 'Graduation', 'value': 'Graduation'}
+                                                        ]"/>
+    
+    <!--Slider-->
+    <aura:attribute name="price" type="Integer" default="300"/>
+    <!--Rating-->
+    <aura:attribute name="newRating" type="String"/> 
+    
+    <!-- Map -->
+    <aura:attribute name="mapMarkers" type="Object"/>
+    <aura:attribute name="zoomLevel" type="Integer" />
+    
+    <!--////////////////////////////////////////// Component Layout ///////////////////////////////////////-->
+    
+    
+    <!--Rating Change-->
+    <div>
+        <c:Rating change="{!c.ratingChange}"/>
+    </div>
+    
+    <!--Check Box filter-->
+    <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
+    <div class="checkbox-group"> 
+        <lightning:checkboxGroup tabindex= "" class="slds-checkbox_button my-cb" name="CheckboxGroup"
+                                 aura:id="checkField" 
+                                 label="Checkbox Group"
+                                 value="{! v.cbValue}"
+                                 options="{! v.options }"/>
+    </div>
+    
+    <!--Slider-->
+    <lightning:slider label="Price" step="5" size="small" value="{!v.price}"/>
+    
+    <c:PalaceButton label="Search" title="Search" onclick="{!c.searchOpp}"/>
+    
+    
+    
+</aura:component>

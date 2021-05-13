@@ -1,0 +1,5 @@
+<!--<aura:event type="COMPONENT">-->
+
+<aura:event type="APPLICATION">
+    <aura:attribute name = "searchedProduct" type = "Store_Product__c" />
+</aura:event>

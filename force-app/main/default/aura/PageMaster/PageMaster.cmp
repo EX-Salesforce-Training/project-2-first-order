@@ -1,25 +1,31 @@
 <aura:component controller = "MasterController">
     <aura:attribute name = "pListOn" type = "Boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
+    <aura:handler event="c:SearchEvent" action="{!c.turnOnList}" />
     
-    <div id = "page-container" onclick = "{!c.turnOnList}">
+    <div id = "page-container">
         <div id = "page-header">
             <h1 class = "slds-text-heading_large slds-align_absolute-center">Party Palace</h1>
         </div>
         
+        <div id = "content-container">
         <div class="side-bar">
+            <div class = "side-bar-content-holder">
+                <c:SearchCategoryCmp />
+            </div>
         </div>
         <div id = "product-view">
+            <div id = "search-bar">
+                <c:SearchBarCmp />
+            </div>
             <div id = "productlist" class = "hidden">
-                <aura:if isTrue = "{!v.pListOn}">
-                    <c:ProductList aura:id = "p-list" />
-                </aura:if>
+                <c:ProductList aura:id = "p-list" />
             </div>
             <c:TrendingItems />
         </div>
         <div class="side-bar">
         </div>
-        <br />
+            </div>
         
         <div class = "footer">
             <span class = "footer-item">Party Palace</span>
