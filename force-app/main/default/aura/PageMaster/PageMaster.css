@@ -1,0 +1,58 @@
+@keyframes showPage {
+    0% {
+        max-height: 0;
+    }
+    100% {
+        max-height: 100vw;
+    }
+}
+
+.THIS#page-container {
+    background: #66d2d6;
+}
+
+.THIS #page-header {
+    background: #fbc740;
+    padding: 10%;
+}
+
+
+.THIS .side-bar{
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    padding: 1em;
+}
+
+.THIS #product-view {
+    display: inline-block;
+    width: 60%;
+    background: white;
+}
+
+.THIS .hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.THIS .shown {
+    overflow: hidden;
+    animation: showPage 2s;
+}
+
+.THIS .footer {
+    padding: 1em 20% 10% 20%;
+    background: slategrey;
+    color: #fbc740;
+    text-align: center;
+}
+
+.THIS .footer-item {
+    margin: 10%;
+}
+
+.THIS .footer-hr {
+    height: 0;
+    border-top: 3px solid #fbc740;
+    margin: 2em 10%;
+}
