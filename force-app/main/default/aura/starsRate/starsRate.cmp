@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="product" type="Store_Product__c" />
+    <aura:attribute name="number" type="Integer" default="5"/>
+    <aura:attribute name="starColor1" type="String" default="Inverse"/>
+    <aura:attribute name="starColor2" type="String" default="Inverse"/>
+    <aura:attribute name="starColor3" type="String" default="Inverse"/>
+    <aura:attribute name="starColor4" type="String" default="Inverse"/>
+    <aura:attribute name="starColor5" type="String" default="Inverse"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="starBackground">
+        <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor1}"/>
+        <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor2}"/>
+        <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor3}"/>
+        <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor4}"/>
+        <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor5}"/>
+    
+    </div>
+</aura:component>
