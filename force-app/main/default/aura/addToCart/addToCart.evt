@@ -1,6 +1,8 @@
 <!-- event for when an item is need to be added to the cart-->
 <!-- fire from the detail page, and handle by the cart -->
 <aura:event type="APPLICATION">
-    <aura:attribute name = "product" type = "Store_Product__c" />
-    <aura:attribute name = "quantity" type= "Integer" />
+    <aura:attribute name="userContactID" type="Contact"/>
+    <aura:attribute name="productLine" type="Product_Line__c"/>
+    <aura:attribute name="product" type="Store_Product__c" />
+    <aura:attribute name="quantity" type="Integer" />
 </aura:event>

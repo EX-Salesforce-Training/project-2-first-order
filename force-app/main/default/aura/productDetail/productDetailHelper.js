@@ -17,9 +17,9 @@
         $A.enqueueAction(action);
     },
     // send the item to cart, 
-    addItemToCart : function(component, theProduct, quantity){
+    addItemToCart : function(component, theProduct, quantity, theProductLine, userContactId){
         let buyEvent = $A.get("e.c:addToCart");
-        buyEvent.setParams({"product": theProduct, "quantity": quantity});
+        buyEvent.setParams({"userContactId": userContactId , "productLine": theProductLine, "product": theProduct, "quantity": quantity});
         buyEvent.fire();
     }
 })

@@ -1,15 +1,21 @@
 <!-- display the detail of the product -->
 <!-- product update by the event -->
-<aura:component controller="ApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
+<aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
     <!-- handle the event when a user click on a product in either the trending or list component -->
-    <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
+    <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}"/>
     
     <!-- fire event when user decide to buy the product -->
     <aura:registerEvent name="buyProduct" type ="c:addToCart"/>
     
     <!-- comes with the event attribute -->
     <aura:attribute name="theItem" type="Store_Product__c"/>
+
+    <!-- quantity of product that will be added to cart -->
+    <aura:attribute name="quantity" type="Integer" default="1"/>
+    
+    <!-- send this as event to cart along side the product and quantity -->
+    <aura:attribute name="theItemLine" type="Product_Line__c" default="{'Quantity__c' : 0, 'Product__c' : '', 'Transaction__c' : ''}"/>
     
     <!-- obtain from apex controller when handling event -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
@@ -17,9 +23,6 @@
     
     <!-- update when event shows up to render the component, when the event received -->
     <aura:attribute name="toRender" type="Boolean" default="false"/>
-    
-    <!-- number for quanity -->
-    <aura:attribute name="quantity" type="Integer" default="1"/>
     
     <!-- use to update the starsRate component -->
     <aura:attribute name="ratingStar" type="Integer"/>

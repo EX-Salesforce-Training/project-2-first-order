@@ -8,7 +8,6 @@
         component.set("v.ratingStar", rate);
         
         component.set("v.theItem", theProduct);
-        console.log(strProd.Star_Rating__c);
 
         helper.getReviews(component, component.get("v.theItem").Id);
         // for the cases where detail is still open.
@@ -21,7 +20,13 @@
     },
     // fire addToCart event then hide away the component
     addItem : function(component, event, helper){
-        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"));
+        let itemLine = component.get("v.theItemLine");
+        component.set("v.theItemLine.Product__c",  component.get("v.theItem").Id);
+        component.set("v.theItemLine.Quantity__c", component.get("v.quantity"));
+        
+        console.log(component.get("v.newReview.Contact__c"));
+        
+        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"), itemLine, component.get("v.newReview.Contact__c"));
         component.set("v.toRender", false);
     }
 })
