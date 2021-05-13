@@ -24,13 +24,13 @@ public class ProductDetailApexController {
             // contact__c need to be currentConID, currently hard coded in for testing.
             currentUserReview = [SELECT ID, Comment__c, Rating__c, Store_Product__c, Contact__r.Name, Contact__c 
                                  FROM Review__c 
-                                 WHERE Store_Product__c=:sp and Contact__c=:reviewYes limit 1];
+                                 WHERE Store_Product__c=:sp and Contact__c=:cid limit 1];
         }catch(Exception e){
             
             // if they have no review yet, create a new review, but don't update the record in the database
             // just use it to populate the newReview attribute in the component, so if they do want to leave a review it will have the contactId
             // contact__c need to be currentConID, currently hard coded in for testing.
-            currentUserReview = new Review__c(Store_Product__c=sp, Contact__c=reviewNo);
+            currentUserReview = new Review__c(Store_Product__c=sp, Contact__c=cid);
             system.debug(e);
         }finally{
             reviewList.add(currentUserReview);
