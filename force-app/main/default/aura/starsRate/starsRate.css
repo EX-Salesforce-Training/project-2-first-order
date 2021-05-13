@@ -1,0 +1,24 @@
+.THIS.starBackground .star {
+    padding: 4px;
+    margin: auto;
+}
+
+/*
+ * another method of changing icon color
+ * give it the warning variant or any other variant that isn't inverse
+ * then go to the class of the thing that houses it, then modifies the slds-icon-text-warning class
+ * you can now create a class for white, yellow, or half yellow even.
+ * then just use the $A.util.addClass/removeClass in js controller to switch out add or remove the class of an element.
+*/
+.THIS.starBackground .slds-icon-text-warning{
+    fill: yellow;
+}
+
+.THIS.starBackground{
+    box-sizing: content-box;
+    background-color: #FBC740;
+    border: 2px solid #E56997;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+}

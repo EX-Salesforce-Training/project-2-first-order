@@ -1,4 +1,4 @@
-<aura:component access = "global">
+<aura:component access = "global" implements="flexipage:availableForAllPageTypes">
     <aura:attribute name = "product" type = "Store_Product__c" />
     <aura:attribute name = "productImage" type = "String" default = "{!$Resource.product}" />
     <aura:attribute name = "imgSize" type = "String" />
