@@ -28,6 +28,7 @@
         setTimeout(() => { 
             component.set("v.pageProducts", helper.Paginate(component));
             component.set("v.displayText", helper.displayText(component));
+            component.set("v.subdivisionList", helper.getSubdivisionList(component));
             listDiv.classList.remove("rollup");
             listDiv.classList.add("rolldown"); 
         }, 600);
@@ -46,6 +47,7 @@
         setTimeout(() => { 
             component.set("v.pageProducts", helper.Paginate(component));
             component.set("v.displayText", helper.displayText(component));
+            component.set("v.subdivisionList", helper.getSubdivisionList(component));
             listDiv.classList.remove("rollup");
             listDiv.classList.add("rolldown"); 
         }, 600);
