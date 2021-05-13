@@ -17,7 +17,7 @@
                 <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
             </div>
             <div style="float:right;">
-                <lightning:button class="slds-m-top_small" type="submit" label="Submit Review" onclick="{!c.submitReview}"/>
+                <c:PalaceButton label="Submit" onclick="{!c.submitReview}"/>
             </div>
         </div>
         <!-- /Review Submission -->

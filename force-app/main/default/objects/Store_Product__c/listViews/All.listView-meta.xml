@@ -5,6 +5,7 @@
     <columns>Category__c</columns>
     <columns>Rating__c</columns>
     <columns>Price_Per_Unit__c</columns>
+    <columns>Star_Rating__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

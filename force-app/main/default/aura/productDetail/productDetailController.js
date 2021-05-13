@@ -3,7 +3,7 @@
 	handleApplicationEvent : function(component, event, helper) {
 		let theProduct = event.getParam("product");
         let strProd = JSON.stringify(theProduct);
-                
+        
         let rate = parseInt(theProduct.Star_Rating__c);
         component.set("v.ratingStar", rate);
         
@@ -24,9 +24,8 @@
     // fire addToCart event
     // current also hide away the component but that won't be necessary in final.
     addItem : function(component, event, helper){
-        let itemLine = component.get("v.theItemLine");
         component.set("v.theItemLine.Quantity__c", component.get("v.quantity"));
-        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"), itemLine, component.get("v.userContactID"));
+        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"), component.get("v.theItemLine"), component.get("v.userContactID"));
         component.set("v.toRender", false);
     }
 })
