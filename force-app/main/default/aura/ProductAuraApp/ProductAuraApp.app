@@ -1,5 +1,5 @@
 <aura:application extends="force:slds">
     <c:SearchBarCmp />
-    <c:ProductListCmp />
+    <c:SearchCategoryCmp />
     
 </aura:application>

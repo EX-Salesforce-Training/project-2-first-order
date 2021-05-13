@@ -3,7 +3,7 @@
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
     
     <div id = "holder">
-        <h1 class = "slds-text-heading_large">Top Items</h1>
+        <h1 class = "slds-text-heading_large">Trending Items</h1>
         <br />
         <div class = "productCarousel">
             <div id = "trendingCarousel" class = "carouselItems slds-grid slds-gutters_x-small">
@@ -11,12 +11,12 @@
                     <div class = "slds-col slds-size_1-of-3">
                         <c:Product product = "{!item}" productName = "{!item.Name}" 
                                    productRating = "{!item.Rating__c}" productPrice = "{!item.Price_Per_Unit__c}"
-                                   imgSize = "50%" maxWidth = "100%" />
+                                   maxHeight = "100%" />
                     </div>
                 </aura:iteration>
             </div>
         </div>
-        <c:PalaceButton iconName = "utility:chevronleft" title="Previous" onclick="{!c.prevSlide}" />
-        <c:PalaceButton iconName = "utility:chevronright" title="Next" onclick="{!c.nextSlide}" />
+        <lightning:button iconName = "utility:chevronleft" title="Previous" onclick="{!c.prevSlide}" />
+        <lightning:button iconName = "utility:chevronright" iconPosition = "right" title="Next" onclick="{!c.nextSlide}" />
     </div>
 </aura:component>

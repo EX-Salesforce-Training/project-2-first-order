@@ -13,7 +13,7 @@
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     
     <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
-    
+    <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
     
     <!--Pagination-->
     <aura:attribute name="pageNumber" type="Integer" default="1"/>
@@ -108,12 +108,11 @@
             </div>
         </div>
         
-        <!-- the map component -->
-        <div style="width:1000px;margin-top:100px">
-            <lightning:map 
-                           mapMarkers="{! v.mapMarkers }" 
-                           zoomLevel="{!v.zoomLevel}" />
-        </div>
+        <lightning:datatable data="{!v.mydata}"
+                             columns="{!v.mycolumns}"
+                             keyField="Id"
+                             hideCheckboxColumn="false"/>
+        
         
     </lightning:card>
 </aura:component>
