@@ -15,9 +15,9 @@ Gravida rutrum quisque non tellus orci ac auctor augue mauris. Risus nullam eget
                     default ="{'Id':'a0C5e000000U8m4EAC',
                               'Name':'Other New Stuff', 'Price_Per_Unit__c':30, 'Star_Rating__c':'4.5', 'Product_Description__c':'BLAH!'}"/>
     
-    <c:productDetail />
-    <c:Product product="{!v.product1}"/> 
-    <c:Product product="{!v.product2}"/>
+    <c:productDetail userContactId="0035e000003ILKtAAO"/>
+    <c:Product product="{!v.product1}" /> 
+    <c:Product product="{!v.product2}" />
     <c:starsRate number="3"/>
     <!-- <c:starRateButtons number="3"/> -->
 </aura:application>

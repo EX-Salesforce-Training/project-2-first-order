@@ -1,5 +1,17 @@
+.THIS.WriteSection{
+    border: 2px solid #E56997;
+}
 .THIS.ReadSection {
-    max-height:40rem; 
+    border: 2px solid #E56997;
+    max-height: 20rem; 
     overflow: scroll; 
     overflow-x: hidden;
+}
+.THIS.ReadSection .UserReview{
+    background-color: #66D2D6;
+    border: 2px solid #E56997;
+    border-radius: 5px;
+}
+.THIS.ReadSection .UserReview .content{
+    padding: 5px;
 }

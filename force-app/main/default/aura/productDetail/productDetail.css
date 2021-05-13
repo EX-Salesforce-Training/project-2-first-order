@@ -1,14 +1,15 @@
 .THIS .killSwitch {
     width: 100%;
 }
-
-.THIS .carouselStyle{
-    height: 30%;
-}
-
 .THIS .DetailTop{ 
+    
 }
-
+.THIS .DetailTop .Carousel{
+    background-color: #FBC740;
+}
+.THIS .DetailTop .DescriptionProtion{
+    border: 2px solid #E56997;
+}
 .THIS #nameBox{
     overflow-x: hidden;
 	min-height: 50px;

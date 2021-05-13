@@ -8,9 +8,14 @@
     <!-- fire event when user decide to buy the product -->
     <aura:registerEvent name="buyProduct" type ="c:addToCart"/>
     
+    <!-- INIT ATTRIBUTE -->
+    <!-- current user contact ID -->
+    <aura:attribute name="userContactID" type="String"/>
+    
     <!-- comes with the event attribute -->
     <aura:attribute name="theItem" type="Store_Product__c"/>
-
+    <!-- /INIT ATTRIBUTE -->
+    
     <!-- quantity of product that will be added to cart -->
     <aura:attribute name="quantity" type="Integer" default="1"/>
     
@@ -22,11 +27,10 @@
     <aura:attribute name="newReview" type="Review__c"/>
     
     <!-- update when event shows up to render the component, when the event received -->
-    <aura:attribute name="toRender" type="Boolean" default="false"/>
+    <aura:attribute name="toRender" type="Boolean" default="true"/>
     
     <!-- use to update the starsRate component -->
     <aura:attribute name="ratingStar" type="Integer"/>
-    
     
     <!-- use to render or unrender detail page -->
     <aura:if isTrue="{! v.toRender}">

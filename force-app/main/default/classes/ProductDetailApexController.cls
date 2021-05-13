@@ -1,6 +1,8 @@
 public class ProductDetailApexController {
+    // sp = store product that they are looking at
+    // cid = contact Id associate with the current user.
     @AuraEnabled
-    public static List<Review__c> getReviewList(ID sp){
+    public static List<Review__c> getReviewList(ID sp, ID cid){
         
         // list of all the review of the product
         List<Review__c> reviewList = [SELECT ID, Name, Comment__c, Rating__c, Contact__r.Name, Store_Product__c FROM Review__c WHERE Store_Product__c=:sp];
@@ -38,7 +40,6 @@ public class ProductDetailApexController {
     }
     @AuraEnabled
     public static List<Review__c> submitOrUpdateReview(Review__c re, ID sp){
-        
         upsert re;
         return [SELECT ID, Name, Comment__c, Rating__c, Contact__r.Name, Store_Product__c FROM Review__c WHERE Store_Product__c=:sp];
     }

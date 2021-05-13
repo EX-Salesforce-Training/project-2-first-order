@@ -1,5 +1,5 @@
 <!-- component allow for viewing current product reviews and leaving a review on the current product. -->
-<aura:component controller="ApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
+<aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
     <!-- the outer component should pass in the list of reviews and the current user review -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
@@ -11,7 +11,7 @@
     <!-- Main Content -->
     <aura:if isTrue="{!v.renderer}">
         <!-- Review Submission -->
-        <div class="slds-box slds-scrollable">
+        <div class="WriteSection slds-box slds-scrollable">
             <div class="row">
                 <lightning:input type="Integer" label="Rating" value="{!v.newReview.Rating__c}"/>
                 <lightning:input type="String" label="Comment" value="{!v.newReview.Comment__c}"/>
@@ -26,12 +26,16 @@
         <div class="ReadSection slds-box">
             <aura:iteration items="{! v.reviewList}" var="review">
                 <br/>
-                <h1>
-                    <lightning:icon iconName="action:user" alternativeText="User" title="user" />
-                    <lightning:outputField fieldName="Auto_Number__c" />
-                    {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
-                </h1>
-                <p> {!review.Comment__c} </p>
+                <div class="UserReview">
+                    <div class="content">
+                        <h1>
+                            <lightning:icon iconName="action:user" alternativeText="User" title="user" />
+                            <lightning:outputField fieldName="Auto_Number__c" />
+                            {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
+                        </h1>
+                        <p> {!review.Comment__c} </p>
+                    </div>
+                </div>
                 <br/>
             </aura:iteration>
         </div>
