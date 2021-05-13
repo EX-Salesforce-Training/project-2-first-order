@@ -19,7 +19,7 @@
     // send the item to cart, 
     addItemToCart : function(component, theProduct, quantity){
         let buyEvent = $A.get("e.c:addToCart");
-        buyEvent.setParams({"product": theProduct});
+        buyEvent.setParams({"product": theProduct, "quantity": quantity});
         buyEvent.fire();
     }
 })
