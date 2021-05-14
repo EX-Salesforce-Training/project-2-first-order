@@ -1,7 +1,9 @@
 <aura:component controller = "MasterController">
     <aura:attribute name = "pListOn" type = "Boolean" default = "false" />
+    <aura:attribute name = "dListOn" type = "Boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
     <aura:handler event="c:SearchEvent" action="{!c.turnOnList}" />
+    <aura:handler event="c:ProductSelected" action="{!c.turnOnDetails}" />
     
     <div id = "page-container">
         <div id = "page-header">
@@ -17,6 +19,10 @@
         <div id = "product-view">
             <div id = "search-bar">
                 <c:SearchBarCmp />
+            </div>
+            <div id = "productview" class = "hidden">
+                <c:PalaceButton iconName = "utility:chevronleft" label = "Back" Title = "Back" onclick = "{!c.turnOnList}" />
+                <c:productDetail aura:id = "p-detail" />
             </div>
             <div id = "productlist" class = "hidden">
                 <c:ProductList aura:id = "p-list" />

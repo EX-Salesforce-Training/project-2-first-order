@@ -1,20 +1,23 @@
 .THIS.WriteSection{
-    border: 2px solid #E56997;
-    border-radius: 5px;
+    border: 0;
 }
 .THIS.ReadSection {
-    border: 2px solid #E56997;
+    border: 0;
     max-height: 20rem; 
     overflow: scroll; 
     overflow-x: hidden;
-    border-radius: 5px;
 }
 .THIS.ReadSection .UserReview{
     background-color: #66D2D6;
-    border: 2px solid #E56997;
-    border-radius: 5px;
 }
 .THIS.ReadSection .UserReview .content{
     padding: 5px;
+    border: 0;
     border-radius: 5px;
+}
+
+.THIS.dotted-divider {
+    border-top: 20px dotted #bd97cb;
+    margin: 0 40%;
+    height: 0;
 }
