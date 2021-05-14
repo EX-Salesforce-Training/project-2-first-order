@@ -2,7 +2,6 @@
 <!-- product update by the event -->
 <aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
-    
     <!-- handle the event when a user click on a product in either the trending or list component -->
     <aura:handler event="c:ProductSelected" action="{!c.handleApplicationEvent}" includeFacets="true"/>
     
@@ -11,7 +10,9 @@
     
     <!-- INIT ATTRIBUTE -->
     <!-- current user contact ID -->
-    <aura:attribute name="userContactID" type="String" />
+
+    <aura:attribute name="userContactID" type="String" default="0035e000003ILKtAAO"/>
+
     
     <!-- comes with the event attribute -->
     <aura:attribute name="theItem" type="Store_Product__c"/>
@@ -33,14 +34,19 @@
     <!-- use to update the starsRate component -->
     <aura:attribute name="ratingStar" type="Integer" default="5"/>
     
+    <!-- show notification messages -->
+    <lightning:notificationsLibrary aura:id="notifier"/>
+    
+
     <!-- use to render or unrender detail page -->
-    <aura:if isTrue="{! v.toRender}">
         <div class="TheBackground">
             <div class="slds-align_absolute-center"  > 
+
                 <!-- Kill switch
                 <lightning:button class="killSwitch" variant="destructive" title="Destructive action" 
                                   iconName="utility:chevronup" onclick="{! c.hideDetail }"/>
                     /Kill switch -->
+
             </div>
             
             <div class="DetailTop">
@@ -96,22 +102,23 @@
                         <br/>
                         <br/>
                         <!-- Reviews -->
+
                         <h1 class = "slds-text-heading_large">Reviews</h1>
                         <div id = "review-section">
                         	<c:productReview reviewList="{!v.reviewList}" newReview="{!v.newReview}" theItem="{!v.theItem}"/>
                         </div>
+
                         <!-- /Reviews -->
                         <br/>
                         <br/>
                     </lightning:layoutItem>
                 </lightning:layout> 
+
             </div> 
             <div class = "divider-holder">
                 <hr class = "divider-shadow" />
                 <hr class = "list-divider" />
             </div>
         </div> 
-        
-    </aura:if>
     
 </aura:component>

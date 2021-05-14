@@ -7,14 +7,18 @@
     <aura:attribute name="theItem" type="Store_Product__c"/>
     
     <aura:attribute name="renderer" type="Boolean" default="true"/>
-    
+
+    <lightning:notificationsLibrary aura:id="notifier"/>
+
     <!-- Main Content -->
     <aura:if isTrue="{!v.renderer}">
         <!-- Review Submission -->
         <div class="WriteSection slds-box slds-scrollable">
             <div class="row">
+
                 <h1>Leave Us A Rating!</h1>
                 <c:Rating change="{!c.ratingChange}" />
+
                 <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..."/>
             </div>
             <div style="float:right;">
@@ -22,10 +26,12 @@
             </div>
         </div>
         <!-- /Review Submission -->
+
         <hr class = "dotted-divider" />
         <!-- Review View -->
         <div class="ReadSection slds-box">
             <h1 class = "slds-text-heading_medium">Customer Reviews</h1>
+
             <aura:iteration items="{! v.reviewList}" var="review">
                 <br/>
                 <div class="UserReview">
