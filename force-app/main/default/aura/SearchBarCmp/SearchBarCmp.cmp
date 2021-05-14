@@ -8,9 +8,9 @@
     <lightning:layout>  
         <lightning:layoutItem  class= "slds-p-around_large slds-size_12-of-12">         
             <lightning:input aura:id="searchField"        
-                             label="Search for Name"        
+                             label="Search"        
                              value="{!v.searchKeyword}"          
-                             placeholder="Search Opportunities"
+                             placeholder="Bounce House, Balloons, etc"
                              onchange = "{!c.myAction}"/>   
         </lightning:layoutItem>
     </lightning:layout>

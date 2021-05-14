@@ -19,19 +19,24 @@
         let allProducts = component.get("v.allProducts");
         
         let returnString = "Displaying Products " + (currPage * pageSize + 1) + 
-            " to " + ((currPage + 1) * pageSize) + " of " + allProducts.length;
+            " to " + Math.min((currPage + 1) * pageSize, allProducts.length) + " of " + allProducts.length;
         return returnString;
     },
     
     getSubdivisionList : function(component) {
+        let allProducts = component.get("v.allProducts");
+        let currPage = component.get("v.currPage");
         let pageSize = component.get("v.pageSize");
         let cardsPerRow = component.get("v.numCols");
-        console.log(cardsPerRow);
         let sdList = [];
-        for (let i = 0; i < pageSize; i += cardsPerRow) {
+        
+        let max = Math.min(pageSize, allProducts.length - pageSize * currPage);
+        console.log(max);
+        for (let i = cardsPerRow; i < max - 1; i += cardsPerRow) {
             sdList.push(i);
         }
-
+        sdList.push(max);
+		console.log(sdList);
         return sdList;
     }
 })
