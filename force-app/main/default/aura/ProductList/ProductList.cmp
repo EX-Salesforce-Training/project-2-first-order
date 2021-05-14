@@ -6,7 +6,7 @@
     <aura:attribute name = "currPage" type = "Integer" default = "0" />
     <aura:attribute name = "displayText" type = "String" />
     <aura:attribute name = "pageSize" type = "Integer" default = "10" />
-    <aura:handler event="c:SearchEvent" action="{!c.repopulate}" />
+    <aura:handler event = "c:SearchEvent" action="{!c.repopulate}" />
     
     <div id = "component-body">
         <div class = "header-holder">

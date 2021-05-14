@@ -10,18 +10,20 @@
             let state = response.getState();
             
             if(state === "SUCCESS"){
+                /*
                 component.find('notifier').showToast({
                     "variant" : "success",
                     "title" : "Review Saved!",
                     "message" : "Thank you for your time."
-                });
+                });*/
                 component.set("v.reviewList", response.getReturnValue());
             }else{
+                /*
                 component.find('notifier').showToast({
                     "variant" : "error",
                     "title" : "Trouble Submitting Review.",
                     "message" : "Sorry, please try again."
-                });
+                });*/
             }
             
         });

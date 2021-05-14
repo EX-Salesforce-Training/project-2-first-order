@@ -1,16 +1,18 @@
 <aura:component >
 
-    <aura:attribute name="colorOn" type="String" default="#F6BF25"/>
-    <aura:attribute name="colorOff" type="String" default="#C9C9C4"/>
-    <aura:attribute name="rating" type="integer" default="0"/>
-    <aura:attribute name="strokeWidth" type="integer" default="0"/>
-    <aura:attribute name="stroke" type="String" default="none"/>
+    <aura:attribute name="colorOn" type="String" default="#bd97cb"/>
+    <aura:attribute name="colorOff" type="String" default="#ffffff"/>
+    <aura:attribute name="rating" type="integer" default="5"/>
+    <aura:attribute name="strokeWidth" type="integer" default="2"/>
+    <aura:attribute name="stroke" type="String" default="#bd97cb"/>
+    <aura:attribute name = "editable" type = "Boolean" default = "True" />
     
     <aura:registerEvent name="change" type="c:RatingChangeEvent"/>
+    <aura:method name = "update" action = "{!c.onRender}" />
     
-    <div aura:id="svg_content" onclick="{!c.starClick}">
+    <div aura:id="svg_content" class = "container" onclick="{!c.starClick}">
 		<![CDATA[
-            <svg viewBox="0 0 438 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <svg viewBox="-2 -2 445 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <path d="M34.4917825,1.623 C35.2967825,-0.541 36.6147825,-0.541 37.4237825,1.623 L44.3607825,20.247 C45.1657825,22.412 47.7137825,24.262 50.0177825,24.36 L69.8787825,25.203 C72.1847825,25.301 72.5917825,26.555 70.7827825,27.991 L55.2137825,40.344 C53.4047825,41.781 52.4317825,44.773 53.0517825,46.997 L58.3867825,66.143 C59.0047825,68.368 57.9397825,69.144 56.0157825,67.868 L39.4547825,56.877 C37.5307825,55.601 34.3817825,55.601 32.4597825,56.877 L15.8987825,67.868 C13.9747825,69.144 12.9087825,68.368 13.5277825,66.143 L18.8627825,46.997 C19.4807825,44.773 18.5087825,41.781 16.6987825,40.344 L1.12978251,27.991 C-0.680217494,26.555 -0.270217494,25.301 2.03578251,25.203 L21.8947825,24.36 C24.2007825,24.262 26.7467825,22.412 27.5537825,20.247 L34.4917825,1.623" fill="#999999" stroke="#888888" stroke-width="999"></path>
                     <path d="M126.490359,1.623 C127.296359,-0.541 128.615359,-0.541 129.422359,1.623 L136.360359,20.247 C137.166359,22.412 139.713359,24.262 142.019359,24.36 L161.878359,25.203 C164.184359,25.301 164.591359,26.555 162.783359,27.991 L147.213359,40.344 C145.404359,41.781 144.431359,44.773 145.052359,46.997 L150.386359,66.143 C151.004359,68.368 149.939359,69.144 148.015359,67.868 L131.454359,56.877 C129.531359,55.601 126.383359,55.601 124.459359,56.877 L107.898359,67.868 C105.974359,69.144 104.907359,68.368 105.526359,66.143 L110.861359,46.997 C111.480359,44.773 110.507359,41.781 108.700359,40.344 L93.1293589,27.991 C91.3203589,26.555 91.7293589,25.301 94.0353589,25.203 L113.894359,24.36 C116.200359,24.262 118.746359,22.412 119.553359,20.247 L126.490359,1.623" fill="#999999" stroke="#888888" stroke-width="999"></path>

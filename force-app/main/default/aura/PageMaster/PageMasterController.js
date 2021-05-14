@@ -14,8 +14,7 @@
 	turnOnList : function(component, event, helper) {
 		let pList = document.querySelector("#productlist");
         let dList = document.querySelector("#productview");
-        console.log(event.getName());
-        if(component.get("v.dListOn")) {
+        if(component.get("v.dListOn") && component.get("v.pListOn")) {
             dList.classList.add("hide");
             component.set("v.dListOn", false);
             setTimeout(() => { 
@@ -26,14 +25,28 @@
             }, 500);
         }
         else if (!component.get("v.pListOn") && event.getName() == "click") {
-            component.set("v.dListOn, false");
+            component.set("v.dListOn", false);
+        	console.log(event.getName());
             dList.classList.add("hide");
         }
         else {
-            component.set("v.pListOn", true);
+                
+            if (!component.get("v.dListOn")) {
+                pList.classList.remove("hidden");
+                pList.classList.remove("hide");
+        		pList.classList.add("shown");
+            	component.set("v.pListOn", true);
+            }
+            else {
+                dList.classList.add("hide");
+                setTimeout(() => { 
+       				pList.classList.remove("hidden");
+                	pList.classList.remove("hide");
+        			pList.classList.add("shown");
+            		component.set("v.pListOn", true);
+            	}, 500);
+            }
         	component.set("v.dListOn", false);
-        	pList.classList.remove("hidden");
-        	pList.classList.add("shown");    
         }
 	},
     
@@ -51,7 +64,6 @@
         }
         else {
             component.set("v.dListOn", true);
-        	component.set("v.dListOn", false);
         	dList.classList.remove("hidden");
         	dList.classList.remove("hide");
         	dList.classList.add("shown");    

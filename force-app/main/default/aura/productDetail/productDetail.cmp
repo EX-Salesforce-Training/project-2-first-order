@@ -73,7 +73,7 @@
                                 <h1 > {!v.theItem.Name} </h1>
                             </div>
                             <br/>
-                            <c:starsRate number="{!v.ratingStar}"/>
+                            <c:Rating aura:id = "prod-rating" rating="{!v.ratingStar}" editable = "false" />
                             <br/>
                             <div id="priceBox">
                                 <lightning:formattedNumber value="{!v.theItem.Price_Per_Unit__c}" style="currency"/>
