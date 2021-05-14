@@ -1,14 +1,21 @@
+<!-- component that make star go yellow depends on the attribute number -->
 <aura:component >
     <aura:attribute name="product" type="Store_Product__c" />
     <aura:attribute name="number" type="Integer" default="5"/>
+    <!-- string use to change the variant-->
+    <!-- inverse variant have no color, but inverse warning does, and you can change its color in the style if you don't want yellow-->
     <aura:attribute name="starColor1" type="String" default="Inverse"/>
     <aura:attribute name="starColor2" type="String" default="Inverse"/>
     <aura:attribute name="starColor3" type="String" default="Inverse"/>
     <aura:attribute name="starColor4" type="String" default="Inverse"/>
     <aura:attribute name="starColor5" type="String" default="Inverse"/>
     
+    <!-- init set the stars when component is first created -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!-- change handler for when rating on main page changes -->
+    <aura:handler name="change" value="{!v.number}" action="{!c.numberChange}"/>
     
+    <!-- Main Content -->
     <div class="starBackground">
         <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor1}"/>
         <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor2}"/>
@@ -17,4 +24,5 @@
         <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor5}"/>
     
     </div>
+    <!-- /Main Content -->
 </aura:component>

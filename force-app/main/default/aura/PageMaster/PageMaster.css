@@ -16,12 +16,29 @@
     padding: 10%;
 }
 
+.THIS #search-bar {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 3px solid #66d2d6;
+}
 
-.THIS .side-bar{
+.THIS .side-bar-content-holder {
+    border-radius: 5px;
+    background: white;
+    padding: 1em;
+    height: 100%;
+}
+
+.THIS .side-bar {
     display: inline-block;
+    vertical-align: top;
     width: 20%;
     height: 100%;
     padding: 1em;
+    position: sticky;
+    top: 0;
 }
 
 .THIS #product-view {

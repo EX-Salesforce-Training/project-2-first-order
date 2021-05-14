@@ -8,6 +8,6 @@
         component.set("v.pListOn", true);
         pList.classList.remove("hidden");
         pList.classList.add("shown");
-        component.find("p-list").set("v.numCols", 3);
+        //component.find("p-list").set("v.numCols", 3);
 	}
 })
