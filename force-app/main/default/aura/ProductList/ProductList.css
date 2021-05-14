@@ -1,0 +1,76 @@
+@keyframes rollup {
+    100% {
+        -webkit-transform: translateY(-100%);
+    }
+}
+
+@keyframes rolldown {
+    0% {
+        -webkit-transform: translateY(-100%);
+    }
+    100% {
+        -webkit-transform: tranlateY(0%);
+    }
+}
+
+.THIS#component-body {
+    padding: 1em;
+}
+
+.THIS .header-holder {
+    padding-left: 1em;
+}
+
+.THIS #list-holder {
+    overflow: hidden;
+}
+
+.THIS .custom-gutters {
+    padding: 1em;
+}
+
+.THIS #products {
+    position: relative;
+}
+
+.THIS .rollup {
+    animation: rollup .5s forwards;
+}
+
+.THIS .rolldown {
+    animation: rolldown .5s forwards;
+}
+
+.THIS .button-holder {
+    display: flex;
+    justify-content: space-between;
+}
+
+.THIS .button-left {
+    text-align: left;
+}
+
+.THIS .button-right {
+    text-align: right;
+}
+
+.THIS .divider-holder {
+    position: relative;
+    margin: 2em 0;
+}
+
+.THIS .list-divider {
+    position: relative;
+    height: 0;
+    border-top: 30px dotted #fbc740;
+    margin: 0 40% 1em;
+}
+
+.THIS .divider-shadow {
+    position: absolute;
+    width: 20%;
+    border-top: 30px dotted #bd97cb;
+    margin: 0 40%;
+    top: 2px;
+    left: 2px;
+}

@@ -1,3 +1,4 @@
 <aura:application extends="force:slds">
-    <c:TrendingItems />
+
+    <c:PageMaster />
 </aura:application>
