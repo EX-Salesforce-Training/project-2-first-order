@@ -5,18 +5,35 @@ public class ProductDetailApexController {
     public static List<Review__c> getReviewList(ID sp, ID cid){
         
         // list of all the review of the product
-        List<Review__c> reviewList = [SELECT ID, Name, Comment__c, Rating__c, Contact__r.Name, Store_Product__c FROM Review__c WHERE Store_Product__c=:sp];
+        List<Review__c> reviewList = [SELECT ID, Name, Comment__c, Rating__c, Contact__r.Name, Store_Product__c, Contact__c
+                                      FROM Review__c 
+                                      WHERE Store_Product__c=:sp ORDER BY Rating__c, LastModifiedDate DESC];
         
-        // use to get the current user contact
-        // ID currentConID = [SELECT ID, ContactID FROM User WHERE Id=:UserInfo.getUserId() Limit 1].contactId;
-        
+        // list of lists of review use to sort reviews
+        List<List<Review__c>> returnList = new List<List<Review__c>>();
         Review__c currentUserReview;
-        
-        // use 0035e000003ILKtAAO to test for a user that have a review; Jack
-        // use 0035e000003ILL8AAO to test for a user that doesn't have a review; Avia
-        ID reviewYes = '0035e000003ILKtAAO';
-        ID reviewNo =  '0035e000003ILL8AAO';
-        
+        List<Review__c> currentStarList = new List<Review__c>();
+        Integer lastRating = 5;
+        /*
+        for(Integer i = reviewList.size(); i >= 0; i--){
+            
+            // check if the current review is still from the same rating group
+            if(reviewList[i].Rating__c != lastRating){
+                
+                // add currentStarList into return list
+                returnList.add(currentStarList);
+                
+                // then make a new one for the new rating group
+                currentStarList = new List<Review__c>();
+                
+            }
+            
+            // add current review
+            currentStarList.add(reviewList[i]);
+            
+        }
+        */
+      	
         // append the current user review to the end of the list, so they can edit it.
         try{
             
