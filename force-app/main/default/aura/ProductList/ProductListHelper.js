@@ -31,12 +31,10 @@
         let sdList = [];
         
         let max = Math.min(pageSize, allProducts.length - pageSize * currPage);
-        console.log(max);
         for (let i = cardsPerRow; i < max - 1; i += cardsPerRow) {
             sdList.push(i);
         }
         sdList.push(max);
-		console.log(sdList);
         return sdList;
     }
 })
