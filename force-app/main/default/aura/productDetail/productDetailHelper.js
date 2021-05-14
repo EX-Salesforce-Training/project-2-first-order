@@ -15,7 +15,13 @@
                 // now store the rest of the review, which includes the current user review
                 component.set("v.reviewList", myList);
             }else{
-                console.log("Couldn\'t get the reviews...");
+
+                component.find('notifier').showToast({
+                    "variant" : "error",
+                    "title" : "We couldn't get review for the item.",
+                    "message" : "Please try refreshing the page."
+                });
+
             }
         });
         $A.enqueueAction(action);

@@ -29,7 +29,7 @@
     background-color: #FBC740;
 }
 .THIS .DetailTop .DescriptionProtion{
-    border: 2px solid #E56997;
+    border: 2px solid #bd97cb;
     border-radius: 5px;
 }
 .THIS #nameBox{
@@ -73,4 +73,30 @@
 }
 .THIS ::-webkit-scrollbar-thumb:hover {
     background-color: #a8bbbf;
+}
+
+.THIS #review-section {
+    border: 2px solid #bd97cb;
+    border-radius: 5px;
+}
+
+.THIS .divider-holder {
+    position: relative;
+    margin: 2em 0;
+}
+
+.THIS .list-divider {
+    position: relative;
+    height: 0;
+    border-top: 30px dotted #fbc740;
+    margin: 0 40% 1em;
+}
+
+.THIS .divider-shadow {
+    position: absolute;
+    width: 20%;
+    border-top: 30px dotted #bd97cb;
+    margin: 0 40%;
+    top: 2px;
+    left: 2px;
 }

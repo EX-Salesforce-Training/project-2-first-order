@@ -17,7 +17,7 @@ public class TrendingListController extends ItemUiHelper {
 
     @AuraEnabled
     public static List<Store_Product__c> GetProducts() {
-        return [SELECT Id, Name, Price_Per_Unit__c, Rating__c FROM Store_Product__c];
+        return [SELECT Id, Name, Price_Per_Unit__c, Rating__c FROM Store_Product__c LIMIT 10];
     }
 
     public PageReference CheckSelected(){

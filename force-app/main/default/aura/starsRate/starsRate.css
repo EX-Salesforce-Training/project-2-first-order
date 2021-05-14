@@ -17,7 +17,6 @@
 .THIS.starBackground{
     box-sizing: content-box;
     background-color: #FBC740;
-    border: 2px solid #E56997;
     border-radius: 25px;
     display: flex;
     justify-content: center;

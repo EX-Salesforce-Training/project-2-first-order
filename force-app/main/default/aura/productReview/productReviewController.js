@@ -19,5 +19,10 @@
     },
     onclick5 : function(component, event, helper){
         component.set("v.newReview.Rating__c", 5);
+    }, 
+    
+    ratingChange : function(cmp, event, helper) {
+        let rating = event.getParam("rating");
+        cmp.set("v.newReview.Rating__c",rating);
     }
 })
