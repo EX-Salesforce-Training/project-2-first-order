@@ -37,7 +37,7 @@
                                                         ]"/>
     
     <!--Slider-->
-    <aura:attribute name="price" type="Integer" default="300"/>
+    <aura:attribute name="price" type="Integer" default="100"/>
     <!--Rating-->
     <aura:attribute name="newRating" type="String"/> 
     
@@ -49,14 +49,14 @@
     
     
     <!--Rating Change-->
-    <div>
+    <div style="width:350px;">
         <c:Rating change="{!c.ratingChange}"/>
     </div>
     
     <!--Check Box filter-->
     <!--<ui:inputCheckbox class="slds-checkbox-button" aura:id="checkbox" label=" " change="{!c.onCheck}"/>-->
-    <div class="checkbox-group"> 
-        <lightning:checkboxGroup tabindex= "" class="slds-checkbox_button my-cb" name="CheckboxGroup"
+    <div class="slds-box slds-theme_default"> 
+        <lightning:checkboxGroup tabindex= "" class="slds-checkbox_button my-cb" style='padding-bottom: 50px;' name="CheckboxGroup"
                                  aura:id="checkField" 
                                  label="Checkbox Group"
                                  value="{! v.cbValue}"
@@ -66,8 +66,11 @@
     <!--Slider-->
     <lightning:slider label="Price" step="5" size="small" value="{!v.price}"/>
     
-    <c:PalaceButton label="Search" title="Search" onclick="{!c.searchOpp}"/>
-    
+    <lightning:button variant="brand" label="Search" title="Primary action" class="slds-m-left_x-small" onclick="{!c.searchOpp}"/>
+    <lightning:datatable data="{!v.mydata}"
+                         columns="{!v.mycolumns}"
+                         keyField="Id"
+                         hideCheckboxColumn="false"/>
     
     
 </aura:component>

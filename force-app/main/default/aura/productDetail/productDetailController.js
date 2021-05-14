@@ -14,7 +14,6 @@
         
         // grab all the reviews for the current product, along with the current user review if they have any.
         helper.getReviews(component, component.get("v.theItem").Id, component.get("v.userContactID"));
-        component.set("v.toRender", false);
         component.set("v.toRender", true);
 	},
     // hide away the detail component use when the user want to go back to main page without interacting with add to cart
@@ -26,6 +25,10 @@
     addItem : function(component, event, helper){
         component.set("v.theItemLine.Quantity__c", component.get("v.quantity"));
         helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"), component.get("v.theItemLine"), component.get("v.userContactID"));
-        component.set("v.toRender", false);
+        component.find('notifier').showToast({
+            "variant" : "success",
+            "title" : "Product was sent to your cart.",
+            "message" : "Thank you for your interest."
+        });
     }
 })

@@ -1,6 +1,6 @@
 <aura:component >
 
-    <aura:attribute name="colorOn" type="String" default="#fbc740"/>
+    <aura:attribute name="colorOn" type="String" default="#F6BF25"/>
     <aura:attribute name="colorOff" type="String" default="#C9C9C4"/>
     <aura:attribute name="rating" type="integer" default="0"/>
     <aura:attribute name="strokeWidth" type="integer" default="0"/>

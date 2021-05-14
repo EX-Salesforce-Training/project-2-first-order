@@ -8,6 +8,8 @@
     
     <aura:attribute name="renderer" type="Boolean" default="true"/>
     
+    <lightning:notificationsLibrary aura:id="notifier"/>
+    
     <!-- Main Content -->
     <aura:if isTrue="{!v.renderer}">
         <!-- Review Submission -->
