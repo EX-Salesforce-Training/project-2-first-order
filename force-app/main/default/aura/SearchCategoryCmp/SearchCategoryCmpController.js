@@ -12,7 +12,7 @@
     //Catching ratingEvent     
     ratingChange : function(cmp, event, helper) {
         let rating = event.getParam("rating");
-        cmp.set("v.newRating",rating);
+        cmp.set("v.newRating", rating);
     },
     
     //Catching searchBarEvent

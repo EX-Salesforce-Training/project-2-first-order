@@ -7,6 +7,15 @@
     }
 }
 
+@keyframes hidePage {
+    0% {
+        max-height: 100vh;
+    }
+    100% {
+        max-height: 0;
+    }
+}
+
 .THIS#page-container {
     background: #66d2d6;
 }
@@ -55,6 +64,11 @@
 .THIS .shown {
     overflow: hidden;
     animation: showPage 2s;
+}
+
+.THIS .hide {
+    overflow: hidden;
+    animation: hidePage .5s forwards;
 }
 
 .THIS .footer {
