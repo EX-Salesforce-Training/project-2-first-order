@@ -18,7 +18,9 @@ public class SearchCategoryController {
  		String searchkey= String.isBlank (searchKeyWord) ? '%%' : '%'+searchKeyword+'%';
                                                      
         if(cbFilter.isEmpty()){
-			 List<Store_Product__c> pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c FROM Store_Product__c
+			 List<Store_Product__c> pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,
+                                            Rental_Start__c, Rental_End__c
+                    FROM Store_Product__c
                     WHERE Name LIKE : searchkey
                     AND	  Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt                        
@@ -26,7 +28,9 @@ public class SearchCategoryController {
                           ];  
          	return pros;
         }
-            List<Store_Product__c> pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c FROM Store_Product__c
+            List<Store_Product__c> pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,
+                                            Rental_Start__c, Rental_End__c 
+                    FROM Store_Product__c
                     WHERE Name LIKE : searchkey
                     AND   Category__c IN:cbFilter
                     AND   Price_Per_Unit__c <= : price

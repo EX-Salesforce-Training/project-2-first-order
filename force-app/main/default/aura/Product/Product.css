@@ -27,6 +27,10 @@
     color: black;
 }
             
+.THIS .rating-holder {
+    padding: 0 10%;            
+}
+            
 .THIS #product-image {
     margin: auto;
     width: var(--imgSize);

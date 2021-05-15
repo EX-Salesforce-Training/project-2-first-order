@@ -1,6 +1,6 @@
 .THIS.starBackground .star {
     padding: 4px;
-    margin: auto;
+    stroke: #bd97cb;
 }
 
 /*
@@ -11,13 +11,13 @@
  * then just use the $A.util.addClass/removeClass in js controller to switch out add or remove the class of an element.
 */
 .THIS.starBackground .slds-icon-text-warning{
-    fill: yellow;
+    fill: #bd97cb;
 }
 
 .THIS.starBackground{
     box-sizing: content-box;
-    background-color: #FBC740;
-    border-radius: 25px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
+    padding: 0 20%;
 }

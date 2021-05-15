@@ -7,6 +7,7 @@
 }
 .THIS .DetailTop .Carousel{
     background-color: #FBC740;
+    border: 0;
     border-radius: 5px;
 }
 .THIS .DetailTop .Carousel .slds-carousel__content{
@@ -14,19 +15,19 @@
 }
 
 .THIS .DetailTop .Carousel .slds-carousel__indicator-action{
-    border: 2px solid #E56997;
+    border: 2px solid #bd97cb;
 }
 .THIS .DetailTop .Carousel .slds-carousel__indicator-action:active{
-    background: #FBC740;
-    background-color: #FBC740;
+    background: #bd97cb;
+    background-color: #bd97cb;
 }
 .THIS .slds-carousel__indicator-action.slds-is-active {
-    background: #FBC740;
-    background-color: #FBC740;
+    background: #bd97cb;
+    background-color: #bd97cb;
 }
 .THIS .slds-carousel__indicator-action.slds-is-active:hover{
-    background: #FBC740;
-    background-color: #FBC740;
+    background: #bd97cb;
+    background-color: #bd97cb;
 }
 .THIS .DetailTop .DescriptionProtion{
     border: 2px solid #bd97cb;
