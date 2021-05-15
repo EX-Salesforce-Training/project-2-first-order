@@ -9,7 +9,7 @@
     
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:handler name="change" value="{!v.number}" action="{!c.numberChange}"/>
-                  
+    
     <div class="starBackground">
         <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor1}"/>
         <lightning:icon class="star" iconName="utility:favorite" alternativeText="star" title="star" variant="{!v.starColor2}"/>
