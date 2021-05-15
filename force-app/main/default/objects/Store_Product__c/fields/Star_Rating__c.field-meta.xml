@@ -3,7 +3,7 @@
     <fullName>Star_Rating__c</fullName>
     <description>The average rating, use for star rating.</description>
     <externalId>false</externalId>
-    <formula>Sum_of_Ratings__c / Number_of_Reviews__c</formula>
+    <formula>FLOOR( Rating__c / 20 )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Star Rating</label>
     <precision>18</precision>

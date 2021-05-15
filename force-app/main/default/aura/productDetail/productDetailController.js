@@ -7,6 +7,8 @@
         let rate = parseInt(theProduct.Star_Rating__c);
         component.set("v.ratingStar", rate);
         
+        component.find("prod-rating").update();
+        
         // set theItem with the StoreProduct that arive from the event
         component.set("v.theItem", theProduct);
         // set theItemLine with the StoreProduct Id.

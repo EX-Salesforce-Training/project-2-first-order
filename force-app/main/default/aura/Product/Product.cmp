@@ -8,15 +8,17 @@
 
     <aura:html tag="style">
         :root {
-        	--imgSize: {!v.imgSize};
-        	--maxWidth: {!v.maxWidth};
+        --imgSize: {!v.imgSize};
+        --maxWidth: {!v.maxWidth};
         }
     </aura:html>
 
     <div id = "product-holder" onclick="{!c.productSelected}">
         <img id = "product-image" src = "{!v.productImage}" />
         <p id = "product-name">{!v.product.Name}</p>
-        <p class = "details">{!v.product.Start_Rating__c}</p>
+        <div class = "rating-holder" >
+            <c:Rating rating = "{!v.product.Star_Rating__c}" editable = "false" />
+        </div>
         <p class = "details">
             $<lightning:formattedNumber value="{!v.product.Price_Per_Unit__c}" style="decimal" minimumFractionDigits="2"/>
         </p>
