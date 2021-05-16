@@ -1,6 +1,7 @@
-<aura:component>
+<aura:component controller="ShoppingCartApexController" implements="flexipage:availableForAllPageTypes">
    <!-- define a collection attribute named cartList to hold items we got from add to cart event -->
    <aura:attribute name="cartList" type="Store_Product__c[]"/>
+    <aura:attribute name="qtyList" type="Integer[]" />
   <!-- set event handler for add to cart event, event defined in danny's productDetail.cmp -->
    <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
 
@@ -11,8 +12,14 @@
       <hr/>
       <div id="productsInCart">
         <aura:iteration items = "{!v.cartList}" var="product">
-              <p>"{!v.product.Name}" + "{!v.product.Price_Per_Unit}</p>
+             {!product.Name}{!product.Price_Per_Unit}
+          </aura:iteration>
+         <aura:iteration items = "{!v.qtyList}" var="qty">
+          	{!qty}
           </aura:iteration>
       </div>
+       <c:CartCheckout/>
+       <c:PalaceButton label="checkout"/>
+       <c:PalaceButton label="Finish" onclick="{!c.checkoutCart}"/>
    </div>
 </aura:component>

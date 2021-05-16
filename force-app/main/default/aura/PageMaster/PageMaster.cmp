@@ -30,6 +30,7 @@
             <c:TrendingItems />
         </div>
         <div class="side-bar">
+            <c:ShoppingCart/>
         </div>
             </div>
         
