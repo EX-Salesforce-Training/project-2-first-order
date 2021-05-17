@@ -3,7 +3,7 @@ public class SearchCategoryController {
     public static List <Store_Product__c> getPro(Integer pageSize, Integer pageNumber,Integer price,
                                                  String rating,String searchKeyword,String [] cbFilter, Boolean rental) {
         
-        System.debug(rental);                                             
+        //System.debug(pageSize+pageNumber+price+rating+searchKeyword+cbFilter+rental);                                             
         //convert rating
         Integer ratingInt = 5;
        	If(!String.isBlank(rating)){
@@ -43,7 +43,7 @@ public class SearchCategoryController {
                           LIMIT :pageSize OFFSET :offset
                           ];            
         }
-           
+    //System.debug(pros);      
  	return pros;
     }
     
