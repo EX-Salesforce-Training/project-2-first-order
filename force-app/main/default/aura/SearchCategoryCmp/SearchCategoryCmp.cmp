@@ -52,6 +52,7 @@
     
     <!--////////////////////////////////////////// Component Layout ///////////////////////////////////////-->
     
+    <h1 class = "filter-heading">Search Filters</h1>
     
     <!--Rating Change-->
     <div>
