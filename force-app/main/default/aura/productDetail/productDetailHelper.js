@@ -6,16 +6,12 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === "SUCCESS"){
-                let myList = response.getReturnValue();
-                // set the new review to the last thing in the list
-                // that is where we store this user review of this product
-                component.set("v.newReview", myList[myList.length -1]);
-                // kill the last review because we only need it to update the current user review
-                myList.pop();
-                // now store the rest of the review, which includes the current user review
-                component.set("v.reviewList", myList);
+                let myMap = response.getReturnValue();
+                component.set("v.newReview", myMap[6][myMap[6].length-1]);
+                myMap[6].pop();
+                component.set("v.reviewMap", myMap);
+                component.set("v.reviewList", myMap[6]);
             }else{
-
                 component.find('notifier').showToast({
                     "variant" : "error",
                     "title" : "We couldn't get review for the item.",

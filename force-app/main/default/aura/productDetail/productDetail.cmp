@@ -10,9 +10,8 @@
     
     <!-- INIT ATTRIBUTE -->
     <!-- current user contact ID -->
-
-    <aura:attribute name="userContactID" type="String" default="0035e000003ILKtAAO"/>
-
+    <aura:attribute name="userContactID" type="String"/>
+    
     
     <!-- comes with the event attribute -->
     <aura:attribute name="theItem" type="Store_Product__c"/>
@@ -24,101 +23,86 @@
     <!-- send this as event to cart along side the product and quantity -->
     <aura:attribute name="theItemLine" type="Product_Line__c" default="{'Quantity__c' : 0, 'Product__c' : '', 'Transaction__c' : ''}"/>
     
-    <!-- obtain from apex controller when handling event -->
+    <!-- obtain from apex controller when handling event 1-5 are their respective star and 6 is all reviews -->
     <aura:attribute name="reviewList" type="Review__c[]"/>
     <aura:attribute name="newReview" type="Review__c"/>
-    
-    <!-- update when event shows up to render the component, when the event received -->
-    <aura:attribute name="toRender" type="Boolean" default="false"/>
-    
-    <!-- use to update the starsRate component -->
-    <aura:attribute name="ratingStar" type="Integer" default="5"/>
+    <aura:attribute name="reviewMap" type="Map"/>
     
     <!-- show notification messages -->
     <lightning:notificationsLibrary aura:id="notifier"/>
     
-
-    <!-- use to render or unrender detail page -->
-        <div class="TheBackground">
-            <div class="slds-align_absolute-center"  > 
-
-                <!-- Kill switch
-                <lightning:button class="killSwitch" variant="destructive" title="Destructive action" 
-                                  iconName="utility:chevronup" onclick="{! c.hideDetail }"/>
-                    /Kill switch -->
-
-            </div>
+    <div class="TheBackground">
+        <div class="DetailTop">
             
-            <div class="DetailTop">
-                
-                <!-- Item details -->
-                <lightning:layout horizontalAlign="spread" multipleRows="true">
-                    <lightning:layoutItem size="5" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="5">
-                        <div class="Carousel slds-box">
-                            <!-- current iteration of carousel only display static image -->
-                            <!-- will need to be update with aura:iteration and to it an attribute that holds image or images-->
-                            <lightning:carousel disableAutoScroll="true" >
-                                <lightning:carouselImage src="{!$Resource.product}" class="carouselImg">
-                                </lightning:carouselImage>
-                                <lightning:carouselImage src="{!$Resource.product0}" class="carouselImg">
-                                </lightning:carouselImage>
-                                <lightning:carouselImage src="{!$Resource.product1}" class="carouselImg">
-                                </lightning:carouselImage>
-                            </lightning:carousel>
+            <!-- Item details -->
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem size="5" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="5">
+                    <div class="Carousel slds-box">
+                        <!-- current iteration of carousel only display static image -->
+                        <!-- will need to be update with aura:iteration and to it an attribute that holds image or images-->
+                        <lightning:carousel disableAutoScroll="true" >
+                            <lightning:carouselImage src="{!$Resource.product}" class="carouselImg">
+                            </lightning:carouselImage>
+                            <lightning:carouselImage src="{!$Resource.product0}" class="carouselImg">
+                            </lightning:carouselImage>
+                            <lightning:carouselImage src="{!$Resource.product1}" class="carouselImg">
+                            </lightning:carouselImage>
+                        </lightning:carousel>
+                    </div>
+                </lightning:layoutItem>
+                <lightning:layoutItem  size="7" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="7">
+                    <div class="DescriptionProtion slds-box">
+                        <div id="nameBox">
+                            <h1 > {!v.theItem.Name} </h1>
                         </div>
-                    </lightning:layoutItem>
-                    <lightning:layoutItem  size="7" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="7">
-                        <div class="DescriptionProtion slds-box">
-                            <div id="nameBox">
-                                <h1 > {!v.theItem.Name} </h1>
-                            </div>
-                            <br/>
-                            <c:Rating aura:id = "prod-rating" rating="{!v.ratingStar}" editable = "false" />
-                            <br/>
-                            <div id="priceBox">
-                                <lightning:formattedNumber value="{!v.theItem.Price_Per_Unit__c}" style="currency"/>
-                            </div>
-                            <br/>
-                            <div id="descriptionBox">
-                                <p>
-                                    <lightning:formattedText value="{!'Description: ' + v.theItem.Product_Description__c}"/>
-                                </p>
-                            </div>
-                            
-                            <br/>
-                            <div id="OutBuying">
-                                <div class="slds-box"> 
-                                    <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/> 
-                                    <div id="AddToCartButton">
-                                        <c:PalaceButton label="Add to Cart" title="buy the item" onclick="{! c.addItem}"/>
-                                    </div>
+                        <br/>
+                        <c:Rating aura:id = "prod-rating" rating="{!v.theItem.Star_Rating__c}" editable = "false" />
+                        <br/>
+                        <div id="priceBox">
+                            <lightning:formattedNumber value="{!v.theItem.Price_Per_Unit__c}" style="currency"/>
+                        </div>
+                        <br/>
+                        <div id="descriptionBox">
+                            <p>
+                                <lightning:formattedText value="{!'Description: ' + v.theItem.Product_Description__c}"/>
+                            </p>
+                        </div>
+                        
+                        <br/>
+                        <div id="OutBuying">
+                            <div class="slds-box"> 
+                                <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/> 
+                                <div id="AddToCartButton">
+                                    <c:PalaceButton label="Add to Cart" title="buy the item" onclick="{! c.addItem}"/>
                                 </div>
                             </div>
                         </div>
-                    </lightning:layoutItem>
+                    </div>
+                </lightning:layoutItem>
+                
+                <!-- /Item details -->
+                <lightning:layoutItem size="12" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+                    <br/>
+                    <br/>
+                    <!-- Reviews -->
                     
-                    <!-- /Item details -->
-                    <lightning:layoutItem size="12" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
-                        <br/>
-                        <br/>
-                        <!-- Reviews -->
-
-                        <h1 class = "slds-text-heading_large">Reviews</h1>
-                        <div id = "review-section">
-                        	<c:productReview reviewList="{!v.reviewList}" newReview="{!v.newReview}" theItem="{!v.theItem}"/>
-                        </div>
-
-                        <!-- /Reviews -->
-                        <br/>
-                        <br/>
-                    </lightning:layoutItem>
-                </lightning:layout> 
-
-            </div> 
-            <div class = "divider-holder">
-                <hr class = "divider-shadow" />
-                <hr class = "list-divider" />
-            </div>
+                    <h1 class = "slds-text-heading_large">Reviews</h1>
+                    <div id = "review-section">
+                        <c:productReview reviewList="{!v.reviewList}" reviewMap="{!v.reviewMap}" 
+                                         newReview="{!v.newReview}" theItem="{!v.theItem}"/>
+                    </div>
+                    
+                    <!-- /Reviews -->
+                    <br/>
+                    <br/>
+                </lightning:layoutItem>
+            </lightning:layout> 
+            
         </div> 
+        <div class = "divider-holder">
+            <hr class = "divider-shadow" />
+            <hr class = "list-divider" />
+        </div>
+    </div> 
     
 </aura:component>
