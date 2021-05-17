@@ -1,0 +1,13 @@
+<aura:component implements="forceCommunity:layout" description="Custom Content Layout" access="global">
+    <aura:attribute name="contentArea" type="Aura.Component[]" required="false"></aura:attribute>
+    
+
+    <div class="container">
+        <div class="contentArea">
+            
+                {!v.contentArea}
+           
+            
+        </div>
+    </div>
+</aura:component>
