@@ -10,10 +10,13 @@
     <aura:attribute name="searchKeyword" type="String" />
     <aura:attribute name="mydata" type="Store_Product__c[]"/>
     <aura:attribute name="mycolumns" type="List"/>
+    <aura:attribute name="ratingStar" type="Integer" default="5"/>
     <aura:handler name="init" value="{! this }" action="{! c.init }"/>
     
     <!--Handler for search event-->
     <aura:handler event="c:SearchBarEvent" action="{!c.updateSearchKey}" />
+    
+    <aura:handler event="force:refreshView" action="{!c.isRefreshed}" />
     
     
     <!--Register for fire seachcategory event-->
@@ -26,7 +29,9 @@
     <aura:attribute name="dataSize" type="Integer" default="0"/> 
     
     
+    
     <!--CheckBox-->
+    <aura:attribute name="rental" type="Boolean" default="false"/>
     <aura:attribute name="cbValue" type="List"/>
     <aura:attribute name="options" type="List" default="[
                                                         {'label': 'Confetti', 'value': 'Confetti'},
@@ -47,10 +52,11 @@
     
     <!--////////////////////////////////////////// Component Layout ///////////////////////////////////////-->
     
-    <h1 class = "category-header">Search Filters</h1>
+    <h1 class = "filter-heading">Search Filters</h1>
+    
     <!--Rating Change-->
     <div>
-        <c:Rating change="{!c.ratingChange}"/>
+        <c:Rating aura:id = "search-rating" rating="{!v.ratingStar}" change="{!c.ratingChange}" editable = "true" />
     </div>
     
     <!--Check Box filter-->
@@ -61,13 +67,24 @@
                                  label="Checkbox Group"
                                  value="{! v.cbValue}"
                                  options="{! v.options }"/>
+        <!--Slider-->
+        <label class="slds-checkbox_toggle slds-grid" style="margin-top:10px">
+            <span class="slds-form-element__label slds-m-bottom_none">Rental Items </span>
+            <ui:inputCheckbox aura:id="chkbox" class="slds-input" value="{!v.rental}" change="{!c.rentalChange}"/>
+            <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">Show</span>
+                <span class="slds-checkbox_off">Hide</span>
+            </span>
+        </label>
     </div>
     
-    <!--Slider-->
-    <lightning:slider label="Price" step="5" size="small" value="{!v.price}"/>
-    
-    <c:PalaceButton label="Search" title="Search" onclick="{!c.searchOpp}"/>
+    <lightning:slider label="Price" step="5" value="{!v.price}"/>
     
     
     
+    <!--<c:PalaceButton label="Clear" title="Clear" onclick="{!c.searchClear}"/>-->
+    <c:PalaceButton label="Search" title="Search" onclick="{!c.searchPro}"/>
+    
+
 </aura:component>
