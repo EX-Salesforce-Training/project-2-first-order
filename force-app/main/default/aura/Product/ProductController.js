@@ -1,4 +1,5 @@
 ({
+    //Fire product selected event
 	productSelected : function(component, event, helper) {
         component.set("v.productName", "Clicked!");
 

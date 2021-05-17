@@ -5,52 +5,84 @@
     <aura:attribute name="reviewList" type="Review__c[]"/>
     <aura:attribute name="newReview" type="Review__c"/>
     <aura:attribute name="theItem" type="Store_Product__c"/>
+    <aura:attribute name="reviewMap" type="Map"/>
     
     <aura:attribute name="renderer" type="Boolean" default="true"/>
-
+    
     <lightning:notificationsLibrary aura:id="notifier"/>
-
+    
     <!-- Main Content -->
-    <aura:if isTrue="{!v.renderer}">
+    
         <!-- Review Submission -->
         <div class="WriteSection slds-box slds-scrollable">
             <div class="row">
-
+                
                 <h1>Leave Us A Rating!</h1>
+                
                 <div class = "star-container">
-                	<c:Rating change="{!c.ratingChange}" />
-				</div>
-                <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..."/>
+                    <!-- rating="{!v.newReview.Rating__c}" -->
+                    <c:Rating aura:id ="review-p-rating"  rating="{!v.newReview.Rating__c}"/>
+                </div>
+                <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..." />
             </div>
             <div style="float:right;">
                 <c:PalaceButton label="Submit" onclick="{!c.submitReview}"/>
             </div>
         </div>
         <!-- /Review Submission -->
-
+        
         <hr class = "dotted-divider" />
+        
+        <!-- Sorter -->
+        <div class="SortSection slds-box ">
+            <h1 class = "slds-text-heading_medium slds-align_absolute-center">Sort Reviews</h1>
+            
+            <div class="slds-align_absolute-center">
+                <c:PalaceButton label="One" onclick="{! c.getOneStarReview}"/>
+                <c:PalaceButton label="Two" onclick="{! c.getTwoStarReview}"/>
+                <c:PalaceButton label="Three" onclick="{! c.getThreeStarReview}"/>
+                <c:PalaceButton label="Four" onclick="{! c.getFourStarReview}"/>
+                <c:PalaceButton label="Five" onclick="{! c.getFiveStarReview}"/>
+                <c:PalaceButton label="All" onclick="{! c.getAllReview}"/>
+            </div>
+        </div>
+        <!-- /Sorter -->
         
         <!-- Review View -->
         <div class="ReadSection slds-box">
-            <h1 class = "slds-text-heading_medium">Customer Reviews</h1>
-
-            <aura:iteration items="{! v.reviewList}" var="review">
-                <br/>
-                <div class="UserReview">
-                    <div class="content">
-                        <h1>
-                            <lightning:icon iconName="action:user" alternativeText="User" title="user" />
-                            <lightning:outputField fieldName="Auto_Number__c" />
-                            {! '  ' + review.Contact__r.Name}   {! '   ' + review.Rating__c}
-                        </h1>
-                        <p> {!review.Comment__c} </p>
-                    </div>
-                </div>
-                <br/>
-            </aura:iteration>
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <lightning:layoutItem size="12" flexibility="grow" padding="around-small" smallDeviceSize="12" mediumDeviceSize="12" largeDeviceSize="12">
+                    <h1 class = "slds-text-heading_medium">Customer Reviews</h1>
+                </lightning:layoutItem>
+                
+                <aura:iteration items="{! v.reviewList}" var="review">
+                    <br/>
+                    <lightning:layoutItem size="12" flexibility="grow" padding="around-small">
+                        <div class="UserReview">
+                            <div class="content">
+                                <lightning:layout horizontalAlign="spread" multipleRows="true">
+                                    <lightning:layoutItem size="12" flexibility="auto" padding="around-small">
+                                        <lightning:icon iconName="action:user" alternativeText="User" title="user" /> {! '  ' + review.Contact__r.Name + ' '}  
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="12" flexibility="auto" alignmentBump="top"
+                                                          smallDeviceSize="12" mediumDeviceSize="5" largeDeviceSize="3">
+                                        
+                                        <c:Rating rating="{!review.Rating__c}" editable="false" />
+                                    </lightning:layoutItem>
+                                    <lightning:layoutItem size="12" flexibility="auto" padding="around-small">
+                                        <p> {!review.Comment__c} </p>
+                                    </lightning:layoutItem>
+                                </lightning:layout>
+                                
+                            </div>
+                        </div>
+                    </lightning:layoutItem>
+                    <br/>
+                </aura:iteration>
+            </lightning:layout>
         </div>
         <!-- /Review View -->
-    </aura:if>
+    
     <!-- /Main Content -->
     
 </aura:component>

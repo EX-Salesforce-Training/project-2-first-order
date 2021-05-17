@@ -5,7 +5,10 @@
         //debugger;
         // Geting oroduct from fired event
         let cartList = component.get("v.cartList");
+        let allItems = component.get("v.items");
         let itemAddedToCart = event.getParam("productLine");
+        allItems.push(itemAddedToCart.Product__c);
+        
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
         let qtyAddedToCart = parseInt(event.getParam("quantity"));
@@ -37,13 +40,14 @@
             total += item.Total_Cost__c;
         }
         component.set("v.total", total);
+        component.set("v.items", allItems);
         component.set("v.cId", event.getParam("userContactID"));
     },
     
     checkoutCart : function(component,event,helper){
         debugger;
         // get lists
-        let cartList = component.get("v.cartList");
+        let cartList = component.get("v.items");
         let qtyList = component.get("v.qtyList");
         let contId = component.get("v.cId");
         
