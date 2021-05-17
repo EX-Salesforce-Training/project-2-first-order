@@ -20,6 +20,9 @@
         if ((currPage + 1) * component.get("v.pageSize") >= component.get("v.allProducts").length)
             return;
         
+        window.location.hash = "";
+        window.location.hash = "content-container";
+        
         let listDiv = document.querySelector("#products");
         listDiv.classList.remove("rolldown");
         listDiv.classList.add("rollup");
@@ -38,6 +41,9 @@
                 let currPage = component.get("v.currPage");
                 if (currPage == 0)
                     return;
+                
+                window.location.hash = "";
+        		window.location.hash = "content-container";
                 
                 let listDiv = document.querySelector("#products");
                 listDiv.classList.remove("rolldown");

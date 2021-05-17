@@ -1,0 +1,18 @@
+<aura:component>
+   <!-- define a collection attribute named cartList to hold items we got from add to cart event -->
+   <aura:attribute name="cartList" type="Store_Product__c[]"/>
+  <!-- set event handler for add to cart event, event defined in danny's productDetail.cmp -->
+   <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
+
+   <!-- inside this div, we use aura:iteration to move through the list of items and 
+    then we pull out individual elements for display -->
+   <div id = "shoppingCartBox">
+      <h1 id = "header" style="color:blue">Shopping Cart</h1>
+      <hr/>
+      <div id="productsInCart">
+        <aura:iteration items = "{!v.cartList}" var="product">
+              <p>"{!v.product.Name}" + "{!v.product.Price_Per_Unit}</p>
+          </aura:iteration>
+      </div>
+   </div>
+</aura:component>

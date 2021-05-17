@@ -1,0 +1,14 @@
+<aura:component access="global" >
+    <aura:attribute name="Today" type="String" default="It was today!" /> 
+  
+    <aura:attribute name="footBool" type="boolean" default="true"/>
+    <div>
+    	<h1>Chelsea Defeat City</h1>
+    </div>
+    <aura:if isTrue="{!v.footBool}">
+    <div>
+    	<h1>{!v.Today}</h1>
+    </div>
+	</aura:if>
+    <lightning:button variant="destructive" label="on/off" onclick="{! c.buttonClickAction }"/>
+</aura:component>
