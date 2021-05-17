@@ -31,7 +31,7 @@ public class StoreProductsController {
             totalPages = (totalProducts.size()/15) + 1;
             disablePrev = true;
             
-            //render the entire shits
+            //render the products
             for(Integer i = 0; i < 5; i++){
                 ProductsWrapper pw = new ProductsWrapper();
                 String col1 = pageProducts.get(i).Name;

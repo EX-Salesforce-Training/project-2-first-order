@@ -1,25 +1,45 @@
 <aura:component controller="ShoppingCartApexController" implements="flexipage:availableForAllPageTypes">
-   <!-- define a collection attribute named cartList to hold items we got from add to cart event -->
-   <aura:attribute name="cartList" type="Store_Product__c[]"/>
+    <!-- define a collection attribute named cartList to hold items we got from add to cart event -->
+    <aura:attribute name="cartList" type="Product_Line__c[]"/>
     <aura:attribute name="qtyList" type="Integer[]" />
-  <!-- set event handler for add to cart event, event defined in danny's productDetail.cmp -->
-   <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
-
-   <!-- inside this div, we use aura:iteration to move through the list of items and 
+    <aura:attribute name = "total" type = "Decimal" default = "0" />
+    <aura:attribute name = "cId" type = "String" />
+    <!-- set event handler for add to cart event, event defined in danny's productDetail.cmp -->
+    <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
+    
+    <!-- inside this div, we use aura:iteration to move through the list of items and 
     then we pull out individual elements for display -->
-   <div id = "shoppingCartBox">
-      <h1 id = "header" style="color:blue">Shopping Cart</h1>
-      <hr/>
-      <div id="productsInCart">
-        <aura:iteration items = "{!v.cartList}" var="product">
-             {!product.Name}{!product.Price_Per_Unit}
-          </aura:iteration>
-         <aura:iteration items = "{!v.qtyList}" var="qty">
-          	{!qty}
-          </aura:iteration>
-      </div>
-       <c:CartCheckout/>
-       <c:PalaceButton label="checkout"/>
-       <c:PalaceButton label="Finish" onclick="{!c.checkoutCart}"/>
-   </div>
+    <div id = "shoppingCartBox">
+        <h1 id = "header">Shopping Cart</h1>
+        <div id="productsInCart">
+            <div id = "product-header" class = "slds-grid">
+                <div class = "slds-col slds-size_2-of-4 left">Name</div>
+                <div class = "slds-col slds-size_1-of-4 center">Quantity</div>
+                <div class = "slds-col slds-size_1-of-4 right">Price</div>
+            </div>
+            <hr />
+            <div id = "cart-items">
+                <aura:iteration items = "{!v.cartList}" var="line" indexVar = "pIndex">
+                    <c:CartItem pName = "{!line.Product__c.Name}" qty = "{!line.Quantity__c}"
+                                total = "{!line.Total_Cost__c}" />
+                </aura:iteration>
+            </div>
+        </div>
+        <hr/>
+        <div class = "slds-grid">
+            <div class = "slds-col slds-size_2-of-4 left">Total:</div>
+            <div class = "slds-col slds-size_2-of-4 right">
+                $<lightning:formattedNumber value="{!v.total}" style="decimal" minimumFractionDigits="2"/>
+            </div>
+        </div>
+        <div class = "right">
+            <c:PalaceButton label="Checkout" onclick = "{!c.goToCheckout}" />
+        </div>
+        <div id = "checkout" class = "hidden">
+            <c:CartCheckout/>
+            <div class = "right">
+            	<c:PalaceButton label="Finish" onclick="{!c.checkoutCart}"/>
+            </div>
+        </div>
+    </div>
 </aura:component>

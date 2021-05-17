@@ -2,6 +2,38 @@
     background-color:blue;
     height: 25%;
 }
-.THIS#header{
-    size:5rem;
+.THIS #header{
+    font-size: 1.2em;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background: #FBC740;
+}
+
+.THIS #cart-items {
+    overflow-y: auto;
+    min-height: 10vh;
+    max-height: 70vh;
+}
+
+.THIS #product-header {
+    font-weight: bold;
+}
+
+.THIS .left {
+    text-align: left;
+}
+
+.THIS .right {
+    text-align: right;
+    
+}
+
+.THIS .center {
+    text-align: center;
+    
+}
+
+.THIS hr {
+    margin: 0;
 }
