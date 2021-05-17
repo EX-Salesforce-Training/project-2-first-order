@@ -130,7 +130,9 @@ public class ProductDetailApexControllerTest {
            
             Map<Integer, List<Review__c>> reviewMap = ProductDetailApexController.getReviewList(sp.Id, currentUser.ContactID);
             
+            queryReview = [SELECT Id, Comment__c, Rating__c, Store_Product__c, Contact__c FROM Review__c WHERE Contact__c=:currentUser.ContactId];
+            System.assert(queryReview.Comment__c==newReview.Comment__c);
+            System.assert(queryReview.Rating__c==newReview.Rating__c);
         }
-        
     }
 }

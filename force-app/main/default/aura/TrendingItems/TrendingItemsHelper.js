@@ -1,4 +1,5 @@
 ({
+    //Swaps next classes with previous classes
 	replaceClassesPrev : function(carousel) {
         if (carousel.classList.contains("scrollLeft1")) {
             carousel.classList.remove("scrollLeft1");
@@ -18,6 +19,7 @@
         }
     }, 
     
+    //Swaps previous classes with next classes
     replaceClassesNext : function(carousel) {
         //Next to Previous
         if (carousel.classList.contains("scrollRight2")) {
