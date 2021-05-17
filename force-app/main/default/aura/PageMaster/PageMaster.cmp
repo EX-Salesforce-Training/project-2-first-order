@@ -1,4 +1,4 @@
-<aura:component controller = "MasterController">
+<aura:component controller = "MasterController" access="global" implements="forceCommunity:layout">
     <aura:attribute name = "pListOn" type = "Boolean" default = "false" />
     <aura:attribute name = "dListOn" type = "Boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />

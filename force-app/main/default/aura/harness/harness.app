@@ -13,7 +13,7 @@ Eu mi bibendum neque egestas congue quisque. Placerat orci nulla pellentesque di
 Gravida rutrum quisque non tellus orci ac auctor augue mauris. Risus nullam eget felis eget nunc lobortis mattis aliquam faucibus. Velit scelerisque in dictum non. Pulvinar etiam non quam lacus. Nunc sed id semper risus in hendrerit. Sociis natoque penatibus et magnis dis. Sit amet nulla facilisi morbi tempus iaculis urna. Erat nam at lectus urna duis. Bibendum est ultricies integer quis auctor elit sed vulputate mi. Donec pretium vulputate sapien nec sagittis aliquam. Ut pharetra sit amet aliquam id. Lacinia at quis risus sed vulputate odio. Nec tincidunt praesent semper feugiat nibh sed.'}"/>
     <aura:attribute name = "product2" type = "Store_Product__c" 
                     default ="{'Id':'a0C5e000000U8m4EAC',
-                              'Name':'Other New Stuff', 'Price_Per_Unit__c':30, 'Star_Rating__c':'4.5', 'Product_Description__c':'BLAH!'}"/>
+                              'Name':'Other New Stuff', 'Price_Per_Unit__c':30, 'Star_Rating__c':'5', 'Product_Description__c':'BLAH!'}"/>
     
     <c:productDetail userContactID="0035e000003ILKtAAO"/>
     <c:Product product="{!v.product1}" /> 
