@@ -6,6 +6,7 @@
     <columns>Price_Per_Unit__c</columns>
     <columns>Category__c</columns>
     <columns>Rating__c</columns>
+    <columns>isRental__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
