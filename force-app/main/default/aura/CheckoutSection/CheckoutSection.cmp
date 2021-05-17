@@ -1,0 +1,6 @@
+<aura:component >
+    <lightning:input label="Name" type="text"/>
+    <lightning:input label="Billing Address" type="text"/>
+    <lightning:input label="Card Number" type="Number"/>
+	
+</aura:component>

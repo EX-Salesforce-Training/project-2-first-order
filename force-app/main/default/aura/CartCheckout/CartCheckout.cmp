@@ -1,0 +1,24 @@
+<aura:component >
+   
+   
+    <aura:attribute name="payerInfo" type="Contact" default="{'sobjectType':'Contact',
+                                                             'Name':'',
+                                                             'Billing_Address__c':'',
+                                                             'Credit_Card_Number__c':'',
+                                                             'Credit_Card_Month__c':'1',
+                                                             'Credit_Card_Type__c':'Mastercard',
+                                                             'Credit_Card__c':'21'}"/>
+                                                          
+   <div id="CheckoutSection">                                                          
+                           
+	
+    <lightning:input type="String" label="Name on Card" value="{!v.payerInfo.Name}" required="true"/>
+    <lightning:input type="String" label="Billing Address" value="{!v.payerInfo.Billing_Address__c}"/>
+    <lightning:input type="String" label="Credit Card Number" value="{!v.payerInfo.Credit_Card_Number__c}"/>
+  	
+    
+
+    </div>
+    
+    
+</aura:component>
