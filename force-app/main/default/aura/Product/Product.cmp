@@ -3,16 +3,16 @@
     <aura:attribute name = "productImage" type = "String" default = "{!$Resource.product}" />
     <aura:attribute name = "imgSize" type = "String" />
     <aura:attribute name = "maxWidth" type = "String" default = "33%" />
-    
+
     <aura:registerEvent name = "productSelected" type = "c:ProductSelected" />
-    
+
     <aura:html tag="style">
         :root {
         --imgSize: {!v.imgSize};
         --maxWidth: {!v.maxWidth};
         }
     </aura:html>
-    
+
     <div id = "product-holder" onclick="{!c.productSelected}">
         <img id = "product-image" src = "{!v.productImage}" />
         <p id = "product-name">{!v.product.Name}</p>

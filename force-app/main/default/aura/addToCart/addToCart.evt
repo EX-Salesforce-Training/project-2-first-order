@@ -3,6 +3,6 @@
 <aura:event type="APPLICATION">
     <aura:attribute name = "userContactID" type = "String"/>
     <aura:attribute name = "productLine" type = "Product_Line__c"/>
-    <aura:attribute name = "product" type = "Store_Product__c" />
-    <aura:attribute name = "quantity" type = "Integer" />
+    <aura:attribute name = "product" type = "Store_Product__c[]" />
+    <aura:attribute name = "quantity" type = "Integer[]" />
 </aura:event>
