@@ -12,6 +12,8 @@
     },
     
 	turnOnList : function(component, event, helper) {
+        window.location.hash = "";
+        window.location.hash = "content-container";
 		let pList = document.querySelector("#productlist");
         let dList = document.querySelector("#productview");
         if(component.get("v.dListOn") && component.get("v.pListOn")) {
@@ -51,6 +53,8 @@
 	},
     
 	turnOnDetails : function(component, event, helper) {
+        window.location.hash = "";
+        window.location.hash = "content-container";
 		let pList = document.querySelector("#productlist");
         let dList = document.querySelector("#productview");
         if(component.get("v.pListOn")) {

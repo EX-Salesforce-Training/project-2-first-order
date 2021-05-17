@@ -11,6 +11,7 @@
         </div>
         
         <div id = "content-container">
+            
         <div class="side-bar">
             <div class = "side-bar-content-holder">
                 <c:SearchCategoryCmp />
