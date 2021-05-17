@@ -1,7 +1,10 @@
 ({
+    //Initializes the component with the top 10 reviewed items
     doInit : function(component, event, handler) {
         let productList;
         let getProducts = component.get("c.GetProducts");
+        
+        //Pull from the database the top 10 products
         getProducts.setCallback(this, function(response) {
             if (response.getState() == "SUCCESS") {
                 productList = response.getReturnValue();
@@ -11,9 +14,14 @@
         $A.enqueueAction(getProducts);
     },
     
+    //Transitions the carousel to the next slide
     nextSlide : function(component, event, handler) {
     	let trendingCarousel = document.querySelector("#trendingCarousel");
+        
+        //Transitions handled by classes, so replace the prev classes with corresponding next classes
         handler.replaceClassesNext(trendingCarousel);
+        
+        //Transition to the next carousel position
         if (trendingCarousel.classList.contains("first")) {
             trendingCarousel.classList.remove("first");
         }
@@ -33,9 +41,14 @@
         	trendingCarousel.classList.add("scrollLeft1");
 	},
     
+    //Transitions the carousel to the previous slide
     prevSlide : function(component, event, handler) {
     	let trendingCarousel = document.querySelector("#trendingCarousel");
+        
+        //Transitions handled by classes, so replace the next classes with the corresponding prev classes
         handler.replaceClassesPrev(trendingCarousel);
+        
+        //Transition to the previous slide
         if (trendingCarousel.classList.contains("last")) {
             trendingCarousel.classList.remove("last");
             trendingCarousel.classList.add("scrollRight3");

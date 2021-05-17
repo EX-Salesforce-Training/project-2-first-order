@@ -1,6 +1,7 @@
 <aura:component controller="ShoppingCartApexController" implements="flexipage:availableForAllPageTypes">
     <!-- define a collection attribute named cartList to hold items we got from add to cart event -->
     <aura:attribute name="cartList" type="Product_Line__c[]"/>
+    <aura:attribute name = "items" type = "Store_Product__c[]" />
     <aura:attribute name="qtyList" type="Integer[]" />
     <aura:attribute name = "total" type = "Decimal" default = "0" />
     <aura:attribute name = "cId" type = "String" />

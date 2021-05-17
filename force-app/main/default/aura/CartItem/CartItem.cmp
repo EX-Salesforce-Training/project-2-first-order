@@ -1,3 +1,9 @@
+<!--
+	Created by: Jared Longnecker
+	Description: Contains the details and styling for an item within the shopping cart. Populate the shopping
+	cart with this component, passing into it the name, quantity and total price for the cart item.
+-->
+
 <aura:component >
     <aura:attribute name = "pName" type = "String" default = "Default" />
     <aura:attribute name = "qty" type = "String" default = "Default" />
