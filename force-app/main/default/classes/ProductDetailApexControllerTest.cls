@@ -118,4 +118,7 @@ public class ProductDetailApexControllerTest {
             System.assert(queryReview.Rating__c==newReview.Rating__c);
         }
     }
+    
+            
+       
 }
