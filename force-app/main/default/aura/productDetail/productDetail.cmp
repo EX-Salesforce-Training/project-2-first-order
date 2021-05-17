@@ -35,7 +35,6 @@ Description: Display the product the user clicked on in more detail,
     <!-- show notification messages -->
     <lightning:notificationsLibrary aura:id="notifier"/>
     
-    <aura:attribute name="isRental" type="Boolean" default="true"/>
     
     <div class="TheBackground">
         <div class="DetailTop">
