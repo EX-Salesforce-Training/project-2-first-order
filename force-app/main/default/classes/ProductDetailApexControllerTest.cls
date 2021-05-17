@@ -119,20 +119,6 @@ public class ProductDetailApexControllerTest {
         }
     }
     
-    @isTest
-    public static void testNegative(){
-        User currentUser = [SELECT ID, contactID FROM User WHERE LastName = 'user23232'];
-        Store_Product__c sp = [SELECT ID, Name, Category__c, Price_Per_Unit__c, Product_Description__c FROM Store_Product__c];
-        
-        System.runAs(currentUser){
             
-            // to see if anything goes wrong if there is no review for a certain product.
-           
-            Map<Integer, List<Review__c>> reviewMap = ProductDetailApexController.getReviewList(sp.Id, currentUser.ContactID);
-            
-            queryReview = [SELECT Id, Comment__c, Rating__c, Store_Product__c, Contact__c FROM Review__c WHERE Contact__c=:currentUser.ContactId];
-            System.assert(queryReview.Comment__c==newReview.Comment__c);
-            System.assert(queryReview.Rating__c==newReview.Rating__c);
-        }
-    }
+       
 }
