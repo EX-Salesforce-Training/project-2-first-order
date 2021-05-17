@@ -2,6 +2,7 @@
     // get the reviews, this is call when the event are handled
     getReviews : function(component, theProduct, userContactId) {
         let action = component.get("c.getReviewList");
+        // the apex control is expecting the userContactId and the productID
         action.setParams({"sp" : theProduct, "cid" : userContactId });
         action.setCallback(this, function(response){
             let state = response.getState();

@@ -1,4 +1,8 @@
-<!-- component allow for viewing current product reviews and leaving a review on the current product. -->
+<!-- 
+ Created By: Danny Tran
+ Description: component allow for viewing current product reviews and leaving a review on the current product.
+              also give the user the ability to sort reviews by star
+-->
 <aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
     
     <!-- the outer component should pass in the current item, list of reviews, and the current user review -->

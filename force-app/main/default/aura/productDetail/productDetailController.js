@@ -17,10 +17,6 @@
         helper.getReviews(component, component.get("v.theItem").Id, component.get("v.userContactID"));
         
 	},
-    // hide away the detail component use when the user want to go back to main page without interacting with add to cart
-    hideDetail : function(component, event, helper){
-        component.set("v.toRender", false);
-    },
     // fire addToCart event
     // current also hide away the component but that won't be necessary in final.
     addItem : function(component, event, helper){
