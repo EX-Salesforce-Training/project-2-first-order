@@ -1,5 +1,4 @@
-<aura:component controller = "MasterController" implements="forceCommunity:themeLayout" access="global" description="Master Layout">
-
+<aura:component controller = "MasterController" access="global" implements="forceCommunity:layout">
     <aura:attribute name = "pListOn" type = "Boolean" default = "false" />
     <aura:attribute name = "dListOn" type = "Boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
@@ -31,9 +30,6 @@
             <c:TrendingItems />
         </div>
         <div class="side-bar">
-            <div class = "side-bar-content-holder">
-            	<c:ShoppingCart/>
-            </div>
         </div>
             </div>
         

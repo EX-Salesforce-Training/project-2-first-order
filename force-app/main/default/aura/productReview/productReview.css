@@ -1,14 +1,22 @@
 .THIS.WriteSection{
     border: 0;
+    font-size: 15px;
+}
+.THIS.SortSection{
+    border-radius:5px;
+    border: 0;
 }
 .THIS.ReadSection {
     border: 0;
-    max-height: 20rem; 
+    margin: 0px 0px 5px 0px;
+    max-height: 40rem; 
     overflow: scroll; 
     overflow-x: hidden;
+    font-size: 15px;
 }
 .THIS.ReadSection .UserReview{
     background-color: #66D2D6;
+    border-radius:5px;
 }
 .THIS.ReadSection .UserReview .content{
     padding: 5px;

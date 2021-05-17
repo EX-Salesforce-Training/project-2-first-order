@@ -3,9 +3,7 @@
     <fullName>Star_Rating__c</fullName>
     <description>The average rating, use for star rating.</description>
     <externalId>false</externalId>
-
-    <formula>IF(FLOOR( Rating__c / 20 )&lt;1,1,FLOOR( Rating__c / 20 ))</formula>
-
+    <formula>IF(FLOOR( Rating__c / 20 ) &lt; 1, 1, FLOOR( Rating__c / 20 ))</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Star Rating</label>
     <precision>18</precision>
