@@ -10,9 +10,7 @@
                                                              'Credit_Card__c':'21'}"/>
                                                           
    <div id="CheckoutSection">                                                          
-                           <!-- going to just take address and card number now then may return to additional card info later on-->
-    <!--connect this to a controller that handles submitting this form to Apex controller, which sends through the data. 
-product detail is sending along contact info from his initial event, need to change shopping cart to reflect that-->
+                           
 	
     <lightning:input type="String" label="Name on Card" value="{!v.payerInfo.Name}" required="true"/>
     <lightning:input type="String" label="Billing Address" value="{!v.payerInfo.Billing_Address__c}"/>
