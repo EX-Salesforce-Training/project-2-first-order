@@ -31,6 +31,8 @@
     <!-- show notification messages -->
     <lightning:notificationsLibrary aura:id="notifier"/>
     
+    <aura:attribute name="isRental" type="Boolean" default="false"/>
+    
     <div class="TheBackground">
         <div class="DetailTop">
             
@@ -71,7 +73,23 @@
                         <br/>
                         <div id="OutBuying">
                             <div class="slds-box"> 
-                                <ui:inputNumber label="Quantity: " value="{!v.quantity}" updateOn="keyup"/> 
+                                <div class="slds-grid slds-gutters">
+                                    <div class="slds-col slds-sizeof-1_of_3">
+                                        <p>Quantity:  </p> 
+                                        <ui:inputNumber value="{!v.quantity}" updateOn="keyup" />
+                                    </div>
+                                    
+                                    <aura:if isTrue="{!v.isRental}">
+                                    <div class="slds-col slds-sizeof-1_of_3">
+                                        <p>Start Date: </p>
+                                        <ui:inputDate aura:id="startdate" class="field" value="{!v.theItem.Rental_Start__c}" displayDatePicker="true" /> 
+                                    </div>
+                                    <div class="slds-col slds-sizeof-1_of_3">
+                                        <p>End Date: </p>
+                                        <ui:inputDate aura:id="enddate" class="field" value="{!v.theItem.Rental_End__c}" displayDatePicker="true" />  
+                                    </div>
+                                        </aura:if>
+                                </div>
                                 <div id="AddToCartButton">
                                     <c:PalaceButton label="Add to Cart" title="buy the item" onclick="{! c.addItem}"/>
                                 </div>

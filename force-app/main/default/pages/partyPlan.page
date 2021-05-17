@@ -34,7 +34,7 @@
       position: relative;
       width: 80%;
       border-radius: 30px;
-      background: #fff;
+      background: #66D2D6;
       }
       .form-left-decoration,
       .form-right-decoration {
@@ -117,7 +117,7 @@
       color: #fff;
       }
       button:hover {
-      background: #3e4f24;
+      background: #FBC740;
       } 
       @media (min-width: 568px) {
       form {
@@ -139,6 +139,7 @@
           <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br/>
         
           <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br/>
+        
         
           <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br/>
         
