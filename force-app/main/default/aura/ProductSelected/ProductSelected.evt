@@ -1,3 +1,8 @@
+<!--
+	Created By: Jared Longnecker
+	Description: Used to notify when a product is selected
+-->
+
 <aura:event type="APPLICATION" description="Product selected" >
     <aura:attribute name = "product" type = "Store_Product__c" />
 </aura:event>

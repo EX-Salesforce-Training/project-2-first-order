@@ -1,3 +1,8 @@
+<!--
+	Created By: Jared Longnecker
+	Description: Displays the top 10 products in rating. Shows 3 products at a time and allows scrolling through
+-->
+
 <aura:component controller = "TrendingListController" access = "global">
     <aura:attribute name = "productArray" type = "Store_Product__c[]"  />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
@@ -5,6 +10,8 @@
     <div id = "holder">
         <h1 class = "slds-text-heading_large">Top Items</h1>
         <br />
+        
+        <!-- START PRODUCT CAROUSEL -->
         <div class = "productCarousel">
             <div id = "trendingCarousel" class = "carouselItems slds-grid slds-gutters_x-small">
                 <aura:iteration items = "{!v.productArray}" var = "item" start = "0" end = "10">
@@ -14,7 +21,12 @@
                 </aura:iteration>
             </div>
         </div>
+        <!-- END PRODUCT CAROUSEL -->
+        
+        <!-- START SCROLL BUTTONS -->
         <c:PalaceButton iconName = "utility:chevronleft" title="Previous" onclick="{!c.prevSlide}" />
         <c:PalaceButton iconName = "utility:chevronright" title="Next" onclick="{!c.nextSlide}" />
+        <!-- END SCROLL BUTTONS -->
+        
     </div>
 </aura:component>

@@ -8,12 +8,14 @@
         
         var rating = 0;
         while (el) {
+            console.log(el.nodeName);
             rating++;
 	        el.style.fill = colorOn;
 			el = el.previousElementSibling;    		        
         }
         el = event.target.nextElementSibling;
         while (el) {
+            console.log(el.nodeName);
 	        el.style.fill = colorOff;
 			el = el.nextElementSibling;   
         }

@@ -47,7 +47,7 @@
     
     <!--////////////////////////////////////////// Component Layout ///////////////////////////////////////-->
     
-    
+    <h1 class = "category-header">Search Filters</h1>
     <!--Rating Change-->
     <div>
         <c:Rating change="{!c.ratingChange}"/>

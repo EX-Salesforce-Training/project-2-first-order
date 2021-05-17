@@ -1,4 +1,9 @@
-<aura:component controller = "TrendingListController" access = "global">
+<!--
+ Created By: Jared Longnecker
+ Description: Displays searched products with customizable pagination and column size.
+-->
+
+<aura:component access = "global">
     <aura:attribute name = "allProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "pageProducts" type = "Store_Product__c[]" />
     <aura:attribute name = "subdivisionList" type = "Integer[]" />
@@ -11,9 +16,10 @@
     <div id = "component-body">
         <div class = "header-holder">
             <h1 class = "slds-text-heading_large">Products</h1>
-        	<h2>{!v.displayText}</h2>
+            <h2>{!v.displayText}</h2>
         </div>
         
+        <!-- START TOP BUTTONS -->
         <div class = "button-holder">
             <div class = "button-left">
                 <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
@@ -22,29 +28,45 @@
                 <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
             </div>
         </div>
-        <br />
+        <!-- END TOP BUTTONS -->
         
+        
+        <!-- START PRODUCT DISPLAY -->
         <div id = "list-holder">
             <div id = "products">
+                
+                <!-- Outer iteration indicates a single row -->
                 <aura:iteration items = "{!v.subdivisionList}" var = "end">
+                    
                     <div class = "slds-grid slds-grid_align-center">
+                        
+                        <!-- Inner iteration indicates columns within the row -->
                         <aura:iteration items = "{!v.pageProducts}" var = "item" start = "{!_index * v.numCols}" end = "{!end}">
                             <div class = "slds-col custom-gutters">
                                 <c:Product product = "{!item}" />
                             </div>
                         </aura:iteration>
+                        
                     </div>
+                    
                 </aura:iteration>
-            </div>
-            <div class = "button-holder">
-                <div class = "button-left">
-                    <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
-                </div>
-                <div class = "button-right">
-                    <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
-                </div>
+                
             </div>
         </div>
+        <!-- START PRODUCT DISPLAY -->
+        
+        <!-- START BOTTOM BUTTONS -->
+        <div class = "button-holder">
+            <div class = "button-left">
+                <c:PalaceButton label = "Prev Page" title="Previous" onclick = "{!c.prevPage}" />
+            </div>
+            <div class = "button-right">
+                <c:PalaceButton label = "Next Page" title="Next" onclick = "{!c.nextPage}" />
+            </div>
+        </div>
+        <!-- END BOTTOM BUTTONS -->
+        
+        <!-- DIVIDER DOTS -->
         <div class = "divider-holder">
             <hr class = "divider-shadow" />
             <hr class = "list-divider" />
