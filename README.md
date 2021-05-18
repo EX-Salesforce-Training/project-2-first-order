@@ -8,13 +8,13 @@
     
    
    
-                                          
-            <div class="side-bar">
-                <div class = "side-bar-content-holder">
-                    <c:ShoppingCart/>
-                </div>
-            </div>
-            
+
+    <div class="side-bar">
+        <div class = "side-bar-content-holder">
+            <c:ShoppingCart/>
+        </div>
+    </div>
+
   ```
    
 
