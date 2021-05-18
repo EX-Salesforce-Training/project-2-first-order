@@ -1,0 +1,19 @@
+<!--
+	Created by: Jared Longnecker
+	Description: Contains the details and styling for an item within the shopping cart. Populate the shopping
+	cart with this component, passing into it the name, quantity and total price for the cart item.
+-->
+
+<aura:component >
+    <aura:attribute name = "pName" type = "String" default = "Default" />
+    <aura:attribute name = "qty" type = "String" default = "Default" />
+    <aura:attribute name = "total" type = "String" default = "Default" />
+    
+	<div class = "slds-grid holder">
+        <div class = "slds-col slds-size_2-of-4 left">{!v.pName}</div>
+        <div class = "slds-col slds-size_1-of-4 center">{!v.qty}</div>
+        <div class = "slds-col slds-size_1-of-4 right">
+            $<lightning:formattedNumber value="{!v.total}" style="decimal" minimumFractionDigits="2"/>
+        </div>
+    </div>
+</aura:component>

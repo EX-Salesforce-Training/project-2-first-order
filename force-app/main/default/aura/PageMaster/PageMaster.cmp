@@ -1,4 +1,10 @@
-<aura:component controller = "MasterController" implements="forceCommunity:themeLayout" access="global" description="Master Layout">
+<!--
+ Created By: Jared Longnecker
+ Description: Provides the top level layout of the page and aligns all components. Also controls the display
+ of the Product List and the Product Details
+-->
+
+<aura:component controller = "MasterController" access="global" implements="forceCommunity:layout">
     <aura:attribute name = "pListOn" type = "Boolean" default = "false" />
     <aura:attribute name = "dListOn" type = "Boolean" default = "false" />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
@@ -6,33 +12,56 @@
     <aura:handler event="c:ProductSelected" action="{!c.turnOnDetails}" />
     
     <div id = "page-container">
+        
+        <!-- START PAGE HEADING -->
         <div id = "page-header">
             <h1 class = "slds-text-heading_large slds-align_absolute-center">Party Palace</h1>
         </div>
+        <!-- END PAGE HEADING -->
         
+        <!-- START MAIN CONTENT -->
         <div id = "content-container">
-        <div class="side-bar">
-            <div class = "side-bar-content-holder">
-                <c:SearchCategoryCmp />
+            
+            <!-- START LEFT SIDEBAR -->
+            <div class="side-bar">
+                <div class = "side-bar-content-holder">
+                    <c:SearchCategoryCmp />
+                </div>
             </div>
+            <!-- END LEFT SIDEBAR -->
+            
+            <!-- START PRODUCT VIEW AREA -->
+            <div id = "product-view">
+                <div id = "search-bar">
+                    <c:SearchBarCmp />
+                </div>
+                
+                <div id = "productview" class = "hidden">
+                    <c:PalaceButton iconName = "utility:chevronleft" label = "Back" Title = "Back" onclick = "{!c.turnOnList}" />
+                    <c:productDetail aura:id = "p-detail" />
+                </div>
+                
+                <div id = "productlist" class = "hidden">
+                    <c:ProductList aura:id = "p-list" />
+                </div>
+                
+                <c:TrendingItems />
+                
+            </div>
+            <!-- END PRODUCT VIEW AREA -->
+            
+            <!-- START RIGHT SIDEBAR -->
+            <div class="side-bar">
+                <div class = "side-bar-content-holder">
+                    <c:ShoppingCart/>
+                </div>
+            </div>
+            <!-- END RIGHT SIDEBAR -->
+            
         </div>
-        <div id = "product-view">
-            <div id = "search-bar">
-                <c:SearchBarCmp />
-            </div>
-            <div id = "productview" class = "hidden">
-                <c:PalaceButton iconName = "utility:chevronleft" label = "Back" Title = "Back" onclick = "{!c.turnOnList}" />
-                <c:productDetail aura:id = "p-detail" />
-            </div>
-            <div id = "productlist" class = "hidden">
-                <c:ProductList aura:id = "p-list" />
-            </div>
-            <c:TrendingItems />
-        </div>
-        <div class="side-bar">
-        </div>
-            </div>
+        <!-- END MAIN CONTENT -->
         
+        <!-- START FOOTER -->
         <div class = "footer">
             <span class = "footer-item">Party Palace</span>
             <br />
@@ -40,5 +69,7 @@
             <span class = "footer-item">Site by Team Alchemy</span>
             <hr class = "footer-hr" />
         </div>
+        <!-- END FOOTER -->
+        
     </div>
 </aura:component>

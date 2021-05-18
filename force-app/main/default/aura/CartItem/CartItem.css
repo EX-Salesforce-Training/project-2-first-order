@@ -1,0 +1,16 @@
+.THIS .left{
+    text-align: left;
+    font-weight: bold;
+}
+
+.THIS .center {
+    text-align: center;
+}
+
+.THIS .right {
+    text-align: right;
+}
+
+.THIS.holder {
+    margin: 1em 0;
+}

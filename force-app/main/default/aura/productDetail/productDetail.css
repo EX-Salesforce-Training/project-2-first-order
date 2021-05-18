@@ -3,7 +3,7 @@
     border-radius: 5px;
 }
 .THIS .DetailTop{ 
-    
+    font-size: 15px;
 }
 .THIS .DetailTop .Carousel{
     background-color: #FBC740;
@@ -39,6 +39,13 @@
     font-size: 35px;
 }
 .THIS #priceBox{
+    min-height: 30px;
+    font-size: 32px;
+    max-height: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+.THIS #rentalBox{
     min-height: 30px;
     font-size: 32px;
     max-height: 30px;
