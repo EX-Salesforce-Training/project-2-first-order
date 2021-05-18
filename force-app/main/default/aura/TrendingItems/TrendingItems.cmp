@@ -3,7 +3,7 @@
 	Description: Displays the top 10 products in rating. Shows 3 products at a time and allows scrolling through
 -->
 
-<aura:component controller = "TrendingListController" access = "global">
+<aura:component controller = "TopListController" access = "global">
     <aura:attribute name = "productArray" type = "Store_Product__c[]"  />
     <aura:handler name="init" value="{!this}" action="{!c.doInit }" />
     

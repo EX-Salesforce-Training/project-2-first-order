@@ -1,6 +1,5 @@
 public class MasterController {
 	
-    
     @AuraEnabled
     public static String GetCurrentCID() {
         Id userId = UserInfo.getUserId();
