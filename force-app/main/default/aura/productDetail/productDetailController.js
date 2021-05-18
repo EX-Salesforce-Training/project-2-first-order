@@ -21,9 +21,10 @@
     // current also hide away the component but that won't be necessary in final.
     addItem : function(component, event, helper){
         component.set("v.theItemLine.Quantity__c", component.get("v.quantity"));
-        component.set("v.theItemLine.Product__c", component.get("v.theItem.Id"));
-        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.theItemLine"), component.get("v.userContactID"));
-		/*
+        component.set("v.theItemLine.Product__c", component.get("v.theItem"));
+        component.set("v.theItemLine.Total_Cost__c", component.get("v.theItem.Price_Per_Unit__c") * component.get("v.quantity"));
+        helper.addItemToCart(component, component.get("v.theItem"), component.get("v.quantity"), component.get("v.theItemLine"), component.get("v.userContactID"));
+
         component.find('notifier').showToast({
             "variant" : "success",
             "title" : "Product was sent to your cart.",
