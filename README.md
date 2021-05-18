@@ -6,18 +6,25 @@
  
     The PageMaster bundle is responsible for handling the broader layout and alignment of all child components, and accomplishes this by creating a series of diffferent HTML divs with associated CSS classes that handle the positioning. These are housed in the style resource of the bundle, with the html and associated css following the below sample format:
     
-    HTML                                                                            
-                                                      
+   
+   
+           ```html                                           
             <div class="side-bar">
                 <div class = "side-bar-content-holder">
                     <c:ShoppingCart/>
                 </div>
             </div>
             
-   CSS
+  ```
+   
+   ```CSS
    .THIS .side-bar-content-holder {
     border-radius: 5px;
     background: white;
     padding: 1em;
     height: 100%;
-}
+    }
+
+  ```
+  
+  
