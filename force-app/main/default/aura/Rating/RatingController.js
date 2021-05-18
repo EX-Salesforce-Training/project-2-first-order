@@ -35,7 +35,7 @@
         var value = svg.getElement().innerHTML; 
         let finalString = "";
         
-        for (let i = 1; i < initialRating; i++) {
+        for (let i = 0; i < initialRating; i++) {
             
             let workingString = value.substring(0, value.indexOf("</path>") + 7);
             value = value.substring(workingString.length - 1);

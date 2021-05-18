@@ -12,6 +12,7 @@
         var pageSize = cmp.get("v.pageSize").toString();
         var pageNumber = cmp.get("v.pageNumber").toString();
         var price = cmp.get('v.price').toString();
+        var rental = cmp.find("chkbox").get("v.value");
         
         
         // Creating the action for the server side
@@ -23,7 +24,8 @@
             'pageSize' 		:	pageSize,
             'pageNumber' 	:	pageNumber,
             'price' 		: 	price,
-            'rating' 		: 	rating
+            'rating' 		: 	rating,
+            'rental'		:   rental
         });
         
         

@@ -6,7 +6,7 @@
         action.setCallback(this, function(response){
             let state = response.getState();
             if(state === "SUCCESS"){
-                /*
+
 				// just going to use toast to let user know if their review was submitted
                 component.find('notifier').showToast({
                     "variant" : "success",
@@ -14,15 +14,15 @@
                     "message" : "Thank you for your time."
 
                 });
-                */
             }else{
-/*
+
                 component.find('notifier').showToast({
                     "variant" : "error",
                     "title" : "Trouble Submitting Review.",
                     "message" : "Sorry, please try again."
 
-                });*/
+                });
+
             }
             
         });

@@ -90,9 +90,12 @@ public class ProductDetailApexControllerTest {
             try{
                 queryReview = [SELECT Id, Comment__c, Rating__c, Store_Product__c, Contact__c FROM Review__c WHERE Contact__c=:currentUser.ContactId];
             }catch(Exception e){
-                // if we can't find that exact review, then it will be error and we have failed to insert
+                
+                // if we can't find a review of our customer, then it will be error and we have failed to insert
                 System.assert(false);
             }
+            
+            // check if the content match
             System.assert(queryReview.Comment__c==newReview.Comment__c);
             System.assert(queryReview.Rating__c==newReview.Rating__c);
             
@@ -109,10 +112,13 @@ public class ProductDetailApexControllerTest {
             
             ProductDetailApexController.submitOrUpdateReview(newReview);
             
+            // this should give the same rating and comment.
             queryReview = [SELECT Id, Comment__c, Rating__c, Store_Product__c, Contact__c FROM Review__c WHERE Contact__c=:currentUser.ContactId];
             System.assert(queryReview.Comment__c==newReview.Comment__c);
             System.assert(queryReview.Rating__c==newReview.Rating__c);
         }
-
     }
+    
+            
+       
 }

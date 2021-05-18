@@ -23,7 +23,7 @@
                     <!-- rating="{!v.newReview.Rating__c}" -->
                     <c:Rating aura:id ="review-p-rating"  rating="{!v.newReview.Rating__c}"/>
                 </div>
-                <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..." />
+                <lightning:textarea label="Comment" value="{!v.newReview.Comment__c}" placeholder="Let us know how you feel..." maxLength="32,767"/>
             </div>
             <div style="float:right;">
                 <c:PalaceButton label="Submit" onclick="{!c.submitReview}"/>

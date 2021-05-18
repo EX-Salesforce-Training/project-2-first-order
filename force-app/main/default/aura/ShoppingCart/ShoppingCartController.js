@@ -3,6 +3,7 @@
     //the attribute cartList without overwriting existing items
     handleAddToCart : function(component, event, helper) {
         //debugger;
+
         // Geting oroduct from fired event
         let cartList = component.get("v.cartList");
         let allItems = component.get("v.items");
@@ -65,7 +66,7 @@
             var state = response.getState();
             if (state === "SUCCESS") {
                 var resultData = response.getReturnValue();
-                
+
             } else if (state === "ERROR") {
                 var errors = response.getError();
                 console.error(errors);

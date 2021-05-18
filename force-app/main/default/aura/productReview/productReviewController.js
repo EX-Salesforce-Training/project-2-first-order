@@ -6,7 +6,6 @@
     },
     ratingChange : function(cmp, event, helper) {
         let rating = event.getParam("rating");
-        console.log('Rating: ' + rating);
         cmp.set("v.newReview.Rating__c",rating);
     },
     getOneStarReview : function(component, event, helper){
