@@ -65,3 +65,37 @@ turnOnDetails : function(component, event, helper) {
 	}
         
  ```
+**Finding a product**
+A key part of this Party Palace customer experience portal is the ability to easily search through the types of products and rentals available to them without having to manually examine every single type of item to find what they want. In the center of the initial view of the page is a trending items component, which directs users to examine items that have the highest overall values for the Star_Rating__c field of the product object. This is retrieved by the TopListController.cls, an Apex controller written for this purpose.
+The source code for this controller is displayed below; a simple SOQL query wrapped in an @auraenabled method to make it available to the client controller.
+```
+public class TopListController {
+	
+    @AuraEnabled
+    public static List<Store_Product__c> GetProducts() {
+
+        return [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, 
+                Star_Rating__c, Product_Description__c, Rental_Start__c, Rental_End__c 
+                FROM Store_Product__c ORDER BY Star_Rating__c DESC LIMIT 10];
+    }
+}
+
+```
+Customers are also able to make use of the robust Search Bar section of the site to use filters and underlying keyword logic to find both individual items and categories of items. The Search Bar component 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****
