@@ -3,3 +3,11 @@
     border-radius: 5px;
     padding: 1em;
 }
+
+.THIS.filter-heading {
+    background: #fbc740;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
