@@ -2,8 +2,8 @@
 <!-- 5/9/2021 -->
 <!-- Phong Nguyen-->
 <!-- The main goal of this components and controllers are to send request to server side 
-     base on search and filter criteria makes by client side, send the records back to the client
-  store product Object is the request target -->
+     base on search and filter criteria makes by client side, send the store_product__c records back to the client
+     and fire those records to product component to display products-->
 
 <aura:component controller="SearchCategoryController" implements="flexipage:availableForAllPageTypes">
     <!--Declaring values-->
