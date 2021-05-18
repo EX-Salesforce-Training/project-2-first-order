@@ -1,21 +1,21 @@
-Name,Price_Per_Unit__c,Product_Description__c,Category__c,Rating__c
-Custom Centerpieces,7.99,Decoratinon for the center of a table!,Confetti,48
-Birthday Garland,12.99,Not Judy Garland,Confetti,80
-Birthday Cake,20,"Cake, cake, cake, cake, cake.. and it's not even your birthday!",Birthday,42
-Wedding Cake,50,A very yummy cake,Wedding,55
-Red Balloons,0.99,A balloon that is red in color,Birthday,80
-Orange Balloons,0.99,A balloon that is orange in color,Birthday,13
-Yellow Balloons,0.99,A balloon that is yellow in color,Birthday,22
-Green Balloons,0.99,A balloon that is green in color,Birthday,11
-Blue Balloons,0.99,A balloon that is blue in color,Birthday,37
-Purple Balloons,0.99,A balloon that is purple in color,Birthday,49
-White Balloons,0.99,A balloon that is white in color,Birthday,68
-Clear Balloons,5.99,A balloon that... has no color?,Birthday,23
-Birthday Balloons,0.5,A balloon that is Birthday in color,Birthday,27
-Special Balloons,0.99,A balloon that is special,Christmas,19
-Tablecloth,4.99,A tablecloth for tables. Color varies by order.,Christmas,1
-Piñata,14.98,Like viva piñata but IRL,Halloween,3
-Banners,133.37,A cute banner that you cannot customize.,Halloween,99
-Fringe Garland,12.98,Not Judy Garland,Halloween,26
-Graduation Backdrop,42,Congrats grad! .. Now what?,Graduation,24
-Party Hat,2.99,A colorful pointy hat,Christmas,99
+Name,Price_Per_Unit__c,Product_Description__c,Category__c,Rating__c,RecordTypeId
+Custom Centerpieces,7.99,Decoratinon for the center of a table!,Confetti,48,0125e000000Pw2RAAS
+Birthday Garland,12.99,Not Judy Garland,Confetti,80,0125e000000Pw2RAAS
+Birthday Cake,20,"Cake, cake, cake, cake, cake.. and it's not even your birthday!",Birthday,42,0125e000000Pw2Q
+Wedding Cake,50,A very yummy cake,Wedding,55,0125e000000Pw2Q
+Red Balloons,0.99,A balloon that is red in color,Birthday,80,0125e000000Pw2Q
+Orange Balloons,0.99,A balloon that is orange in color,Birthday,13,0125e000000Pw2Q
+Yellow Balloons,0.99,A balloon that is yellow in color,Birthday,22,0125e000000Pw2Q
+Green Balloons,0.99,A balloon that is green in color,Birthday,11,0125e000000Pw2Q
+Blue Balloons,0.99,A balloon that is blue in color,Birthday,37,0125e000000Pw2Q
+Purple Balloons,0.99,A balloon that is purple in color,Birthday,49,0125e000000Pw2Q
+White Balloons,0.99,A balloon that is white in color,Birthday,68,0125e000000Pw2Q
+Clear Balloons,5.99,A balloon that... has no color?,Birthday,23,0125e000000Pw2Q
+Birthday Balloons,0.5,A balloon that is Birthday in color,Birthday,27,0125e000000Pw2Q
+Special Balloons,0.99,A balloon that is special,Christmas,19,0125e000000Pw2Q
+Tablecloth,4.99,A tablecloth for tables. Color varies by order.,Christmas,1,0125e000000Pw2RAAS
+Piñata,14.98,Like viva piñata but IRL,Halloween,3,0125e000000Pw2RAAS
+Banners,133.37,A cute banner that you cannot customize.,Halloween,99,0125e000000Pw2RAAS
+Fringe Garland,12.98,Not Judy Garland,Halloween,26,0125e000000Pw2RAAS
+Graduation Backdrop,42,Congrats grad! .. Now what?,Graduation,24,0125e000000Pw2RAAS
+Party Hat,2.99,A colorful pointy hat,Christmas,99,0125e000000Pw2RAAS

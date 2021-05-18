@@ -16,8 +16,8 @@
 	turnOnList : function(component, event, helper) {
         
         //Jump to top of the container
-        window.location.hash = "";
-        window.location.hash = "content-container";
+        var top = document.querySelector("#content-container").getBoundingClientRect().top;
+        window.scrollTo(window.pageXOffset, window.pageYOffset + top);
         
         //Select the list and view containers
 		let pList = document.querySelector("#productlist");
@@ -66,9 +66,9 @@
     //Turns on the details
 	turnOnDetails : function(component, event, helper) {
         
-        //Jump to the top of the container
-        window.location.hash = "";
-        window.location.hash = "content-container";
+        //Jump to top of the container
+        var top = document.querySelector("#content-container").getBoundingClientRect().top;
+        window.scrollTo(window.pageXOffset, window.pageYOffset + top);
         
         //Retrieve the list and detail containers
 		let pList = document.querySelector("#productlist");

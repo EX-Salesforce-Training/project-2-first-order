@@ -20,6 +20,10 @@
         if ((currPage + 1) * component.get("v.pageSize") >= component.get("v.allProducts").length)
             return;
         
+        //Jump to top of the container
+        var top = document.querySelector("#content-container").getBoundingClientRect().top;
+        window.scrollTo(window.pageXOffset, window.pageYOffset + top);
+        
         let listDiv = document.querySelector("#products");
         listDiv.classList.remove("rolldown");
         listDiv.classList.add("rollup");
@@ -38,6 +42,10 @@
                 let currPage = component.get("v.currPage");
                 if (currPage == 0)
                     return;
+                
+                //Jump to top of the container
+        		var top = document.querySelector("#content-container").getBoundingClientRect().top;
+        		window.scrollTo(window.pageXOffset, window.pageYOffset + top);
                 
                 let listDiv = document.querySelector("#products");
                 listDiv.classList.remove("rolldown");
