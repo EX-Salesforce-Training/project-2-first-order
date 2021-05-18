@@ -8,7 +8,6 @@
         let cartList = component.get("v.cartList");
         let allItems = component.get("v.items");
         let itemAddedToCart = event.getParam("productLine");
-        
         allItems.push(event.getParam("product"));
         
         // Geting quantity from fired event
@@ -44,7 +43,6 @@
         component.set("v.total", total);
         component.set("v.items", allItems);
         component.set("v.cId", event.getParam("userContactID"));
-        debugger;
     },
     
     checkoutCart : function(component,event,helper){
@@ -53,19 +51,11 @@
         let cartList = component.get("v.items");
         let qtyList = component.get("v.qtyList");
         let contId = component.get("v.cId");
-       // let contId = 'testcontactid';
-        // ApexController
         var action = component.get('c.savePurchase');
-        debugger;
         action.setParams({
             	'products' :  cartList,
-			//	'quantity' :  qtyList,
             	'contactID' :  contId
         });
-             //      'products' :  cartList,
-            //'quantity' :  qtyList,
-            //'contactID' :  contId
-        //'contactID' :  contId
          // setting CallBack to interact with server side
         action.setCallback(this, function(response) {
             var state = response.getState();

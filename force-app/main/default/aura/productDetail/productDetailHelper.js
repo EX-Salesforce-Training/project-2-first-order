@@ -2,6 +2,7 @@
     // get the reviews, this is call when the event are handled
     getReviews : function(component, theProduct, userContactId) {
         let action = component.get("c.getReviewList");
+        // the apex control is expecting the userContactId and the productID
         action.setParams({"sp" : theProduct, "cid" : userContactId });
         action.setCallback(this, function(response){
             let state = response.getState();
@@ -23,9 +24,9 @@
         $A.enqueueAction(action);
     },
     // send the item to cart, 
-    addItemToCart : function(component, theProduct, quantity, theProductLine, userContactId){
+    addItemToCart : function(component, theProduct, theProductLine, userContactId){
         let buyEvent = $A.get("e.c:addToCart");
-        buyEvent.setParams({"userContactID": userContactId , "productLine": theProductLine, "product": theProduct, "quantity": quantity});
+        buyEvent.setParams({"userContactID": userContactId , "productLine": theProductLine, "product": theProduct});
         buyEvent.fire();
     }
 })

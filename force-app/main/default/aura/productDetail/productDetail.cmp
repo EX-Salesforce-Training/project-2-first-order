@@ -1,5 +1,9 @@
-<!-- display the detail of the product -->
-<!-- product update by the event -->
+<!-- 
+ Created By: Danny Tran
+ Description: Display the product the user clicked on in more detail, 
+    also allow them to add the item to cart
+             child component also allow interaction with the product reviews
+ -->
 <aura:component controller="ProductDetailApexController"  implements="flexipage:availableForAllPageTypes"  access="global" >
 
 <!-- handle the event when a user click on a product in either the trending or list component -->

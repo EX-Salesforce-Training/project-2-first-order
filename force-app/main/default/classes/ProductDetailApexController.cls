@@ -1,3 +1,8 @@
+/*
+ * Created by: Danny Tran
+ * Description: get user reviews and upsert their review if they decide to do that.
+ * 
+ */
 public class ProductDetailApexController {
     
     // sp = store product that they are looking at

@@ -36,7 +36,6 @@ public class SearchCategoryController {
                     AND	  Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
                     AND   RecordTypeId IN: recordType_ID
-                    LIMIT :pageSize OFFSET :offset
                    ];  
         }else{
             pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c, isRental__c,
@@ -47,7 +46,6 @@ public class SearchCategoryController {
                     AND   Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
                     AND   RecordTypeId IN: recordType_ID
-                    LIMIT :pageSize OFFSET :offset
                    ];            
         }
         System.debug(pros);      
