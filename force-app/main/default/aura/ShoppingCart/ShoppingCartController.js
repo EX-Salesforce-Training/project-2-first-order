@@ -12,7 +12,7 @@
         
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
-        let qtyAddedToCart = parseInt(event.getParam("quantity"));
+        let qtyAddedToCart = itemAddedToCart.Quantity__c;
         
         let itemIndex = -1;
         for (let i = 0; i < cartList.length; i++) {
@@ -43,28 +43,34 @@
         component.set("v.total", total);
         component.set("v.items", allItems);
         component.set("v.cId", event.getParam("userContactID"));
+        let x = [];
+        for(let item of cartList){
+            x.push(item.Product__c);
+        }
+        component.set("v.StoreProductTest", x);
     },
     
     checkoutCart : function(component,event,helper){
-        debugger;
+        
         // get lists
-        let cartList = component.get("v.items");
-        let qtyList = component.get("v.qtyList");
+        let cartList = component.get("v.cartList");
+        console.log(cartList);
+        let storeProductList = component.get("v.StoreProductTest");
         let contId = component.get("v.cId");
         var action = component.get('c.savePurchase');
         action.setParams({
-            	'products' :  cartList,
+            'storeProdList' : storeProductList,
+            	'prodList' :  cartList,
             	'contactID' :  contId
         });
          // setting CallBack to interact with server side
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
-                var resultData = response.getReturnValue();
-
+				console.log('success');
             } else if (state === "ERROR") {
                 var errors = response.getError();
-                console.error(errors);
+                console.log(errors);
             }
         });
         $A.enqueueAction(action);

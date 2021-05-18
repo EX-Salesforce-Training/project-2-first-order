@@ -11,7 +11,7 @@
 
 trigger RentalLineTrigger on Rental_Line__c (before insert, before update) {
     switch on trigger.operationType{
-	when BEFORE_INSERT{
+    when BEFORE_INSERT{
             RentalLineTriggerHandler.executeInsert(trigger.new);
         }
         when BEFORE_UPDATE{

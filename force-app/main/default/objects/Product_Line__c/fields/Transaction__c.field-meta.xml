@@ -4,9 +4,10 @@
     <externalId>false</externalId>
     <label>Transaction</label>
     <referenceTo>Transaction__c</referenceTo>
+    <relationshipLabel>Store Product Lines</relationshipLabel>
     <relationshipName>Product_Lines</relationshipName>
     <relationshipOrder>1</relationshipOrder>
-    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
     <type>MasterDetail</type>

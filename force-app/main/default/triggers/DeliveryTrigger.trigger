@@ -10,7 +10,7 @@
 
 trigger DeliveryTrigger on Delivery__c (before insert, before update) {
     switch on trigger.operationType{
-	when BEFORE_INSERT{
+    when BEFORE_INSERT{
             DeliveryTriggerHandler.CreateDelivery(trigger.new);
         }
         when BEFORE_UPDATE{

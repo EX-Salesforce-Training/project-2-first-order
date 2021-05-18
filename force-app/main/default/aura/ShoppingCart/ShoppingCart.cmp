@@ -8,6 +8,8 @@
     <!-- set event handler for add to cart event, event defined in danny's productDetail.cmp -->
     <aura:handler event="c.addToCart" action="{!c.handleAddToCart}"/>
     
+    <aura:attribute name="StoreProductTest" type="Store_Product__c[]"/>
+    
     <!-- inside this div, we use aura:iteration to move through the list of items and 
     then we pull out individual elements for display -->
     <div id = "shoppingCartBox">
