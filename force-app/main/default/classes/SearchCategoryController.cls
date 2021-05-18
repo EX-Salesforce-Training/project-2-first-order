@@ -33,6 +33,7 @@ public class SearchCategoryController {
                     Rental_Start__c, Rental_End__c, RecordTypeId
                     FROM Store_Product__c
                     WHERE Name LIKE : searchkey
+                    AND   IsRented__c =:  rental 
                     AND	  Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
                     AND   RecordTypeId IN: recordType_ID
@@ -43,6 +44,7 @@ public class SearchCategoryController {
                     Rental_Start__c, Rental_End__c, RecordTypeId 
                     FROM Store_Product__c
                     WHERE Name LIKE : searchkey
+                    AND   IsRented__c =:  rental 
                     AND   Category__c IN:cbFilter
                     AND   Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
