@@ -8,11 +8,11 @@
         let cartList = component.get("v.cartList");
         let allItems = component.get("v.items");
         let itemAddedToCart = event.getParam("productLine");
-        allItems.push(itemAddedToCart.Product__c);
+        allItems.push(event.getParam("product"));
         
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
-        let qtyAddedToCart = parseInt(event.getParam("quantity"));
+        let qtyAddedToCart = itemAddedToCart.Quantity__c;
         
         let itemIndex = -1;
         for (let i = 0; i < cartList.length; i++) {
@@ -50,18 +50,16 @@
         // get lists
         let cartList = component.get("v.items");
         let qtyList = component.get("v.qtyList");
-        let contId = component.get("v.cId");
-        
+        //let contId = component.get("v.cId");
+        let contId = 'testcontactid';
         // ApexController
         var action = component.get('c.savePurchase');
-        
         action.setParams({
-            'products' :  cartList,
-            'quantity' :  qtyList,
-            'contactID' :  contID
+            	'products' :  cartList,
+				'quantity' :  qtyList,
+            	'contactID' :  contId
         });
-        
-        // setting CallBack to interact with server side
+         // setting CallBack to interact with server side
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -79,5 +77,5 @@
         let cOut = document.querySelector("#checkout");;
         cOut.classList.remove("hidden");
         cOut.classList.add("show");
-    }
+    },
 })
