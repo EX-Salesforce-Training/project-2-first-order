@@ -29,27 +29,23 @@ public class SearchCategoryController {
         List<Store_Product__c> pros = new List <Store_Product__c>();                                           
         
         if(cbFilter.isEmpty()){
-            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,
+            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c, isRental__c,
                     Rental_Start__c, Rental_End__c, RecordTypeId
                     FROM Store_Product__c
                     WHERE Name LIKE : searchkey
-                    AND   IsRented__c =:  rental 
                     AND	  Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
                     AND   RecordTypeId IN: recordType_ID
-                    LIMIT :pageSize OFFSET :offset
                    ];  
         }else{
-            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,
+            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,isRental__c,
                     Rental_Start__c, Rental_End__c, RecordTypeId 
                     FROM Store_Product__c
                     WHERE Name LIKE : searchkey
-                    AND   IsRented__c =:  rental 
                     AND   Category__c IN:cbFilter
                     AND   Price_Per_Unit__c <= : price
                     AND	  rating__c <= : ratingInt
                     AND   RecordTypeId IN: recordType_ID
-                    LIMIT :pageSize OFFSET :offset
                    ];            
         }
         System.debug(pros);      

@@ -7,6 +7,8 @@
     <columns>Category__c</columns>
     <columns>Rating__c</columns>
     <columns>isRental__c</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>IsRented__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

@@ -8,12 +8,11 @@
         let cartList = component.get("v.cartList");
         let allItems = component.get("v.items");
         let itemAddedToCart = event.getParam("productLine");
-        
-        allItems.push(event.getParam("product"));
+        allItems.push(itemAddedToCart.Product__c);
         
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
-        let qtyAddedToCart = itemAddedToCart.Quantity__c;
+        let qtyAddedToCart = parseInt(event.getParam("quantity"));
         
         let itemIndex = -1;
         for (let i = 0; i < cartList.length; i++) {
@@ -44,7 +43,6 @@
         component.set("v.total", total);
         component.set("v.items", allItems);
         component.set("v.cId", event.getParam("userContactID"));
-        debugger;
     },
     
     checkoutCart : function(component,event,helper){
@@ -52,21 +50,18 @@
         // get lists
         let cartList = component.get("v.items");
         let qtyList = component.get("v.qtyList");
-        //let contId = component.get("v.cId");
-        let contId = 'testcontactid';
+        let contId = component.get("v.cId");
+        
         // ApexController
         var action = component.get('c.savePurchase');
-        debugger;
+        
         action.setParams({
-            	'products' :  cartList,
-				'quantity' :  qtyList,
-            	'contactID' :  contId
+            'products' :  cartList,
+            'quantity' :  qtyList,
+            'contactID' :  contID
         });
-              //      'products' :  cartList,
-            //'quantity' :  qtyList,
-            //'contactID' :  contId
-        //'contactID' :  contId
-         // setting CallBack to interact with server side
+        
+        // setting CallBack to interact with server side
         action.setCallback(this, function(response) {
             var state = response.getState();
             if (state === "SUCCESS") {
@@ -84,5 +79,5 @@
         let cOut = document.querySelector("#checkout");;
         cOut.classList.remove("hidden");
         cOut.classList.add("show");
-    },
+    }
 })
