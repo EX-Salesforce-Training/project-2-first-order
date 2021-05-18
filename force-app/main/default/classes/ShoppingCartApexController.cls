@@ -1,5 +1,5 @@
 public class ShoppingCartApexController {
-    @AuraEnabled
+ /*   @AuraEnabled
     public static double savePurchase(Store_Product__c [] products, Integer [] quantity, String contactID ){
         String [] products, Integer [] quantity
         
@@ -35,5 +35,6 @@ public class ShoppingCartApexController {
 		insert myList;
         
         return totalAmount;
+        */
     }
 }
