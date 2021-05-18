@@ -12,7 +12,7 @@
         
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
-        let qtyAddedToCart = parseInt(event.getParam("quantity"));
+        let qtyAddedToCart = itemAddedToCart.Quantity__c;
         
         let itemIndex = -1;
         for (let i = 0; i < cartList.length; i++) {
