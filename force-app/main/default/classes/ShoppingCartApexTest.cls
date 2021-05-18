@@ -23,7 +23,7 @@ public class ShoppingCartApexTest {
             testProdLine.add(new Product_Line__c(product__c=item.Id, quantity__c=2));
         }
         Contact cont = [SELECT id FROM Contact];
-        shoppingCartApexController.savePurchase(testProdLine, cont.Id);
+        shoppingCartApexController.savePurchase(testpros, testProdLine, cont.Id);
         transaction__c things = [SELECT id, contact__c FROM transaction__c];
         Product_Line__c[] prodsline = [SELECT id, quantity__c, product__c, transaction__c FROM Product_Line__c];
         system.assertEquals(things.contact__c, cont.Id);
