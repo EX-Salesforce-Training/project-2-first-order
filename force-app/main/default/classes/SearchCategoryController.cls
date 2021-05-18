@@ -38,7 +38,7 @@ public class SearchCategoryController {
                     AND   RecordTypeId IN: recordType_ID
                    ];  
         }else{
-            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c,isRental__c,
+            pros = [SELECT Id, Name, Category__c, Rating__c, Price_Per_Unit__c, Star_Rating__c, Product_Description__c, isRental__c,
                     Rental_Start__c, Rental_End__c, RecordTypeId 
                     FROM Store_Product__c
                     WHERE Name LIKE : searchkey
