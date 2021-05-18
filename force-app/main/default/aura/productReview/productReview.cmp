@@ -42,12 +42,14 @@
             <h1 class = "slds-text-heading_medium slds-align_absolute-center">Sort Reviews</h1>
             
             <div class="slds-align_absolute-center">
-                <c:PalaceButton label="One" onclick="{! c.getOneStarReview}"/>
-                <c:PalaceButton label="Two" onclick="{! c.getTwoStarReview}"/>
-                <c:PalaceButton label="Three" onclick="{! c.getThreeStarReview}"/>
-                <c:PalaceButton label="Four" onclick="{! c.getFourStarReview}"/>
-                <c:PalaceButton label="Five" onclick="{! c.getFiveStarReview}"/>
-                <c:PalaceButton label="All" onclick="{! c.getAllReview}"/>
+                <lightning:layout>
+                <lightning:layoutItem><c:PalaceButton label="One" onclick="{! c.getOneStarReview}"/></lightning:layoutItem>
+                    <lightning:layoutItem><c:PalaceButton label="Two" onclick="{! c.getTwoStarReview}"/></lightning:layoutItem>
+                    <lightning:layoutItem><c:PalaceButton label="Three" onclick="{! c.getThreeStarReview}"/></lightning:layoutItem>
+                    <lightning:layoutItem><c:PalaceButton label="Four" onclick="{! c.getFourStarReview}"/></lightning:layoutItem>
+                    <lightning:layoutItem><c:PalaceButton label="Five" onclick="{! c.getFiveStarReview}"/></lightning:layoutItem>
+                    <lightning:layoutItem><c:PalaceButton label="All" onclick="{! c.getAllReview}"/></lightning:layoutItem>
+                </lightning:layout>
             </div>
         </div>
         <!-- /Sorter -->
