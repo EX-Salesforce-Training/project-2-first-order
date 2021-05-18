@@ -35,6 +35,7 @@ public class ShoppingCartApexController {
 		insert myList;
         
         return totalAmount;
-        */
+        
     }
+    */
 }
