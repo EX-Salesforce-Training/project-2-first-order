@@ -57,6 +57,7 @@ public class ProductDetailApexControllerTest {
         Store_Product__c sp = [SELECT ID, Name, Category__c, Price_Per_Unit__c, Product_Description__c FROM Store_Product__c];
         
         System.runAs(currentUser){
+            
             // testing the init handler apex call to get map of product
             // key is the star rating of 1 to 5, and 6 is all the reviews
             Map<Integer, List<Review__c>> reviewMap = ProductDetailApexController.getReviewList(sp.Id, currentUser.ContactID);
