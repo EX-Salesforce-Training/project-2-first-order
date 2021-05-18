@@ -12,7 +12,7 @@
         
         // Geting quantity from fired event
         let qtyList = component.get("v.qtyList");
-        let qtyAddedToCart = itemAddedToCart.Quantity__c;
+        let qtyAddedToCart = parseInt(event.getParam("quantity"));
         
         let itemIndex = -1;
         for (let i = 0; i < cartList.length; i++) {
@@ -50,13 +50,10 @@
         // get lists
         let cartList = component.get("v.items");
         let qtyList = component.get("v.qtyList");
-        //let contId = component.get("v.cId");
-        let contId = 'testcontactid';
-        // ApexController
+        let contId = component.get("v.cId");
         var action = component.get('c.savePurchase');
         action.setParams({
             	'products' :  cartList,
-				'quantity' :  qtyList,
             	'contactID' :  contId
         });
          // setting CallBack to interact with server side
