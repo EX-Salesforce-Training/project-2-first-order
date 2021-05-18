@@ -8,7 +8,7 @@
     
    
    
-           ```html                                           
+                                          
             <div class="side-bar">
                 <div class = "side-bar-content-holder">
                     <c:ShoppingCart/>
@@ -17,7 +17,7 @@
             
   ```
    
-   ```CSS
+
    .THIS .side-bar-content-holder {
     border-radius: 5px;
     background: white;
