@@ -4,7 +4,7 @@
     handleAddToCart : function(component, event, helper) {
         //debugger;
 
-        // Geting oroduct from fired event
+        // Geting product from fired event
         let cartList = component.get("v.cartList");
         let allItems = component.get("v.items");
         let itemAddedToCart = event.getParam("productLine");
