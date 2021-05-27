@@ -7,3 +7,19 @@ Party Palace Customer Experience Site
 ![image](https://user-images.githubusercontent.com/43973882/119163121-f6a1b280-ba0f-11eb-8cea-a923952bd34d.png)
   
   
+Technologies Used:
+
+* Html5/CSS3/JS2021
+* Apex Aura Components
+* Git VCS
+
+Features
+List of features ready and TODOs for future development
+
+* Way to save user payment information & retrieve it based on user
+* Related Items display on Product Detail page
+* Optimize events to improve performance
+
+To-do list:
+
+* Change the theme of the user interface based on the category selected (Halloween, Graduation, 4th of July, etc)
