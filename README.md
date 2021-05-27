@@ -23,3 +23,12 @@ List of features ready and TODOs for future development
 To-do list:
 
 * Change the theme of the user interface based on the category selected (Halloween, Graduation, 4th of July, etc)
+
+Setup:
+
+This repository is best cloned in Visual Studio Code with Salesforce SFDX extension in place. It should be connected to a fresh playground org, with Digital Experiences enabled
+Clone to https://github.com/EX-Salesforce-Training/project-2-first-order.git
+
+To view the site itself, open it from https://partyorder-developer-edition.na162.force.com/s/login/
+The login for this is username: a_young@dickenson.com
+                      password: rev12345
