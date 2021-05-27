@@ -32,3 +32,9 @@ Clone to https://github.com/EX-Salesforce-Training/project-2-first-order.git
 To view the site itself, open it from https://partyorder-developer-edition.na162.force.com/s/login/
 The login for this is username: a_young@dickenson.com
                       password: rev12345
+
+Contributers
+Phong Nguyen
+Danny Tran
+Jared Longnecker
+Alex Bruce
